@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portada" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="08c7d5bd-6b11-4bcb-a81f-071908474b56">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="313"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="740" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="740" uuid="835bf610-1510-4957-be9e-2750c1f5f0db"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[Muy Sr/Sra. Nuestro/a,
+
+Por la presente nos es grato presentarles nuestra oferta para el asunto de referencia.
+
+Como empresa instaladora y mantenedora de sistema de protección contra incendios, al termino de los trabajos se le entregará toda la documentación prescrita según establece el art.16 de RD 513/2017 de 22 de mayo “RIPCI”.
+
+La presente oferta está basada en: SEGÚN SUS INDICACIONES Y CON UNA PRIORIDAD ANUAL.
+
+Este precio de venta de venta esta dado sobre l base de las condiciones de venta que siguen a continuación, tal que variaciones en ellas podrá dar lugar a variaciones correspondiente en dicho precio.
+1. Plazo de validez a la presente oferta: 90 días a partir de la fecha de entrega
+
+2. Impuestos: IVA no incluido. Se cargará en la factura por el concepto un 21% (o el que corresponda, si en el momento de la facturación hubiese variación en este tipo de impuestos)
+
+3. Todos los materiales estarán conforme a norma UNE aplicable y marcado CE
+
+4. Se consideran los equipos y materiales de nuestro suministro puesto en el domicilio del cliente final, libres de portes y embalajes y montados en su ubicación, excepto se exprese lo contrario.
+
+5. En esta oferta quedan excluidos los trabajos de obra civil y todos aquellos que no estén contemplados expresamente. Se incluye la certificación de la instalación contra incendios, excepto se exprese lo contrario.
+
+6. Plazos de entrega: - para el suministro de los materiales y equipos que no sean especiales: 15 días aproximadamente, contados a partir de la fecha de recepción de su pedido en firme. – ahora bien, EXTINDET JMJ SL queda a disposición de, según cuales sean los planes generales de obra, solapar parte de las ejecuciones para que el total de la duración se ajuste a las necesidades de dicho plan. Así, una vez en nuestro conocimiento su plan de obra, se podrá someter a su aprobación un plan de ejecución y entrega más detallado según los hitos que se correspondan con su planificación.
+
+7. Garantía: total, tanto en mano de obra como en materiales, contra todo posible defecto surgidos en funcionamiento normal, durante un año contado a partir de la fecha de finalización de la prueba para su puesta en servicio o de la recepción provisional.
+
+8. EXTINDET JMJ SL tiene suscrita, según art. 15 del RD 513/2017 de 22 de mayo “RIPCI”, una póliza de RC de 800.000€ por incidentes.
+
+9. Facturación: 50% a la aceptación del pedido y el resto a la finalización de la obra o sobre certificaciones de obra mensuales previa aceptación y aprobación de Uds., cargando en cada factura el IVA correspondiente.
+
+10. Forma de pago: mediante transferencia a 30 días fecha factura, según los hitos anteriores. EXTINDET JMJ SL está en disposición de tratar cualquiera otra forma de pago que se plantee, siempre y cuando se considere que los gastos financieros que se originen por desplazamientos de los pagos en relación con la formula arriba indicada, será su cargo.
+
+11. No se incluye: ni suministros ni acometidas de emergía eléctricas (debiendo existir un punto de acometida accesible en obras); suministro de agua, tanto para pruebas como el llenado de los deposito; los trabajos de limpieza; trabajo de obra civil; salvo los expresamente especificados.
+
+OBSERVACIONES:
+A. NO SE INCLUYE TRABAJO DE OBRA CIVIL NI AYUDAS DE ALBAÑILERIAS.
+B. NO SE INCLUYE ELEVACIOON PARA TRABAJOS EN ALTURA SUPERIOR A 3 METROS.
+C. NO SE INLUYE LAS ALIMETACIONE ELECTRICAS DESDE LOS CUADROS ELECTRICOS A LA CENTRALES NI AL GRUPO CONTRA INCENDIOS, ASÍ COMO TAMPOCO SE INCLUYE EL LLENADO A LOS DEPOSITOS.
+
+Esperando que la presente oferta sea de su interés, quedamos a su entera disposición para cualquier consulta, ampliación, matización o cambios que puedan Uds. Precisar.
+
+Sin otro particular, aprovechamos la ocasión para saludarles atentamente.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

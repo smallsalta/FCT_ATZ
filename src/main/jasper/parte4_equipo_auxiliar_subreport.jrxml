@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz_subreport1" pageWidth="514" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="514" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7f37c2b0-7a67-42f2-beb6-ad7babff79a9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="cantidadEquipoAuxiliar" class="java.lang.String"/>
+	<field name="ubicacionEquipoAuxiliar" class="java.lang.String"/>
+	<field name="tipoEquipoAuxiliar" class="java.lang.String"/>
+	<field name="marcaEquipoAuxiliar" class="java.lang.String"/>
+	<field name="anoEquipoAuxiliar" class="java.lang.String"/>
+	<field name="zonaEquipoAuxiliar" class="java.lang.String"/>
+	<field name="estadoEquipoAuxiliar" class="java.lang.String"/>
+	<field name="precioEquipoAuxiliar" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="20" uuid="8935c6fb-333b-4d70-b056-b4328374cde4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidadEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="60" height="20" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ubicacionEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="0" width="54" height="20" uuid="3d283c08-4d4a-4d97-b625-0d98f86ea02f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="70" height="20" uuid="804703a1-e978-413e-a001-04246c7c3120">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marcaEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="0" width="70" height="20" uuid="e2c8a551-3148-42ce-b501-96ace18f6d5a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anoEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="70" height="20" uuid="aab95ceb-2128-484c-bbfa-992e8718c22a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zonaEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="0" width="70" height="20" uuid="fe3e9345-bf8d-4275-bd85-0f360b9f7319"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estadoEquipoAuxiliar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="70" height="20" uuid="23e3ce90-0b75-45b2-8c7d-d2144fbad8de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precioEquipoAuxiliar} + " €"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

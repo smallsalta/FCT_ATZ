@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="ttt">
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">VyeYZzylsphP</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://82.223.25.252:5432/fct_xtd_2</property>
+        <property name="hibernate.connection.username">adminkxji33l</property>
+        <property name="hibernate.default_catalog">public</property>
+        <property name="hibernate.default_schema">public</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL91Dialect</property>
+    </session-factory>
+</hibernate-configuration>

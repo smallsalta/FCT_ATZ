@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz_subreport2" pageWidth="540" pageHeight="800" whenNoDataType="AllSectionsNoDetail" columnWidth="540" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="604c3c1a-1876-4229-9031-dfb82ee7d612">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="2"/>
+	<parameter name="coste" class="java.lang.String"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="fini" class="java.lang.String"/>
+	<parameter name="direccion" class="java.lang.String"/>
+	<parameter name="numcert" class="java.lang.String"/>
+	<parameter name="revtri" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<summary>
+		<band height="544">
+			<staticText>
+				<reportElement x="0" y="87" width="540" height="41" uuid="2cfd2476-74e4-4c92-b32e-2f17ae0e2138"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[1.- Mediante las condiciones que más adelante se detallan, EXTINDET J.M.J. S.L., se compromete a hacer el mantenimiento anual de las instalaciones que a continuación se detallan, según R.D.513/2017 por el que se aprueba el reglamento de instalaciones de protección contra incendios. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="131" width="540" height="47" uuid="7ad7499f-5ada-4a9b-b258-8c7c4d2a4055"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[2.- EXTINDET J.M.J. S.L. garantiza el mantenimiento de todas las instalaciones antes detalladas durante un año, realizando una inspección técnica con carácter de un año a partir de la fecha de firma del presente contrato y atendiendo, sin cargo, en caso de avería durante un año.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="288" width="540" height="33" uuid="198f225e-2b5e-4ecb-8db0-cc97a554d792"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[5.- Será causa de rescisión del contrato, el mal uso de los materiales o la mala manipulación de los mismos, por el personal ajeno a la empresa EXTINDET J.M.J. S.L. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="321" width="540" height="40" uuid="9b7b8651-fc8a-404a-a84c-982d68e20007"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[6.- EXTINDET J.M.J. S.L. y el cliente para cualquier duda que pudiera surgir del presente contrato, renunciana a su fuero especial si lo tuvieran y se someten expresamente a los jueces y tribunales de Sevilla.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="540" height="30" uuid="2386e030-bd70-494b-bf56-eab8ba7d6409"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE MANTENIMIENTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="30" width="540" height="57" uuid="ca3634c5-57c5-4f7b-927e-a4e16c826d26"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["De una parte como empresa, EXTINDET J.M.J. S.L., con CIF B-90.426.636, con domicilio en C/ Mimosa nº 7, 41410 Carmona (Sevilla), y de otra parte como cliente, " + $P{cliente} + ", con domicilio en " + $P{direccion} + ". Ambas partes reconocen tener capacidad legal para contratar y convienen las siguientes estipulaciones:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="361" width="540" height="35" uuid="f1637b8b-a9fd-4002-9435-604ab6dae972"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["7.- El precio del presente contrato en las condiciones estipuladas es de " + $P{coste} + " € más IVA y podrá ser revisado anualmente según el I.P.C."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="241" width="540" height="47" uuid="c6795a6d-2e00-43fa-9cc8-c2be90f49726"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["4.- Este contrato empezará a regir el día "+ $P{fini} + " y su duración será de un año, considerándose después tácticamene prorrogado por igual periodo sucesivo mientras una de las partes no lo denuncie con sesenta (60) días de antelación al vencimiento."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="396" width="540" height="60" uuid="898e0a85-bcc6-40d5-86b5-2e7217ac37df"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["8 .- En el BOE número 139 de lunes 12 de junio de 2017, sec I página 48381 tabla1, nos indica que cada 3 meses el personal de mantenimiento de la empresa o " + $P{cliente} + " deben realizar una revisión trimestral de todos los elementos."
++
+(
+    String.valueOf( $P{revtri} ).equals("0,00") || String.valueOf( $P{revtri} ).equals("0.00") ?
+    " En caso de revisión trimestral por parte de la empresa, esta revisión tendrá un coste cuya cuantía será acordada por ambas partes." :
+    " En caso de revisión trimestral por parte de la empresa mantenedora el coste será de " + $P{revtri} + " € más IVA por trimestre."
+)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="178" width="540" height="63" uuid="4dda1d48-205f-4da4-a957-5cd9e532d11d"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["3.- Las operaciones de mantenimiento de instalación y recarga de extintores por utilización o manipulación inadecuada y la reposición de elementos averiados, serán por cuenta del cliente, ya que este contrato es sin garantía de equipo, efectuándose una bonificación del 15% sobre los trabajos realizados que no estén incluidos en el presente contrato. Para el presente contrato, el Certificado de Revisión es el nº " + $P{numcert} + "."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="456" width="540" height="19" uuid="ee00bef1-bb4e-4e12-9d29-c3fef6019f23"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[9 .- El presente contrato debe ser firmado y remitido a la dirección de correo electrónico de la empresa.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="485" width="540" height="16" uuid="89e72cf0-decc-4963-b3c6-dcabe3c83322"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Póliza de Responsabilidad Civil nº 45864589.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="510" width="540" height="16" uuid="768589a7-1c05-49f3-bb25-7252e74e2b45"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Conforme cliente]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

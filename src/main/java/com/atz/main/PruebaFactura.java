@@ -1,0 +1,63 @@
+package com.atz.main;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.atz.service.FacturaService;
+import com.atz.service.PdfFacturaService;
+
+import net.sf.jasperreports.engine.JRException;
+
+public class PruebaFactura 
+{
+	public static void main(String[] args) 
+	throws FileNotFoundException, JRException 
+	{
+		Map<String, Object> param	= new HashMap<>();
+		PruebaFactura p 			= new PruebaFactura();	
+		
+		ClassLoader classLoader 	= p.getClass().getClassLoader();
+		ApplicationContext ctx		= new ClassPathXmlApplicationContext("beans_*.xml");
+		
+		FacturaService fdao			= ctx.getBean( FacturaService.class );
+		PdfFacturaService fserv		= ctx.getBean( PdfFacturaService.class );
+		
+		fserv.setPdfFolder( new File("C:\\Users\\jsilva\\Desktop") );
+		fserv.crear( fdao.leer(2897) );
+		
+		/*
+		TFactura fct				= fdao.leer(2897);
+		TCliente cli				= fct.getTCliente();
+	    
+		File file 					= new File( classLoader.getResource( fct.getTEmpresa().getJasper() +  ".jasper" ).getFile() );
+		FileInputStream is			= new FileInputStream(file);
+		
+		double base					= fct.getBase();
+		double biva					= fct.getBaseIva();
+		
+		List<FctLineaFb> laux		= fct.getTFacturaLineaOrd().stream().map( t -> new FctLineaFb( t.getCantidad(), t.getDescripcion(), t.getPrecio(), t.getDescuento() ) ).collect( Collectors.toList() );
+		
+		param.put( "nombre", cli.getNombre() + " " + cli.getApellidos() );
+		param.put( "direccionCli", cli.getDireccion() );
+		param.put( "fecha", fct.getFecha() );
+		param.put( "numero", fct.getNumero() );
+		param.put( "lineas", new FctLineaArray(laux) );
+		param.put( "base", base );
+		param.put( "iva", fct.getIva() );
+		param.put( "biva", biva );
+		param.put( "total", base + biva );
+		
+		JasperPrint fis 			= JasperFillManager.fillReport( is, param, new JREmptyDataSource() );
+
+		JasperExportManager.exportReportToPdfFile( fis, "C:\\Users\\jsilva\\Desktop\\f.pdf" );
+		*/
+		
+		System.out.println(1);
+	}
+
+}

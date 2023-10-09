@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="portada" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08c7d5bd-6b11-4bcb-a81f-071908474b56">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="8"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.Object"/>
+	<parameter name="numero" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="604" splitType="Stretch">
+			<image>
+				<reportElement x="127" y="248" width="293" height="95" uuid="275910e7-0cbc-4262-92eb-df90ba931b92"/>
+				<imageExpression><![CDATA["./logo_xtd_mini.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="153" y="386" width="100" height="20" uuid="bf636cb1-d048-4fc1-ac1b-f395ee7a6ed0"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="426" width="100" height="20" uuid="e0082bf6-9202-42ee-a0ed-60ff12cc277e"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="406" width="100" height="20" uuid="21634fdb-cfd9-4144-85b3-68379fbbff48"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Feha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="386" width="197" height="20" uuid="bc53c830-a2de-4f57-ba45-88a1230c84f2"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0000").format($P{numero})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="253" y="426" width="197" height="20" uuid="be387bb5-2bf8-4bcc-9d26-0a2a09a79df3"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="406" width="197" height="20" uuid="8c4af2ee-8bf5-43fe-b119-90b3ae81f96d"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format($P{fecha})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

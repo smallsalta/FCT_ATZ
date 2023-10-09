@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fct_subreport1" pageWidth="600" pageHeight="555" orientation="Landscape" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="096e4b5e-f61f-4c6b-9819-c3748fa20c38">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="precio" class="java.lang.Double"/>
+	<field name="descuento" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="33" y="0" width="45" height="20" backcolor="#FFFF00" uuid="1190f705-aea6-4ccf-909d-6910a8112408"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="86" y="0" width="246" height="20" isPrintWhenDetailOverflows="true" uuid="a2cd4b40-ab35-4ba6-8de2-5434dc3b8c31"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="342" y="0" width="45" height="20" backcolor="#FFFF00" uuid="e8c2c7fc-1b2c-4ae8-8c7a-30ce738e5e64"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $F{precio} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="396" y="0" width="45" height="20" backcolor="#FFFF00" uuid="6b80b138-d8af-41c9-8c68-a989f3448d40"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $F{descuento} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="450" y="0" width="45" height="20" backcolor="#FFFF00" uuid="cb6cd593-45a1-48fe-96fc-e0e23fec1694"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).
+format
+(
+    $F{cantidad} *
+    $F{precio} *
+    ( ( 100 - $F{descuento} ) / 100 )
+)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
