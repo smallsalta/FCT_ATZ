@@ -1,6 +1,7 @@
 package com.atz.service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -125,21 +126,18 @@ public class ParteService {
 	}
 
 	@Transactional(readOnly = false)
-	public TContrato crearContrato(PartesFb fb) 
-	throws IllegalAccessException, InvocationTargetException 
-	{
-		TCliente cl 	= this.kdao.read(fb.getOidcliente());
-		ContratosFb c 	= this.crearContrato(fb, cl);
-		
+	public TContrato crearContrato(PartesFb fb) throws IllegalAccessException, InvocationTargetException {
+		TCliente cl = this.kdao.read(fb.getOidcliente());
+		ContratosFb c = this.crearContrato(fb, cl);
+
 		return this.cservice.crear(c);
 	}
 
-	private ContratosFb crearContrato(PartesFb fb, TCliente cl) 
-	{
+	private ContratosFb crearContrato(PartesFb fb, TCliente cl) {
 		ContratosFb c = new ContratosFb();
 		c.init();
 
-		c.setFecha( new Date() );
+		c.setFecha(new Date());
 		c.setOidcliente(cl.getOid());
 		c.setOidusuario(fb.getOidusuario());
 		c.setDireccion(cl.getDireccion());
@@ -183,8 +181,8 @@ public class ParteService {
 			c.setCapacidadExt(cap);
 			c.setDescrExt(fb.getUbicacion());
 			c.setPruebasExt(fb.getPrueba());
-		
-		} else if(fb.getOidpartetipo() == 2) {
+
+		} else if (fb.getOidpartetipo() == 2) {
 			c.setPrecioExt(fb.getPrecio());
 			c.setFechaFabExt(fb.getFechaRetimA());
 			c.setFechaRetExt(fb.getFechaRetimB());
@@ -192,13 +190,13 @@ public class ParteService {
 			c.setFabricanteExt(new String[fb.getOrden().length]);
 			c.setCapacidadExt(new Double[fb.getOrden().length]);
 			c.setPruebasExt(new Integer[fb.getOrden().length]);
-			
+
 			Integer[] cant = new Integer[fb.getOrden().length];
 			for (int i = 0; i < fb.getOrden().length; i++) {
 				cant[i] = fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
 			}
 			c.setCantidadExt(cant);
-			
+
 			Integer[] agentes = new Integer[fb.getLongMang().length];
 			for (int i = 0; i < fb.getTipo().length; i++) {
 				String tipo = "BIE " + fb.getLongMang()[i];
@@ -206,31 +204,52 @@ public class ParteService {
 			}
 			c.setAgentesExt(agentes);
 			c.setDescrExt(fb.getUbicacion());
-			
+
 		} else if (fb.getOidpartetipo() == 5 || fb.getOidpartetipo() == 6) {
 
-			List<Integer> ordenCentral = Arrays.asList(fb.getOrdenCentral()).stream().filter(x -> x != null && x > 0)
-					.collect(Collectors.toList());
-			List<Integer> ordenFuente = Arrays.asList(fb.getOrdenFuente()).stream().filter(x -> x != null && x > 0)
-					.collect(Collectors.toList());
-			List<Integer> ordenDetectores = Arrays.asList(fb.getOrdenDetectores()).stream()
-					.filter(x -> x != null && x > 0).collect(Collectors.toList());
-			List<Integer> ordenPulsadores = Arrays.asList(fb.getOrdenPulsadores()).stream()
-					.filter(x -> x != null && x > 0).collect(Collectors.toList());
-			List<Integer> ordenSirenas = Arrays.asList(fb.getOrdenSirenas()).stream().filter(x -> x != null && x > 0)
-					.collect(Collectors.toList());
-			List<Integer> ordenEquipoAuxilar = Arrays.asList(fb.getOrdenEquipoAuxiliar()).stream()
-					.filter(x -> x != null && x > 0).collect(Collectors.toList());
+			List<Integer> ordenCentral = new ArrayList<>();
+			List<Integer> ordenFuente = new ArrayList<>();
+			List<Integer> ordenDetectores = new ArrayList<>();
+			List<Integer> ordenPulsadores = new ArrayList<>();
+			List<Integer> ordenSirenas = new ArrayList<>();
+			List<Integer> ordenEquipoAuxilar = new ArrayList<>();
+			
+			Integer numLineas = 0;
+			Integer[] cant = new Integer[0];
+			Integer[] agentes = new Integer[0];
 
-			Integer numLineas = ordenCentral.size() + ordenFuente.size() + ordenDetectores.size()
-					+ ordenPulsadores.size() + ordenSirenas.size() + ordenEquipoAuxilar.size();
+			if (fb.getOidpartetipo() == 5) {
+				ordenCentral = Arrays.asList(fb.getOrdenCentral()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				ordenFuente = Arrays.asList(fb.getOrdenFuente()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				ordenDetectores = Arrays.asList(fb.getOrdenDetectores()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				ordenPulsadores = Arrays.asList(fb.getOrdenPulsadores()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				ordenSirenas = Arrays.asList(fb.getOrdenSirenas()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				
+				numLineas = ordenCentral.size() + ordenFuente.size() + ordenDetectores.size()
+				+ ordenPulsadores.size() + ordenSirenas.size() + ordenEquipoAuxilar.size();
+				
+				cant = new Integer[] { ordenCentral.size(), ordenFuente.size(), ordenDetectores.size(),
+						ordenPulsadores.size(), ordenSirenas.size() };
+				
+				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"),
+						this.aservice.getOidByDescr("Cableado"), this.aservice.getOidByDescr("Detector"),
+						this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena") };
+			} else if (fb.getOidpartetipo() == 6) {
+				ordenEquipoAuxilar = Arrays.asList(fb.getOrdenEquipoAuxiliar()).stream().filter(x -> x != null && x > 0)
+						.collect(Collectors.toList());
+				
+				numLineas = ordenEquipoAuxilar.size();
+				
+				cant = new Integer[] { ordenEquipoAuxilar.size() };
+				
+				agentes = new Integer[] { this.aservice.getOidByDescr("Equipo auxiliar") };
+			}
 
-			Integer[] cant = new Integer[] { ordenCentral.size(), ordenFuente.size(), ordenDetectores.size(),
-					ordenPulsadores.size(), ordenSirenas.size(), ordenEquipoAuxilar.size() };
-			Integer[] agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"),
-					this.aservice.getOidByDescr("Central de monóxido"), this.aservice.getOidByDescr("Detector"),
-					this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena"),
-					this.aservice.getOidByDescr("Equipo auxiliar") };
 
 			Double[] doubleArray = new Double[numLineas];
 			Date[] dateArray = new Date[numLineas];
