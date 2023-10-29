@@ -4,7 +4,7 @@
    <groupId>com.atz</groupId>
    <artifactId>XTD</artifactId>
    <packaging>war</packaging>
-   <version>1.18.81</version>
+   <version>1.18.88</version>
    <name>Extindet Extintores</name>
    <url>http://maven.apache.org</url>
    <properties>
@@ -264,8 +264,8 @@
             <bd.usr>adminkxji33l</bd.usr>
             <bd.pwd>VyeYZzylsphP</bd.pwd>
             <folder.pdf>C:/Users/Usuario/Desktop/pdf</folder.pdf>
-            <folder.parte>C:/Users/Usuario/Desktop/parte</folder.parte>
-            <folder.fct>C:/Users/Usuario/Desktop/pdf</folder.fct>
+            <folder.parte>C:/Users/jsilva/Desktop/parte</folder.parte>
+            <folder.fct>C:/Users/jsilva/Desktop/pdf</folder.fct>
             <project.logo>logo_atz.png</project.logo>
             <mail.from>extindetjmjatienza@gmail.com</mail.from>
             <mail.username>extindetjmjatienza</mail.username>

@@ -72,15 +72,15 @@
 			                    	<li><a href="contrato_buscar.do">Buscar</a></li>
 			                    </ul>
 			                </li>
-			                <c:if test='${usuario.TRol.descr eq "factura"}'>           
-				                <li class="dropdown">
-							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturas</a>
-				                    <ul class="dropdown-menu">
-				                    	<li><a href="factura_crear.do">Crear</a></li>
-				                    	<li><a href="factura_buscar.do">Buscar</a></li>
-				                    </ul>
-				                </li>
-			                </c:if>
+			                <li class="dropdown">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturas</a>
+			                    <ul class="dropdown-menu">
+			                    	<c:if test='${usuario.TRol.descr eq "factura"}'>
+			                    		<li><a href="factura_crear.do">Crear</a></li>
+			                    	</c:if>
+			                    	<li><a href="factura_buscar.do">Buscar</a></li>
+			                    </ul>
+			                </li>
 				            <c:if test='${usuario.TRol.descr eq "factura"}'>    
 				                <li class="dropdown">
 							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Informes</a>

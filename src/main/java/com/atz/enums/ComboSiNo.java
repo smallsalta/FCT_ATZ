@@ -1,7 +1,7 @@
 package com.atz.enums;
 
 public enum ComboSiNo {
-	SI(1, "Si"), NO(2, "No");
+	SI(1, "Si"), NO(2, "No"), NC(2, "N/C");
 	
 	private int oid;
 	private String valor;

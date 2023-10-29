@@ -2,6 +2,7 @@ package com.atz.dao;
 
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -61,13 +62,18 @@ public class MatrimonioDAO
 	public List<TMatrimonio> listFromPartes(List<Integer> lp) 
 	throws IllegalAccessException, InvocationTargetException
 	{
-		String hql	= "from TMatrimonio m where m.parte in (:partes)";
+		List<TMatrimonio> tmp = new LinkedList<>();
 		
-		Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
-	
-		qry 		= qry.setParameterList("partes", lp);
+		if( !lp.isEmpty() )
+		{	
+			String hql	= "from TMatrimonio m where m.parte in (:partes)";
+			Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
+			
+			qry 		= qry.setParameterList("partes", lp);
+			tmp			= qry.list();
+		}
 		
-		return qry.list();
+		return tmp;
 	}
 	
 	/**

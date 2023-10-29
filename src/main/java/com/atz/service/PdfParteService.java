@@ -154,8 +154,8 @@ public class PdfParteService extends PdfContrato {
 				this.merge(c1, c2, c3, jPreguntas);
 				
 			} else if(pdfCentral == 2) {
-				c1 = this.getJasperPrint("centralita4", param);
-				JasperPrint c2 = this.getJasperPrint("centralita3_2", param);
+				c1 = this.getJasperPrint("centralita3_2", param);
+				JasperPrint c2 = this.getJasperPrint("centralita4", param);
 				this.merge(c1, c2, jPreguntas);
 				
 			}

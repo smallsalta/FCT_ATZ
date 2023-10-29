@@ -182,6 +182,7 @@ public class Parte
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
 		comboSiNo.add(ComboSiNo.SI);
+		comboSiNo.add(ComboSiNo.NC);
 		
 		
 		List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
@@ -212,6 +213,7 @@ public class Parte
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
 		comboSiNo.add(ComboSiNo.SI);
+		comboSiNo.add(ComboSiNo.NC);
 		
 		
 		List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
@@ -350,6 +352,7 @@ public class Parte
 			List<ComboSiNo> comboSiNo = new ArrayList<>();
 			comboSiNo.add(ComboSiNo.NO);
 			comboSiNo.add(ComboSiNo.SI);
+			comboSiNo.add(ComboSiNo.NC);
 			
 			
 			List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
@@ -572,7 +575,19 @@ public class Parte
 	@RequestMapping("parte_email.do")
 	public void email(PartesFb fb, HttpServletResponse resp) 
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
-		File pdfFile 	= this.pdfservice.crear(fb);
+		// File pdfFile 	= this.pdfservice.crear(fb);
+		File pdfFile = new File("");
+		switch (fb.getOidpartetipo()) {
+		case 5:
+			this.pdfservice.crear1(fb);
+			break;
+		case 6:
+			this.pdfservice.crear2(fb);
+			break;
+		default:
+			this.pdfservice.crear(fb);
+			break;
+		}
 		TCliente c 		= this.cservice.leer( fb.getOidcliente() );
 		String mensaje	= "Mensaje enviado";
 		PrintWriter out = resp.getWriter();

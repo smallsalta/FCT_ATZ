@@ -111,31 +111,29 @@
 					</c:if>
 				</div>
 			</div>
+	
+			<br />
 
-			<c:if test='${usuario.TRol.descr eq "factura"}'>
-				<br />
-
-				<div class="container">
-					<div class="row">
-						<c:if
-							test="${oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 5 or oidpartetipo eq 6}">
-							<div class="col col-md-4 mt-5">
-								<button id="btn-contrato" class="btn btn-primary btn-block"
-									type="button">Crear contrato</button>
-							</div>
+			<div class="container">
+				<div class="row">
+					<div class="col col-md-4 mt-5">
+						<c:if test='${usuario.TRol.descr eq "factura"}'>
+							<c:if test="${oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 5 or oidpartetipo eq 6}">
+								<button id="btn-contrato" class="btn btn-primary btn-block" type="button">Crear contrato</button>
+							</c:if>
 						</c:if>
-						<div class="col col-md-4 mt-5">
-							<button id="btn_fct_sl" class="btn btn-default btn-block"
-								type="button">Crear factura SL</button>
-						</div>
-						<div class="col col-md-4 mt-5">
-							<button id="btn_fct_carpinteria"
-								class="btn btn-default btn-block" type="button">Crear
-								factura Carpinteria</button>
-						</div>
+					</div>
+					<div class="col col-md-4 mt-5">
+						<c:if test='${usuario.TRol.descr eq "factura"}'>
+							<button id="btn_fct_sl" class="btn btn-default btn-block" type="button">Crear factura SL</button>
+						</c:if>
+					</div>
+					<div class="col col-md-4 mt-5">
+						<button id="btn_fct_carpinteria" class="btn btn-default btn-block" type="button">Crear factura Carpinteria</button>
 					</div>
 				</div>
-			</c:if>
+			</div>
+			
 
 			<div class="modal fade" id="myModal1">
 				<div class="modal-dialog">

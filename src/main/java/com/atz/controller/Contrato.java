@@ -342,7 +342,7 @@ public class Contrato
 			List<ComboSiNo> comboSiNo = new ArrayList<>();
 			comboSiNo.add(ComboSiNo.NO);
 			comboSiNo.add(ComboSiNo.SI);
-			
+			comboSiNo.add(ComboSiNo.NC);
 			
 			List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
 			comboTrueFalse.add(ComboTrueFalse.NO);

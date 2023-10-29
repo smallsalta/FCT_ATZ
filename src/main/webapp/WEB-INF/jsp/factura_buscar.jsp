@@ -38,10 +38,17 @@
 					</div>
 					<div class="col col-md-10">
 						<select id="oidempresa" name="oidempresa" class="selectpicker form-control" data-live-search="true" required>
-							<option value="-1">:: Seleccione una ::</option>
-							<c:forEach items="${empresas}" var="c">
-								<option value="${c.oid}">${c.descr}</option>
-							</c:forEach>
+							<c:choose>
+								<c:when test='${usuario.TRol.descr eq "factura"}'>
+									<option value="-1">:: Seleccione una ::</option>
+									<c:forEach items="${empresas}" var="c">
+										<option value="${c.oid}">${c.descr}</option>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<option value="7">Carpintería</option>
+								</c:otherwise>
+							</c:choose>
 						</select>
 					</div>
 				</div>
