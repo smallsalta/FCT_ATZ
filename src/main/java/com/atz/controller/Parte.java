@@ -579,13 +579,13 @@ public class Parte
 		File pdfFile = new File("");
 		switch (fb.getOidpartetipo()) {
 		case 5:
-			this.pdfservice.crear1(fb);
+			pdfFile = this.pdfservice.crear1(fb);
 			break;
 		case 6:
-			this.pdfservice.crear2(fb);
+			pdfFile = this.pdfservice.crear2(fb);
 			break;
 		default:
-			this.pdfservice.crear(fb);
+			pdfFile = this.pdfservice.crear(fb);
 			break;
 		}
 		TCliente c 		= this.cservice.leer( fb.getOidcliente() );
