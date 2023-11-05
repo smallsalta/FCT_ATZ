@@ -30,12 +30,12 @@ public class ParteDAO
 		String hql		= "FROM TParte AS f INNER JOIN FETCH f.TCliente WHERE fecha BETWEEN :fini AND :ffin";
 		List<TParte> lp	= null; 	
 		
-		if( oidusuario != -1 )
+		if( oidusuario != null && oidusuario != -1 )
 		{
 			hql		+= " AND f.TUsuario.oid = :oidusuario";
 		}
 		
-		if( oidcliente != -1 )
+		if( oidcliente != null && oidcliente != -1 )
 		{
 			hql		+= " AND f.TCliente.oid = :oidcliente";
 		}
@@ -45,11 +45,13 @@ public class ParteDAO
 			hql		+= " AND f.numero = :numero";
 		}
 		
-		if(oidpartetipo != null) {
+		if( oidpartetipo != null ) 
+		{
 			hql 	+= " AND f.TParteTipo.oid = :oidpartetipo";
 		}
 		
-		if( oidestadoparte != -1 ) {
+		if( oidcliente != null && oidestadoparte != -1 ) 
+		{
 			hql 	+= " AND f.estado.oid = :oidestadoparte";
 		}
 		
@@ -60,12 +62,12 @@ public class ParteDAO
 		qry 		= qry.setParameter("fini", fini);
 		qry 		= qry.setParameter("ffin", ffin);
 				
-		if( oidusuario != -1 )
+		if( oidusuario != null && oidusuario != -1 )
 		{
 			qry 	= qry.setParameter( "oidusuario", oidusuario );
 		}
 		
-		if( oidcliente != -1 )
+		if( oidcliente != null &&  oidcliente != -1 )
 		{
 			qry 	= qry.setParameter( "oidcliente", oidcliente );
 		}
@@ -75,11 +77,13 @@ public class ParteDAO
 			qry 	= qry.setParameter( "numero", numero );
 		}
 		
-		if(oidpartetipo != null) {
+		if( oidpartetipo != null ) 
+		{
 			qry 	= qry.setParameter( "oidpartetipo", oidpartetipo);
 		}
 		
-		if(oidestadoparte != -1) {
+		if( oidestadoparte != -1 ) 
+		{
 			qry 	= qry.setParameter( "oidestadoparte", oidestadoparte);
 		}
 		

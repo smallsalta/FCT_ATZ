@@ -24,7 +24,6 @@ import com.atz.comparator.PuertasComparator;
 import com.atz.comparator.PulsadoresComparator;
 import com.atz.comparator.RetenedorComparator;
 import com.atz.comparator.SirenasComparator;
-import com.atz.comparator.TParteLineaComparator;
 import com.atz.fb.PartesFb;
 import com.atz.pdf.ParteLineaFb;
 import com.atz.pdf.ParteLineaFbArray;

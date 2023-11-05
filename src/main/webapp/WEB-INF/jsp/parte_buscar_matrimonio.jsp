@@ -76,7 +76,7 @@
 				</div>
 				<div class="row">
 					<div class="col col-md-2">
-						NÃºmero
+						Número
 					</div>
 					<div class="col col-md-10">
 						<input id="numero" name="numero" class="form-control" type="number" value="${numero}"/>

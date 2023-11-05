@@ -53,7 +53,7 @@ extends PdfContrato
 	public File leer(ContratosBuscarFb fb)
 	{
 		TFactura c		= this.fservice.leer( fb.getOid() );
-		String pdfFile 	= this.pdfFolder.getAbsolutePath() + "/" + c.getOid() + "_" + c.getNumero() + ".pdf";
+		String pdfFile 	= this.pdfFolder.getAbsolutePath() + "/" + c.getNumero2() + ".pdf";
 		File fpdf		= new File(pdfFile);
 		
 		if( !fpdf.exists() )
@@ -74,7 +74,7 @@ extends PdfContrato
 //		List<Integer> oids			= Arrays.asList( 8, 9, 10 );
 		
 		TCliente cli				= c.getTCliente();
-		String pdfFile				= this.pdfFolder.getAbsolutePath() + "/" + c.getOid() + "_" + c.getNumero() + ".pdf";
+		String pdfFile				= this.pdfFolder.getAbsolutePath() + "/" + c.getNumero2() + ".pdf";
 		
 		List<FctLineaFb> laux		= c.getTFacturaLineaOrd().stream().map( t -> this.copy(t) ).collect( Collectors.toList() );
 		

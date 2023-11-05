@@ -39,6 +39,7 @@ public class TFactura implements java.io.Serializable {
 	private TCliente TCliente2;
 	private TEstado TEstado;
 	private Integer numero;
+	private String numero2;
 	private Date fecha;
 	private Double iva;
 	private Timestamp envio;
@@ -80,9 +81,18 @@ public class TFactura implements java.io.Serializable {
 	public Integer getNumero() {
 		return this.numero;
 	}
+	
+	@Column(name = "numero2")
+	public String getNumero2() {
+		return this.numero2;
+	}
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+	
+	public void setNumero2(String numero2) {
+		this.numero2 = numero2;
 	}
 
 	@Temporal(TemporalType.DATE)

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri='http://java.sun.com/jstl/core_rt'%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <%@ page isELIgnored="false"%>
 
@@ -52,16 +53,36 @@
 						            	<span class="label label-default">
 						            		${c.TCliente.nombre} ${c.TCliente.apellidos} 
 						            	</span>
+						            	
 						            	&nbsp;
 						            	<span class="label label-success">
 						            		<fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy"/>
 						            	</span>
+						            	
 						            	<c:if test="${ matrimonio[c.numero].factura != null }">
 							            	&nbsp;
-							            	<span class="label label-info">
-							            		${ matrimonio[c.numero].factura }
+							            	
+							            	<c:choose>
+							            		<c:when test="${ fn:substring( matrimonio[c.numero].numero2, 0, 1) eq '7' }">
+					            					<span class="label label-primary">  
+							            		</c:when>
+							            		<c:otherwise>
+						            				<span class="label label-info">
+							            		</c:otherwise>
+							            	</c:choose>
+								            	
+							            	<c:choose>
+							            		<c:when test="${ pagadas[ matrimonio[c.numero].numero2 ] }">
+					            					<u> ${ matrimonio[c.numero].factura } ${ facturas } </u>  
+							            		</c:when>
+							            		<c:otherwise>
+						            				${ matrimonio[c.numero].factura } ${ facturas }
+							            		</c:otherwise>
+							            	</c:choose>
+							            	
 							            	</span>
 						            	</c:if>
+						            	
 						            	<c:if test="${ matrimonio[c.numero].contrato != null }">
 							            	&nbsp;
 							            	<span class="label label-warning">

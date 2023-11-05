@@ -3,6 +3,7 @@ package com.atz.dao;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
@@ -58,6 +59,22 @@ public class FacturaDAO
 		qry.setParameter("fk", fk);			
 		
 		return qry.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<TFactura> readFacturasNumero2(List<String> n2)
+    {
+		String hql	= "from TFactura f where f.numero2 in ( :n2 )";
+		Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
+		
+		qry.setParameterList("n2", n2);			
+		
+		List<TFactura> lf 	= qry.list();
+		lf 					= lf.stream().filter( t -> t.getTEstado() != null ).collect( Collectors.toList() );
+		
+		lf.forEach( t -> Hibernate.initialize( t.getTEstado() ) );
+		
+		return lf;
 	}
 	
 	@SuppressWarnings("unchecked")

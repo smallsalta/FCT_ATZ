@@ -2,9 +2,14 @@ package com.atz.service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +26,7 @@ import com.atz.fb.ContratosFb;
 import com.atz.fb.PartesFb;
 import com.atz.persistencia.TFactura;
 import com.atz.persistencia.TFacturaLinea;
+import com.atz.persistencia.TMatrimonio;
 
 @Service
 public class FacturaService 
@@ -77,6 +83,19 @@ public class FacturaService
 				);
 	}
 	
+	@Transactional(readOnly=true)
+	public Map<String, Boolean> leerFacturasEstado(List<TMatrimonio> lm)
+	{
+		List<String> ln2 				= lm.stream().map( t -> t.getNumero2() ).filter( t -> t != null ).collect( Collectors.toList() );
+		List<TFactura> lf				= this.fdao.readFacturasNumero2(ln2);
+		Map<String, Boolean> pagadas 	= new HashMap<>();
+		
+		
+		lf.forEach( t -> pagadas.put( t.getNumero2(),  t.getTEstado().getOid() == 2 ) );
+		
+		return pagadas;
+	}
+	
 	@Transactional(readOnly=false, isolation=Isolation.DEFAULT)
 	public synchronized TFactura crear(ContratosFb fb) 
 	throws IllegalAccessException, InvocationTargetException
@@ -87,8 +106,24 @@ public class FacturaService
 		
 		tc.setAuditoria1( new Date() );
 		tc.setAuditoria2( new Date() );
+		tc.setNumero2( this.getNumero2(tc) );
 		
 		return this.fdao.create(tc);
+	}
+	
+	private String getNumero2(TFactura tc)
+	{
+		Calendar cal 		= Calendar.getInstance();
+		DecimalFormat fmt 	= new DecimalFormat("0000");
+		StringBuffer n2		= new StringBuffer();
+		
+		cal.setTime( tc.getFecha() );
+
+		n2.append( tc.getTEmpresa().getOid() );
+		n2.append( cal.get( Calendar.YEAR ) );
+		n2.append( fmt.format( tc.getNumero() ) );
+		
+		return n2.toString();
 	}
 	
 	@Transactional(readOnly=false, isolation=Isolation.DEFAULT)
@@ -144,6 +179,8 @@ public class FacturaService
 		
 		tc.setAuditoria1( new Date() );
 		tc.setAuditoria2( new Date() );
+		
+		tc.setNumero2( this.getNumero2(tc) );
 		
 		return this.fdao.create(tc);
 	}

@@ -19,6 +19,7 @@ public class TMatrimonio implements java.io.Serializable {
 	private int parte;
 	private Integer factura;
 	private Integer contrato;
+	private String numero2;
 
 	public TMatrimonio() {
 	}
@@ -66,6 +67,15 @@ public class TMatrimonio implements java.io.Serializable {
 
 	public void setContrato(Integer contrato) {
 		this.contrato = contrato;
+	}
+	
+	@Column(name = "numero2")
+	public String getNumero2() {
+		return this.numero2;
+	}
+
+	public void setNumero2(String numero2) {
+		this.numero2 = numero2;
 	}
 
 }

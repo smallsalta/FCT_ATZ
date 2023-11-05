@@ -4,7 +4,7 @@
    <groupId>com.atz</groupId>
    <artifactId>XTD</artifactId>
    <packaging>war</packaging>
-   <version>1.18.88</version>
+   <version>1.19.2</version>
    <name>Extindet Extintores</name>
    <url>http://maven.apache.org</url>
    <properties>
@@ -313,9 +313,9 @@
             <folder.parte>/opt/tomcat_xtd/parte</folder.parte>
             <folder.fct>/opt/tomcat_xtd/fct</folder.fct>
             <project.logo>logo_xtd.png</project.logo>
-            <mail.from>extindetjmjatienza@gmail.com</mail.from>
-            <mail.username>extindetjmjatienza</mail.username>
-            <mail.password>taplwctzowmptlui</mail.password>
+            <mail.from>extindet.facturas@gmail.com</mail.from>
+            <mail.username>extindet.facturas</mail.username>
+            <mail.password>lydp pvzx gwzd zics</mail.password>
             <mail.subject>Extindet</mail.subject>
             <mail.copia1>administracion@extindet.com</mail.copia1>
             <mail.copia2>alvaro@proyectosam.es</mail.copia2>

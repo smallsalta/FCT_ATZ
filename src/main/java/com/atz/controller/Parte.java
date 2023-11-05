@@ -163,10 +163,12 @@ public class Parte
 		ModelMap m						= new ModelMap();
 		List<TParte> lp 				= this.pservice.leerPartesBuscar(fb);
 		List<TMatrimonio> lm 			= this.mservice.leer(lp);
+		Map<String, Boolean> me			= this.fservice.leerFacturasEstado(lm);
 		Map<Integer, TMatrimonio> mp	= lm.stream().collect( Collectors.toMap( TMatrimonio::getParte, t -> t ) );
 		
 		m.put("partes", lp );
 		m.put("matrimonio", mp );
+		m.put("pagadas", me );
 		
 		return new ModelAndView("parte_buscar_listado", m);
 	}
@@ -625,7 +627,7 @@ public class Parte
 		pb.setNfactura( tm.getFactura() );
 		pb.setOidmatrimonio( tm.getOid() );
 		
- 		this.mservice.guardar(pb);
+ 		this.mservice.guardar( pb, tm.getNumero2() );
 		
  		// Cargamos el contrato ...
 		return this.cargarContrato(c, s);
@@ -663,7 +665,7 @@ public class Parte
 		pb.setNcontrato( tm.getContrato() );
 		pb.setOidmatrimonio( tm.getOid() );
 		
- 		this.mservice.guardar(pb);
+ 		this.mservice.guardar( pb, fct.getNumero2() );
 		
  		// Navegamos a la factura ...
  		ModelMap m = new ModelMap();
@@ -749,7 +751,7 @@ public class Parte
 	{
 		this.log.info(fb);
 		
-		TMatrimonio tm 		= this.mservice.guardar(fb);
+		TMatrimonio tm 		= this.mservice.guardar(fb, null);
 		ModelAndView mav 	= this.parteListadoMatrimonio(fb);
 		
 		mav.getModel().put( "exito", tm != null );

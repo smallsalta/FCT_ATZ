@@ -26,7 +26,8 @@
 			<c:otherwise>
 				<div class="container form-group">
 					<div class="row">
-				    	<div class="col-sm-6 text-center"> Parte </div>
+						<div class="col-sm-4 text-center"> Cliente </div>
+				    	<div class="col-sm-2 text-center"> Parte </div>
 				    	<div class="col-sm-2 text-center"> Factura </div>
 				    	<div class="col-sm-2 text-center"> Certificado </div>
 				    	<div class="col-sm-2 text-center"> &nbsp; </div>
@@ -35,11 +36,13 @@
 					<c:forEach items="${matrimonio}" var="m" varStatus="cont">
 						<form data-toggle="validator" role="form" action="parte_guardar_matrimonio.do" method="post" id="frm_${cont.index}">
 							<div class="row">
-						    	<div class="col-sm-6">
+								<div class="col-sm-4">
+									${ partes[m.parte].TCliente.nombre} ${partes[m.parte].TCliente.apellidos }
+						    	</div>
+						    	<div class="col-sm-2">
 									<div class="form-group">
 									
-						    			<div class="input-group">
-   											<span class="input-group-addon"> ${ partes[m.parte].TCliente.nombre} ${partes[m.parte].TCliente.apellidos } </span>
+						    			<div class="input-group input-group-sm">
 	  										<input type="number" name="nparte" class="form-control" value="${ m.parte }" readonly="readonly" />
 									  		<div class="input-group-addon">
 									    		<span class="glyphicon glyphicon-zoom-in lupa" id="lupa_parte_${cont.index}"> &nbsp; </span>
@@ -50,22 +53,37 @@
 						    	</div>
 						    	<div class="col-sm-2">
 						    		<div class="form-group">
-						    			<div class="input-group">
-	  										<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value="${ m.factura == 0 ? '' : m.factura }"/>
+						    		
+						    			<div class="input-group input-group-sm">
+						    				<c:choose>
+						    					<c:when test="${ not empty m.numero2 }">
+						    						<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value="${ m.numero2 }"/>
+						    					</c:when>
+						    					<c:when test="${ m.factura != 0 }">
+						    						<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value="${ m.factura }"/>
+						    					</c:when>
+						    					<c:otherwise>
+						    						<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value=""/>
+						    					</c:otherwise>
+						    				</c:choose>
+	  										
 									  		<div class="input-group-addon">
 									    		<span class="glyphicon glyphicon-zoom-in lupa" id="lupa_factura_${cont.index}"> &nbsp; </span>
 									  		</div>
 									  	</div>
+									  	
 									</div>
 						    	</div>
 						    	<div class="col-sm-2">
 						      		<div class="form-group">
-						    			<div class="input-group">
+						      		
+						    			<div class="input-group input-group-sm">
 	  										<input id="contrato_${cont.index}" type="number" name="ncontrato" class="form-control" value="${ m.contrato == 0 ? '' : m.contrato }"/>
 									  		<div class="input-group-addon">
 									    		<span class="glyphicon glyphicon-zoom-in lupa" id="lupa_contrato_${cont.index}"> &nbsp; </span>
 									  		</div>
 									  	</div>
+									  	
 									</div>
 						    	</div>
 						    	<div class="col-sm-2">
@@ -74,7 +92,10 @@
 						    		<input type="hidden" name="ffin" value='<fmt:formatDate value="${ffin}" pattern="yyyy-MM-dd"/>'/>
 						    		<input type="hidden" name="tipoLupa" id="tipoLupa_${cont.index}"/>
 						      		<button class="btn btn-info guardar" type="button" id="guardar_${cont.index}">Guardar</button>
-						      		<button class="btn btn-info borrar" type="button" id="borrar_${cont.index}">Borrar</button>
+						      		
+						      		<c:if test="${m.oid != 0}">
+						      			<button class="btn btn-info borrar" type="button" id="borrar_${cont.index}">Borrar</button>
+						      		</c:if>
 						    	</div>
 						  	</div>
 					  	</form>

@@ -21,7 +21,7 @@ public class MatrimonioService
 	private MatrimonioDAO mdao;
 	
 	@Transactional(readOnly=false)
-	public TMatrimonio guardar(ParteBuscarFb fb) 
+	public TMatrimonio guardar(ParteBuscarFb fb, String numero2) 
 	throws IllegalAccessException, InvocationTargetException
 	{
 		TMatrimonio tm = new TMatrimonio();
@@ -30,15 +30,7 @@ public class MatrimonioService
 		tm.setParte( fb.getNparte() );
 		tm.setFactura( fb.getNfactura() );
 		tm.setContrato( fb.getNcontrato() );
-		
-//		if( this.mdao.esPosible1(tm) && this.mdao.esPosible2(tm) )
-//		{
-//			tm = this.mdao.create(tm);
-//		}
-//		else
-//		{
-//			tm = null;
-//		}
+		tm.setNumero2(numero2);
 		
 		tm = this.mdao.create(tm);
 		
