@@ -16,4 +16,5 @@ public class ContratosBuscarFb
 	private String[] fctoid;
 	private String[] preguntas;
 	private Integer numero;
+	private String ccemail;
 }

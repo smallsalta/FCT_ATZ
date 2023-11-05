@@ -217,7 +217,7 @@ public class Factura
 		
 		try 
 		{
-			this.smservice.enviarSinCC(c, pdfFile);
+			this.smservice.enviarSinCC( c, fb.getCcemail(), pdfFile );
 			this.fservice.actualizarFechaEnvio( fb.getOid() );
 		} 
 		catch(MessagingException e)

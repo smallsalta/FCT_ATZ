@@ -147,11 +147,11 @@ public class SendMailService
 	 * @throws AddressException
 	 * @throws MessagingException
 	 */
-	public void enviarParteConCC(TCliente c, String ccExtra, File parte) 
-	throws AddressException, MessagingException 
-	{
-		this.enviarConCC( c, ccExtra, parte );
-	}
+//	public void enviarParteConCC(TCliente c, String ccExtra, File parte) 
+//	throws AddressException, MessagingException 
+//	{
+//		this.enviarConCC( c, ccExtra, parte );
+//	}
 	
 	private String calculaTo(String ... dest)
 	{
