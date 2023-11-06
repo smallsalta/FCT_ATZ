@@ -2,6 +2,7 @@ package com.atz.dao;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,15 +65,20 @@ public class FacturaDAO
 	@SuppressWarnings("unchecked")
 	public List<TFactura> readFacturasNumero2(List<String> n2)
     {
-		String hql	= "from TFactura f where f.numero2 in ( :n2 )";
-		Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
+		List<TFactura> lf = new LinkedList<>();
 		
-		qry.setParameterList("n2", n2);			
-		
-		List<TFactura> lf 	= qry.list();
-		lf 					= lf.stream().filter( t -> t.getTEstado() != null ).collect( Collectors.toList() );
-		
-		lf.forEach( t -> Hibernate.initialize( t.getTEstado() ) );
+		if( !n2.isEmpty() )
+		{
+			String hql	= "from TFactura f where f.numero2 in ( :n2 )";
+			Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
+			
+			qry.setParameterList("n2", n2);			
+			
+			lf	= qry.list();
+			lf 	= lf.stream().filter( t -> t.getTEstado() != null ).collect( Collectors.toList() );
+			
+			lf.forEach( t -> Hibernate.initialize( t.getTEstado() ) );
+		}
 		
 		return lf;
 	}
