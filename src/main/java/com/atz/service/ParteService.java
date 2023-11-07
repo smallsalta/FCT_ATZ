@@ -217,6 +217,7 @@ public class ParteService {
 			Integer numLineas = 0;
 			Integer[] cant = new Integer[0];
 			Integer[] agentes = new Integer[0];
+			Double[] precios = new Double[0];
 
 			if (fb.getOidpartetipo() == 5) {
 				ordenCentral = Arrays.asList(fb.getOrdenCentral()).stream().filter(x -> x != null && x > 0)
@@ -239,6 +240,13 @@ public class ParteService {
 				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"),
 						this.aservice.getOidByDescr("Cableado"), this.aservice.getOidByDescr("Detector"),
 						this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena") };
+				
+				precios = new Double[] { Arrays.asList(fb.getPrecioCentral()).stream().reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioFuente()).stream().reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioDetectores()).stream().reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioPulsadores()).stream().reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioSirenas()).stream().reduce(.0, Double::sum) };
+				
 			} else if (fb.getOidpartetipo() == 6) {
 				ordenEquipoAuxilar = Arrays.asList(fb.getOrdenEquipoAuxiliar()).stream().filter(x -> x != null && x > 0)
 						.collect(Collectors.toList());
@@ -248,6 +256,8 @@ public class ParteService {
 				cant = new Integer[] { ordenEquipoAuxilar.size() };
 				
 				agentes = new Integer[] { this.aservice.getOidByDescr("Equipo auxiliar") };
+				
+				precios = new Double[] { Arrays.asList(fb.getPrecioEquipoAuxiliar()).stream().reduce(.0, Double::sum) };
 			}
 
 
@@ -263,7 +273,6 @@ public class ParteService {
 				integerArray[i] = 0;
 			}
 
-			c.setPrecioExt(doubleArray);
 			c.setFechaFabExt(dateArray);
 			c.setFechaRetExt(dateArray);
 			c.setNumeroPlacaExt(stringArray);
@@ -272,6 +281,7 @@ public class ParteService {
 			c.setDescrExt(stringArray);
 			c.setPruebasExt(integerArray);
 
+			c.setPrecioExt(precios);
 			c.setCantidadExt(cant);
 			c.setAgentesExt(agentes);
 

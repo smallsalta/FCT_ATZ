@@ -39,6 +39,7 @@ import com.atz.fb.ContratosBuscarFb;
 import com.atz.fb.ParteBuscarFb;
 import com.atz.fb.PartesFb;
 import com.atz.pdf.Descargar;
+import com.atz.persistencia.TAgente;
 import com.atz.persistencia.TCliente;
 import com.atz.persistencia.TContrato;
 import com.atz.persistencia.TEstadoParte;
@@ -47,6 +48,7 @@ import com.atz.persistencia.TMatrimonio;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TParteLinea;
 import com.atz.persistencia.TUsuario;
+import com.atz.service.AgenteService;
 import com.atz.service.ClienteService;
 import com.atz.service.ContratoService;
 import com.atz.service.EmpresaService;
@@ -127,6 +129,9 @@ public class Parte
 	
 	@Autowired
 	private EstadosService stservice;
+	
+	@Autowired
+	private AgenteService agservice;
 
 	private Logger log = LogManager.getLogger( Parte.class );
 	
@@ -397,10 +402,10 @@ public class Parte
 		switch(p.getTParteTipo().getOid()) {
 		
 			case 1:
-				res = p.getTParteLineas().stream().map(x -> this.getAgenteExtintor(x)).collect(Collectors.toSet());
+				res = p.getTParteLineas().stream().map(x -> this.getAgente(x.getTipo().getTipo())).collect(Collectors.toSet());
 				break;
 			case 2:
-				res = p.getTParteLineas().stream().map(x -> this.getAgenteBie(x)).collect(Collectors.toSet());
+				res = p.getTParteLineas().stream().map(x -> this.getAgente(x.getLongMang())).collect(Collectors.toSet());
 				break;
 			case 5:
 				res = p.getTParteLineas().stream()
@@ -443,27 +448,13 @@ public class Parte
 		return res;
 	}
 	
-	private Integer getAgenteBie(TParteLinea l) {
-		
-		Integer res = 0;
-		
-		if(l.getLongMang().equals("25/20")) {
-			res =  3002;
-		} else if(l.getLongMang().equals("45/20")) {
-			res = 3004;
-		}
-		
-		return res;
-	}
 	
-	private Integer getAgenteExtintor(TParteLinea l) {
-		
+	private Integer getAgente(String desc) {
 		Integer res = 0;
 		
-		if(l.getTipo().getTipo().equals("ABC")) {
-			res = 1;
-		} else if(l.getTipo().getTipo().equals("CO2")) {
-			res = 2;
+		TAgente a = this.agservice.getByDecr(desc);
+		if(a != null) {
+			res = a.getOid();
 		}
 		
 		return res;

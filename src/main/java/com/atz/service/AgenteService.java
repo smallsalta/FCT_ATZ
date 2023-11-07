@@ -29,5 +29,15 @@ public class AgenteService {
 	public TAgente getByOid(Integer oid) {
 		return this.dao.get(oid);
 	}
+	
+	@Transactional(readOnly = true)
+	public TAgente getByDecr(String descr) {
+		List<TAgente> a = this.dao.getByDesc(descr);
+		TAgente res = null;
+		if(!a.isEmpty()) {
+			res = a.get(0);
+		}
+		return res;
+	}
 
 }
