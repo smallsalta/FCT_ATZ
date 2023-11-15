@@ -70,6 +70,8 @@ public class TMatrimonio implements java.io.Serializable {
 	}
 	
 	@Column(name = "numero2")
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "numero2")
 	public String getNumero2() {
 		return this.numero2;
 	}
