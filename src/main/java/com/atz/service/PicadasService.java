@@ -53,6 +53,7 @@ public class PicadasService
 				tp.setHini(hi);
 				tp.setHfin(hf);
 				tp.setTUsuario(u);
+				tp.setInfo( fb.getInfo() );
 				
 				this.dao.create(tp);
 			}

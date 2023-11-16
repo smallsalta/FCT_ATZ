@@ -12,6 +12,7 @@ public class PicadasFb
 	private Date fecha;
 	private String hini;
 	private String hfin;
+	private String info;
 	
 	private Date fini;
 	private Date ffin;

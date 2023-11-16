@@ -36,7 +36,7 @@ public class PicadaDAO
 	
 	public List<TPicada> read(PicadasFb fb)
 	{
-		String hql	= "FROM TPicada tp WHERE tp.TUsuario.oid = :oid AND tp.fecha BETWEEN :fini AND :ffin ORDER BY tp.fecha ASC";
+		String hql	= "FROM TPicada tp WHERE tp.TUsuario.oid = :oid AND tp.fecha BETWEEN :fini AND :ffin ORDER BY tp.fecha DESC";
 		Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
 		
 		qry 		= qry.setParameter( "oid", fb.getOidusuario() );

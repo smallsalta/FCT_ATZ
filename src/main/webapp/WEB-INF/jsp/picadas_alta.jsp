@@ -17,7 +17,7 @@
 	
 	<tiles:putAttribute name="body">
 		<form action="picadas_guardar.do" method="post">
-			<div class="container">
+			<div class="co  ntainer">
 				<div class="row">
 					<div class="col col-md-2">
 						Fecha  
@@ -40,6 +40,14 @@
 					</div>
 					<div class="col col-md-10">
 						<input type="time" id="" name="hfin" class="form-control" required="required"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-md-2">
+						Notas  
+					</div>
+					<div class="col col-md-10">
+						<textarea rows="" cols="" id="" name="info" class="form-control"></textarea>
 					</div>
 				</div>
 			</div>

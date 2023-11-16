@@ -29,6 +29,7 @@ implements java.io.Serializable
 	private Date fecha;
 	private Date hini;
 	private Date hfin;
+	private String info;
 
 	public TPicada() {
 	}
@@ -37,12 +38,13 @@ implements java.io.Serializable
 		this.oid = oid;
 	}
 
-	public TPicada(int oid, TUsuario TUsuario, Date fecha, Date hini, Date hfin) {
+	public TPicada(int oid, TUsuario TUsuario, Date fecha, Date hini, Date hfin, String info) {
 		this.oid = oid;
 		this.TUsuario = TUsuario;
 		this.fecha = fecha;
 		this.hini = hini;
 		this.hfin = hfin;
+		this.info = info;
 	}
 
 	@Id
@@ -94,5 +96,14 @@ implements java.io.Serializable
 
 	public void setHfin(Date hfin) {
 		this.hfin = hfin;
+	}
+
+	@Column(name = "info")
+	public String getInfo() {
+		return this.info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
 	}
 }

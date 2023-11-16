@@ -2,8 +2,10 @@
 <%@ taglib prefix="c" uri='http://java.sun.com/jstl/core_rt'%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <%@ page isELIgnored="false"%>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 
 <tiles:insertDefinition name="base">
 
@@ -21,7 +23,6 @@
 				No hay picadas.
 			</c:when>
 			<c:otherwise>
-
 				<form method="post" action="picadas_borrar.do">
 					<div class="funkyradio">
 						<c:forEach items="${picadas}" var="c" varStatus="cont">
@@ -58,6 +59,13 @@
 						            		<fmt:formatNumber pattern="#0.00" value="${ ( c.hfin.time - c.hini.time ) / 3600000 }"/> h
 						            	</span>
 						            	
+						            	<c:if test="${ not empty c.info }">
+							            	&nbsp;
+							            	
+							            	<span class="label label-success" title='${ c.info }'>
+							            		>
+							            	</span>
+						            	</c:if>
 					            	</h4>
 					            </label>
 					        </div>
