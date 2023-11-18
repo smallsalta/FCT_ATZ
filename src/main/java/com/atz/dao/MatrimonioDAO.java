@@ -37,12 +37,7 @@ public class MatrimonioDAO
 	{
 		Session ses = this.sessionFactory.getCurrentSession();
 		
-		if( tm.getOid() != 0 )
-		{
-			this.delete( tm.getOid() );
-		}
-		
-		ses.save(tm);
+		ses.saveOrUpdate(tm);
 		
 		return tm;
 	}

@@ -56,9 +56,6 @@
 						    		
 						    			<div class="input-group input-group-sm">
 						    				<c:choose>
-						    					<c:when test="${ not empty m.numero2 }">
-						    						<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value="${ m.numero2 }"/>
-						    					</c:when>
 						    					<c:when test="${ m.factura != 0 }">
 						    						<input id="factura_${cont.index}" type="number" name="nfactura" class="form-control" value="${ m.factura }"/>
 						    					</c:when>

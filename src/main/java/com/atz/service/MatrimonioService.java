@@ -32,9 +32,7 @@ public class MatrimonioService
 		tm.setContrato( fb.getNcontrato() );
 		tm.setNumero2(numero2);
 		
-		tm = this.mdao.create(tm);
-		
-		return tm;
+		return this.mdao.create(tm);
 	}
 	
 	@Transactional(readOnly=true)

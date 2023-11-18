@@ -82,7 +82,7 @@ public class ParteDAO
 			qry 	= qry.setParameter( "oidpartetipo", oidpartetipo);
 		}
 		
-		if( oidestadoparte != -1 ) 
+		if( oidestadoparte != null && oidestadoparte != -1 ) 
 		{
 			qry 	= qry.setParameter( "oidestadoparte", oidestadoparte);
 		}

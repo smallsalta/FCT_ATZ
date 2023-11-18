@@ -105,8 +105,12 @@ public class Picadas
 		fb.setOidusuario( tus.getOid() );
 		fb.setFfin( cal.getTime() );
 		
-		cal.add( Calendar.DAY_OF_YEAR , -30 );
+		cal.set( Calendar.DAY_OF_MONTH, 1 );
 		fb.setFini( cal.getTime() );
+		
+		cal.add( Calendar.MONTH, 1 );
+		cal.add( Calendar.DAY_OF_YEAR, -1 );
+		fb.setFfin( cal.getTime() );
 		
 		return listadoResultado(fb);
 	}

@@ -746,7 +746,16 @@ public class Parte
 	{
 		this.log.info(fb);
 		
-		TMatrimonio tm 		= this.mservice.guardar(fb, null);
+		Integer oid = fb.getOidmatrimonio(); 
+		String n2	= null;
+		
+		if( oid != null && oid != 0 )
+		{
+			TMatrimonio tm 	= this.mservice.obtenerPorOid(oid);
+			n2 				= tm.getNumero2();
+		}
+		
+		TMatrimonio tm 		= this.mservice.guardar(fb, n2);
 		ModelAndView mav 	= this.parteListadoMatrimonio(fb);
 		
 		mav.getModel().put( "exito", tm != null );
