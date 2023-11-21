@@ -142,7 +142,7 @@ public class FacturaDAO
 		cs.delete(c);
 	}
 	
-	public Integer readSiguienteNumero(int oidempresa)
+	public synchronized Integer readSiguienteNumero(int oidempresa)
 	{
 		StringBuffer sb = new StringBuffer();
 		

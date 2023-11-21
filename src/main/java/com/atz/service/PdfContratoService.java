@@ -140,13 +140,23 @@ extends PdfContrato
 		{
 			ExtintorFb ext	= new ExtintorFb();
 			
-			ext.setAgente( this.magentes.get( l.getTAgente().getOid() ) );
+			TAgente ta		= l.getTAgente();
+			TPrueba tp		= l.getTPrueba();
+			
+			int oidTa		= ta == null ? 1 : ta.getOid();	// ABC
+			int oidTp		= tp == null ? 4 : tp.getOid();	// N
+			
+			Double dcap		= l.getCapacidad();
+			
+			float fcap		= dcap == null ? 0F :dcap.floatValue();
+			
+			ext.setAgente( this.magentes.get(oidTa) );
 			ext.setCantidad( l.getCantidad() );
-			ext.setCapacidad( l.getCapacidad().floatValue() );
+			ext.setCapacidad( fcap );
 			ext.setFabricante( l.getFabricante() );
 			ext.setFFabricacion( l.getFechaFab() );
 			ext.setFRetimbrado( l.getFechaRet() );
-			ext.setPrueba( this.mpruebas.get( l.getTPrueba().getOid() ) );
+			ext.setPrueba( this.mpruebas.get(oidTp) );
 			ext.setNplaca( l.getNumeroPlaca() );
 			ext.setDescripcion( l.getDescr() );
 			

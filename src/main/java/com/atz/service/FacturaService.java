@@ -182,6 +182,8 @@ public class FacturaService
 		
 		tc.setNumero2( this.getNumero2(tc) );
 		
+		tc.setTEstado( this.stdao.get(1) );	// Sin pagar
+		
 		return this.fdao.create(tc);
 	}
 	

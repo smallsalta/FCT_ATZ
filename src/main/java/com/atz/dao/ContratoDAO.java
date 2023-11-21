@@ -88,7 +88,7 @@ public class ContratoDAO
 		cs.delete(c);
 	}
 	
-	public Integer readSiguienteNumero()
+	public synchronized Integer readSiguienteNumero()
 	{
 		String sql 	= "select coalesce( max(numero), 0 ) from t_contrato";
 //		String sql 	= "select numero from max_numero_contrato";

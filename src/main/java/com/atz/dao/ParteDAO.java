@@ -112,7 +112,7 @@ public class ParteDAO
 		return l;
 	}
 	
-	public Integer readSiguienteNumero()
+	public synchronized Integer readSiguienteNumero()
 	{
 		StringBuffer sb = new StringBuffer();
 		

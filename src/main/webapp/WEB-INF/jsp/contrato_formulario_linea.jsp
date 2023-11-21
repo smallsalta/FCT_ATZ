@@ -14,7 +14,7 @@
    			</label>
 		</div>
 		<div class="col col-md-10">
-			<input type="number" name="cantidadExt" class="form-control" required value="${linea.cantidad}" min="1"/>
+			<input type="number" name="cantidadExt" class="form-control" required="required" value="${linea.cantidad}" min="1"/>
 		</div>
 	</div>
 	<div class="row">
@@ -22,7 +22,7 @@
 			Número de placa *
 		</div>
 		<div class="col col-md-10">
-			<input name="numeroPlacaExt" class="form-control" required value="${linea.numeroPlaca}"/>
+			<input name="numeroPlacaExt" class="form-control" value="${linea.numeroPlaca}" required="required"/>
 		</div>
 	</div>
 	<div class="row">
@@ -46,7 +46,7 @@
 			Capacidad *
 		</div>
 		<div class="col col-md-10">
-			<input lang="en" type="number" step="0.01" name="capacidadExt" class="form-control" required value="${linea.capacidad}"/>
+			<input lang="en" type="number" step="0.01" name="capacidadExt" class="form-control" value="${linea.capacidad}" required="required"/>
 		</div>
 	</div>
 	<div class="row">
@@ -54,7 +54,7 @@
 			Fecha fabricación *
 		</div>
 		<div class="col col-md-10">
-			<input name="fechaFabExt" class="form-control" type="date" required value="<fmt:formatDate value="${linea.fechaFab}" pattern="yyyy-MM-dd"/>"/>
+			<input name="fechaFabExt" class="form-control" type="date" value='<fmt:formatDate value="${linea.fechaFab}" pattern="yyyy-MM-dd"/>' required="required"/>
 		</div>
 	</div>
 	<div class="row">
@@ -62,7 +62,7 @@
 			Fecha retimbrado 
 		</div>
 		<div class="col col-md-10">
-			<input name="fechaRetExt" class="form-control" type="date" value="<fmt:formatDate value="${linea.fechaRet}" pattern="yyyy-MM-dd"/>"/>
+			<input name="fechaRetExt" class="form-control" type="date" value='<fmt:formatDate value="${linea.fechaRet}" pattern="yyyy-MM-dd"/>'/>
 		</div>
 	</div>
 	<div class="row">
@@ -70,7 +70,7 @@
 			Precio *
 		</div>
 		<div class="col col-md-10">
-			<input lang="en" type="number" step="0.01" name="precioExt" class="form-control" required value="${linea.precio}"/>
+			<input lang="en" type="number" step="0.01" name="precioExt" class="form-control" required="required" value="${linea.precio}"/>
 		</div>
 	</div>
 	<div class="row">
