@@ -10,6 +10,7 @@
 
 	<tiles:putAttribute name="head">
 		<link href="css/contrato_buscar_listado.css" rel="stylesheet"/>
+		<script src="js/parte_buscar_listado.js"></script>
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
@@ -38,12 +39,12 @@
 					            	<h4>
 					            		<c:choose>
 						            		<c:when test="${c.estado.oid == 4}">
-						            			<span class="label label-danger"> 
+						            			<span class="label label-danger lupaParte"> 
 						            				${c.numero} 
 						            			</span>
 						            		</c:when>
 						            		<c:otherwise>
-						            			<span class="label label-default"> 
+						            			<span class="label label-default lupaParte"> 
 						            				${c.numero} 
 						            			</span>
 						            		</c:otherwise>
@@ -64,10 +65,10 @@
 							            	
 							            	<c:choose>
 							            		<c:when test="${ fn:substring( matrimonio[c.numero].numero2, 0, 1) eq '7' }">
-					            					<span class="label label-primary">  
+					            					<span class="label label-primary lupaFactura" id="fc_${ cont.index }">  
 							            		</c:when>
 							            		<c:otherwise>
-						            				<span class="label label-info">
+						            				<span class="label label-info lupaFactura">
 							            		</c:otherwise>
 							            	</c:choose>
 								            	
@@ -81,11 +82,12 @@
 							            	</c:choose>
 							            	
 							            	</span>
+							            	<span style="display: none;" id="fl_${ cont.index }"> ${ matrimonio[c.numero].numero2 } </span>
 						            	</c:if>
 						            	
 						            	<c:if test="${ matrimonio[c.numero].contrato != null }">
 							            	&nbsp;
-							            	<span class="label label-warning">
+							            	<span class="label label-warning lupaContrato">
 							            		${ matrimonio[c.numero].contrato }
 							            	</span>
 							            </c:if>
@@ -99,6 +101,14 @@
 				</form>
 			</c:otherwise>
 		</c:choose>		
+		
+		<form action="parte_matrimonio_lupa.do" method="post" id="frm2">
+			<input type="hidden" id="tipoLupa" name="tipoLupa" />
+			<input type="hidden" id="nfactura" name="nfactura" />
+			<input type="hidden" id="nparte" name="nparte" />
+			<input type="hidden" id="ncontrato" name="ncontrato" />
+		</form>
+		
 	</tiles:putAttribute>
 		
 </tiles:insertDefinition>
