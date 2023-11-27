@@ -1,8 +1,10 @@
 package com.atz.service;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -186,7 +188,6 @@ public class ParteService {
 			c.setPrecioExt(fb.getPrecio());
 			c.setFechaFabExt(fb.getFechaRetimA());
 			c.setFechaRetExt(fb.getFechaRetimB());
-			c.setNumeroPlacaExt(new String[fb.getOrden().length]);
 			c.setFabricanteExt(new String[fb.getOrden().length]);
 			c.setCapacidadExt(new Double[fb.getOrden().length]);
 			c.setPruebasExt(new Integer[fb.getOrden().length]);
@@ -203,12 +204,18 @@ public class ParteService {
 				agentes[i] = this.aservice.getOidByDescr(tipo);
 			}
 			c.setAgentesExt(agentes);
+			
+			String[] nPlaca = new String[fb.getOrden().length];
+			for(int i = 0; i < fb.getTipo().length; i++) {
+				nPlaca[i] = Integer.toString(fb.getTipo()[i]);
+			}
+			c.setNumeroPlacaExt(nPlaca);
+			
 			c.setDescrExt(fb.getUbicacion());
 
 		} else if (fb.getOidpartetipo() == 5 || fb.getOidpartetipo() == 6) {
 
 			List<Integer> ordenCentral = new ArrayList<>();
-			List<Integer> ordenFuente = new ArrayList<>();
 			List<Integer> ordenDetectores = new ArrayList<>();
 			List<Integer> ordenPulsadores = new ArrayList<>();
 			List<Integer> ordenSirenas = new ArrayList<>();
@@ -218,11 +225,12 @@ public class ParteService {
 			Integer[] cant = new Integer[0];
 			Integer[] agentes = new Integer[0];
 			Double[] precios = new Double[0];
+			String[] numPlaca = new String[0];
+			String[] marca = new String[0];
+			String[] ubicacion = new String[0];
 
 			if (fb.getOidpartetipo() == 5) {
 				ordenCentral = Arrays.asList(fb.getOrdenCentral()).stream().filter(x -> x != null && x > 0)
-						.collect(Collectors.toList());
-				ordenFuente = Arrays.asList(fb.getOrdenFuente()).stream().filter(x -> x != null && x > 0)
 						.collect(Collectors.toList());
 				ordenDetectores = Arrays.asList(fb.getOrdenDetectores()).stream().filter(x -> x != null && x > 0)
 						.collect(Collectors.toList());
@@ -231,21 +239,43 @@ public class ParteService {
 				ordenSirenas = Arrays.asList(fb.getOrdenSirenas()).stream().filter(x -> x != null && x > 0)
 						.collect(Collectors.toList());
 				
-				numLineas = ordenCentral.size() + ordenFuente.size() + ordenDetectores.size()
+				numLineas = ordenCentral.size() + ordenDetectores.size()
 				+ ordenPulsadores.size() + ordenSirenas.size() + ordenEquipoAuxilar.size();
 				
-				cant = new Integer[] { ordenCentral.size(), ordenFuente.size(), ordenDetectores.size(),
+				cant = new Integer[] { ordenCentral.size(), ordenDetectores.size(),
 						ordenPulsadores.size(), ordenSirenas.size() };
 				
-				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"),
-						this.aservice.getOidByDescr("Cableado"), this.aservice.getOidByDescr("Detector"),
+				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"), this.aservice.getOidByDescr("Detector"),
 						this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena") };
 				
 				precios = new Double[] { Arrays.asList(fb.getPrecioCentral()).stream().reduce(.0, Double::sum),
-										Arrays.asList(fb.getPrecioFuente()).stream().reduce(.0, Double::sum),
 										Arrays.asList(fb.getPrecioDetectores()).stream().reduce(.0, Double::sum),
 										Arrays.asList(fb.getPrecioPulsadores()).stream().reduce(.0, Double::sum),
 										Arrays.asList(fb.getPrecioSirenas()).stream().reduce(.0, Double::sum) };
+				
+				List<String> numPlacaAux = new ArrayList<>();
+				Collections.addAll(numPlacaAux, fb.getTipoCentral());
+				Collections.addAll(numPlacaAux, fb.getTipoPulsadores());
+				Collections.addAll(numPlacaAux, fb.getTipoSirenas());
+				Collections.addAll(numPlacaAux, fb.getFuncionDetectores());
+				
+				numPlaca = numPlacaAux.toArray(new String[0]);
+				
+				List<String> marcaAux = new ArrayList<>();
+				Collections.addAll(marcaAux, fb.getMarca());
+				Collections.addAll(marcaAux, fb.getMarcaPulsadores());
+				Collections.addAll(marcaAux, fb.getMarcaSirenas());
+				Collections.addAll(marcaAux, fb.getMarcaDetectores());
+				
+				marca = marcaAux.toArray(new String[0]);
+				
+				List<String> ubicacionAux = new ArrayList<>();
+				Collections.addAll(ubicacionAux, new String[1]);
+				Collections.addAll(ubicacionAux, fb.getUbiPulsadores());
+				Collections.addAll(ubicacionAux, fb.getUbiSirenas());
+				Collections.addAll(ubicacionAux, fb.getUbiDetectores());
+				
+				ubicacion = ubicacionAux.toArray(new String[0]);
 				
 			} else if (fb.getOidpartetipo() == 6) {
 				ordenEquipoAuxilar = Arrays.asList(fb.getOrdenEquipoAuxiliar()).stream().filter(x -> x != null && x > 0)
@@ -275,10 +305,10 @@ public class ParteService {
 
 			c.setFechaFabExt(dateArray);
 			c.setFechaRetExt(dateArray);
-			c.setNumeroPlacaExt(stringArray);
-			c.setFabricanteExt(stringArray);
+			c.setNumeroPlacaExt(numPlaca);
+			c.setFabricanteExt(marca);
 			c.setCapacidadExt(doubleArray);
-			c.setDescrExt(stringArray);
+			c.setDescrExt(ubicacion);
 			c.setPruebasExt(integerArray);
 
 			c.setPrecioExt(precios);
