@@ -188,7 +188,7 @@
 		</div>
 		<div class="row">
 			<div class="col col-md-2">
-				Long-Mang
+				Equipo
 			</div>
 			<div class="col col-md-10">
 				<select name="longMang" class="form-control" data-live-search="true">
