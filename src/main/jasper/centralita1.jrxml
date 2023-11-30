@@ -168,7 +168,7 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<subreport>
-				<reportElement x="-9" y="41" width="804" height="23" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
+				<reportElement x="-9" y="41" width="804" height="10" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -344,7 +344,7 @@
 				<text><![CDATA[ESTADO]]></text>
 			</staticText>
 			<subreport>
-				<reportElement positionType="Float" x="60" y="119" width="721" height="23" uuid="939a4054-c1ab-4d64-b6e0-a037feee4b4a">
+				<reportElement positionType="Float" x="60" y="119" width="721" height="10" uuid="939a4054-c1ab-4d64-b6e0-a037feee4b4a">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>

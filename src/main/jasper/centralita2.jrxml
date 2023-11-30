@@ -206,7 +206,7 @@
 				<text><![CDATA[ZONA]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="62" y="21" width="720" height="23" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
+				<reportElement x="62" y="21" width="720" height="10" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -297,7 +297,7 @@
 				<text><![CDATA[PULSADORES]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="90" y="162" width="692" height="23" uuid="46412022-4bb1-457e-a3fd-449509c4011b">
+				<reportElement x="90" y="162" width="692" height="10" uuid="46412022-4bb1-457e-a3fd-449509c4011b">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>

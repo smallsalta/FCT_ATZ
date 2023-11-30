@@ -225,7 +225,7 @@
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<subreport>
-				<reportElement positionType="Float" x="112" y="165" width="514" height="23" uuid="86a279ac-9087-481d-9967-76fce79bb4ed">
+				<reportElement positionType="Float" x="112" y="165" width="514" height="10" uuid="86a279ac-9087-481d-9967-76fce79bb4ed">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -249,7 +249,7 @@
 				<text><![CDATA[UBICACION]]></text>
 			</staticText>
 			<subreport>
-				<reportElement positionType="Float" x="114" y="21" width="514" height="23" uuid="f562cd1b-2b71-4e0a-b7fd-4c2925d35d09">
+				<reportElement positionType="Float" x="114" y="21" width="514" height="10" uuid="f562cd1b-2b71-4e0a-b7fd-4c2925d35d09">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>

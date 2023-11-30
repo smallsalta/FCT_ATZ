@@ -168,7 +168,7 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<subreport>
-				<reportElement positionType="Float" x="60" y="21" width="721" height="23" uuid="d7e6c1de-7a92-4916-a0f9-7bb77b924376">
+				<reportElement positionType="Float" x="60" y="21" width="721" height="10" uuid="d7e6c1de-7a92-4916-a0f9-7bb77b924376">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>

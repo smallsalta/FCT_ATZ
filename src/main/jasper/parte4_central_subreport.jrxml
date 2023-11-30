@@ -37,53 +37,69 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="10" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
-				<reportElement x="0" y="0" width="30" height="20" uuid="8935c6fb-333b-4d70-b056-b4328374cde4"/>
+				<reportElement x="0" y="0" width="30" height="10" uuid="8935c6fb-333b-4d70-b056-b4328374cde4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="0" width="30" height="20" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb"/>
+				<reportElement x="160" y="0" width="30" height="10" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="190" y="0" width="30" height="20" uuid="00d30b91-de7f-4e94-a647-0aec504fcf4d"/>
+				<reportElement x="190" y="0" width="30" height="10" uuid="00d30b91-de7f-4e94-a647-0aec504fcf4d">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{reles}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="220" y="0" width="40" height="20" uuid="d5fac0c3-a048-4a30-afc2-63d8fbe5380d"/>
+				<reportElement x="220" y="0" width="40" height="10" uuid="d5fac0c3-a048-4a30-afc2-63d8fbe5380d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{unidades}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="260" y="0" width="47" height="20" uuid="3d283c08-4d4a-4d97-b625-0d98f86ea02f"/>
+				<reportElement x="260" y="0" width="47" height="10" uuid="3d283c08-4d4a-4d97-b625-0d98f86ea02f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nZona}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="307" y="0" width="43" height="20" uuid="31e12c17-2674-488e-ac59-a7da58fa551a"/>
+				<reportElement x="307" y="0" width="43" height="10" uuid="31e12c17-2674-488e-ac59-a7da58fa551a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{zumbador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="0" width="70" height="20" uuid="804703a1-e978-413e-a001-04246c7c3120">
+				<reportElement x="60" y="0" width="70" height="10" uuid="804703a1-e978-413e-a001-04246c7c3120">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -91,23 +107,28 @@
 				<textFieldExpression><![CDATA[$F{tipoBateriaCentral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="350" y="0" width="30" height="20" uuid="257d1c6d-1963-4871-a2d5-ff2913224b56"/>
+				<reportElement x="350" y="0" width="30" height="10" uuid="257d1c6d-1963-4871-a2d5-ff2913224b56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{zonas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="380" y="0" width="70" height="20" uuid="dc802b05-3762-4ec2-bd60-87bc5dc51c54"/>
+				<reportElement x="380" y="0" width="70" height="10" uuid="dc802b05-3762-4ec2-bd60-87bc5dc51c54">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{mandosControl}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="450" y="0" width="72" height="20" uuid="b2348f59-352b-41d6-bfb3-525fcf601a1d">
+				<reportElement x="450" y="0" width="72" height="10" uuid="b2348f59-352b-41d6-bfb3-525fcf601a1d">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -115,9 +136,10 @@
 				<textFieldExpression><![CDATA[$F{lineasCableado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="522" y="0" width="70" height="20" uuid="25abaec3-5a7b-4c69-b3db-fd5cdd346b4d">
+				<reportElement x="522" y="0" width="70" height="10" uuid="25abaec3-5a7b-4c69-b3db-fd5cdd346b4d">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -125,9 +147,10 @@
 				<textFieldExpression><![CDATA[$F{zonasReserva}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="592" y="0" width="40" height="20" uuid="d3030195-0d32-4f54-8d3f-6b3d65c4864f">
+				<reportElement x="592" y="0" width="40" height="10" uuid="d3030195-0d32-4f54-8d3f-6b3d65c4864f">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -135,9 +158,10 @@
 				<textFieldExpression><![CDATA[$F{redIndep}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="632" y="0" width="60" height="20" uuid="52b8cb52-4725-49e1-8e87-38d10b894dc6">
+				<reportElement x="632" y="0" width="60" height="10" uuid="52b8cb52-4725-49e1-8e87-38d10b894dc6">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -145,16 +169,19 @@
 				<textFieldExpression><![CDATA[$F{temporizador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="692" y="0" width="70" height="20" uuid="e2c8a551-3148-42ce-b501-96ace18f6d5a"/>
+				<reportElement x="692" y="0" width="70" height="10" uuid="e2c8a551-3148-42ce-b501-96ace18f6d5a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{estadoCargaCentral}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="30" y="0" width="30" height="20" uuid="6772112c-d469-4836-9ce6-9329d978feba">
+				<reportElement x="30" y="0" width="30" height="10" uuid="6772112c-d469-4836-9ce6-9329d978feba">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -162,14 +189,18 @@
 				<textFieldExpression><![CDATA[$F{pilotos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="762" y="0" width="42" height="20" uuid="492df5f6-48c7-4f37-93f9-7d614f1f6430"/>
+				<reportElement x="762" y="0" width="42" height="10" uuid="492df5f6-48c7-4f37-93f9-7d614f1f6430">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{precioCentral} + " €"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="130" y="0" width="30" height="20" uuid="bbef5a7f-e700-4be1-afad-4aca55589b6f"/>
+				<reportElement x="130" y="0" width="30" height="10" uuid="bbef5a7f-e700-4be1-afad-4aca55589b6f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
