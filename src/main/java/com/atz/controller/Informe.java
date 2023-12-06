@@ -289,4 +289,40 @@ public class Informe
 		
 		return new double[]{base, iva, total};
 	}
+	
+	@RequestMapping("informe_contrato2_buscar.do")
+	public ModelAndView informeContrato2Buscar() 
+	{
+		ModelMap m 	= new ModelMap();
+		Date d 		= new Date();
+		
+		m.put( "fini" , d );
+		m.put( "ffin" , d );
+		
+		return new ModelAndView("informe_contrato2_buscar", m);
+	}
+	
+	@RequestMapping("informe_contrato2_listado.do")
+	public ModelAndView informeContrato2Listado(InformesFb fb) 
+	{
+		List<TContrato> contratos 	= this.cservice.leerContratosFechas( fb.getFini(), fb.getFfin(), null );
+		ModelMap m 					= new ModelMap();
+		Map<Integer, Double> precio	= new HashMap<>();
+		
+		contratos.forEach
+			( 
+				c -> precio.put
+						( 
+							c.getOid(), 
+							c.getTLineaContratos().stream().mapToDouble( t -> t.getPrecio() ).sum() 
+						)
+			);
+		
+		m.put( "contratos", contratos );
+		m.put( "precio", precio );
+		m.put( "fini", fb.getFini() );
+		m.put( "ffin", fb.getFfin() );
+		
+		return new ModelAndView("informe_contrato2_listado", m);
+	}
 }
