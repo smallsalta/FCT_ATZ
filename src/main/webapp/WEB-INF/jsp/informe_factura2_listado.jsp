@@ -26,12 +26,12 @@
 			    		buttons: 	[ 'excel', 'pdf', 'print' ],
 				    	columnDefs: 
 					    		[
-						    		{ targets: [2, 3, 4], className: 'dt-body-left' },
-			                        { targets: [0, 1], className: 'dt-body-center' },
-			                        { targets: [5], className: 'dt-body-right' }
+					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
+						    		{ targets: [5], className: 'dt-body-right' },
+			                        { targets: [0, 1], className: 'dt-body-center' }
 			                    ]
 				    	};
-	    	
+
 			$(document).ready
 			(
 				function() 
@@ -40,10 +40,11 @@
 				} 
 			);
 		</script>
+
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
-		Informe > Contratos desde 
+		Informe > Resumen desde 
 		<fmt:formatDate value="${fini}" pattern="dd/MM/yyyy"/>  
 		hasta 
 		<fmt:formatDate value="${ffin}" pattern="dd/MM/yyyy"/> 
@@ -63,7 +64,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${contratos}" var="c">
+				<c:forEach items="${facturas}" var="c">
 					<tr>
 						<td> ${c.numero} </td>
 						<td> <fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy" /> </td>
