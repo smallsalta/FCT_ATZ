@@ -27,7 +27,8 @@
 			    		buttons: 	[ 'excel', 'pdf', 'print' ],
 				    	columnDefs: 
 					    		[
-						    		{ targets: [3], className: 'dt-body-right' },
+					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
+						    		{ targets: [5], className: 'dt-body-right' },
 			                        { targets: [0, 1], className: 'dt-body-center' }
 			                    ]
 				    	};
@@ -58,7 +59,9 @@
 					<th>Número</th>
 					<th>Fecha</th>
 					<th>Cliente</th>
-					<th>Base</th>
+					<th>Dirección</th>
+					<th>Localidad</th>
+					<th>Importe</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -67,6 +70,8 @@
 						<td> ${c.numero} </td>
 						<td> <fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy" /> </td>
 						<td> ${c.TCliente.nombre} ${c.TCliente.apellidos} </td>
+						<td> ${c.TCliente.direccion} </td>
+						<td> ${c.TCliente.localidad} </td>
 						<td> <fmt:formatNumber value="${totales[c.oid]}" pattern="#,###,##0.00" /> &euro; </td>
 					</tr>
 				</c:forEach>
