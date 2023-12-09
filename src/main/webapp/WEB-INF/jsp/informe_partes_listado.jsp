@@ -28,8 +28,8 @@
 				    	columnDefs: 
 					    		[
 					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
-						    		{ targets: [5], className: 'dt-body-right' },
-			                        { targets: [0, 1], className: 'dt-body-center' }
+			                        { targets: [0, 1, 5], className: 'dt-body-center' },
+			                        { targets: [6], className: 'dt-body-right' }
 			                    ]
 				    	};
 	    	
@@ -61,6 +61,7 @@
 					<th>Cliente</th>
 					<th>Dirección</th>
 					<th>Localidad</th>
+					<th>Teléfono</th>
 					<th>Importe</th>
 				</tr>
 			</thead>
@@ -72,6 +73,7 @@
 						<td> ${c.TCliente.nombre} ${c.TCliente.apellidos} </td>
 						<td> ${c.TCliente.direccion} </td>
 						<td> ${c.TCliente.localidad} </td>
+						<td> ${c.TCliente.telefono1} / ${c.TCliente.telefono2} </td>
 						<td> <fmt:formatNumber value="${totales[c.oid]}" pattern="#,###,##0.00" /> &euro; </td>
 					</tr>
 				</c:forEach>

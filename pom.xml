@@ -4,7 +4,7 @@
    <groupId>com.atz</groupId>
    <artifactId>XTD</artifactId>
    <packaging>war</packaging>
-   <version>1.25.0</version>
+   <version>1.25.1</version>
    <name>Extindet Extintores</name>
    <url>http://maven.apache.org</url>
    <properties>
