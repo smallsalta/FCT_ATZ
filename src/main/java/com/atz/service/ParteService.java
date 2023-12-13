@@ -247,10 +247,10 @@ public class ParteService {
 				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"), this.aservice.getOidByDescr("Detector"),
 						this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena") };
 				
-				precios = new Double[] { Arrays.asList(fb.getPrecioCentral()).stream().reduce(.0, Double::sum),
-										Arrays.asList(fb.getPrecioDetectores()).stream().reduce(.0, Double::sum),
-										Arrays.asList(fb.getPrecioPulsadores()).stream().reduce(.0, Double::sum),
-										Arrays.asList(fb.getPrecioSirenas()).stream().reduce(.0, Double::sum) };
+				precios = new Double[] { Arrays.asList(fb.getPrecioCentral()).stream().filter(x -> x != null).reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioDetectores()).stream().filter(x -> x != null).reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioPulsadores()).stream().filter(x -> x != null).reduce(.0, Double::sum),
+										Arrays.asList(fb.getPrecioSirenas()).stream().filter(x -> x != null).reduce(.0, Double::sum) };
 				
 				List<String> numPlacaAux = new ArrayList<>();
 				Collections.addAll(numPlacaAux, fb.getTipoCentral());
