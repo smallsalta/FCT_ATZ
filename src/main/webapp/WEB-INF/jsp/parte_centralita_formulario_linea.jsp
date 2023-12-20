@@ -10,10 +10,10 @@
 	<c:if test='${oidpartetipo eq 5}'>
 		<li class="active"><a href="#1b" data-toggle="tab">Datos
 				Central</a></li>
-		<li><a href="#2b" data-toggle="tab">Luminaria</a></li>
-		<li><a href="#3b" data-toggle="tab">Detectores</a></li>
 		<li><a href="#4b" data-toggle="tab">Pulsadores</a></li>
 		<li><a href="#5b" data-toggle="tab">Sirenas</a></li>
+		<li><a href="#3b" data-toggle="tab">Detectores</a></li>
+		<li><a href="#2b" data-toggle="tab">Luminaria</a></li>
 	</c:if>
 	<c:if test='${oidpartetipo eq 6}'>
 		<li class="active"><a href="#6b" data-toggle="tab">Equipo Auxiliar</a></li>

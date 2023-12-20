@@ -168,96 +168,6 @@
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<staticText>
-				<reportElement x="702" y="2" width="80" height="20" forecolor="#00004E" uuid="0dc7b55d-e8cf-4336-9b4b-213c0f67c78a">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[PRECIO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="542" y="2" width="80" height="20" forecolor="#00004E" uuid="40c0bfcd-7f94-4a9b-acbe-9dfdd4782a09">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ZONA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="462" y="2" width="80" height="20" forecolor="#00004E" uuid="697a1cba-2094-477c-b3b1-d16f077a28f4">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[AÑO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="622" y="2" width="80" height="20" forecolor="#00004E" uuid="8b72c0ab-0074-4f85-9f91-6ef9ea5f464f">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ESTADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="60" y="2" width="110" height="20" forecolor="#00004E" uuid="e0fd697c-3456-4c59-8421-3e0081b061b2">
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[CANTIDAD]]></text>
-			</staticText>
-			<subreport>
-				<reportElement x="60" y="22" width="722" height="10" uuid="682ac63a-1be0-488f-b6ed-ad5e2ed92ae3">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<dataSourceExpression><![CDATA[$P{partelineassirenas}]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./parte4_sirenas_subreport.jasper"]]></subreportExpression>
-			</subreport>
-			<staticText>
-				<reportElement x="170" y="2" width="128" height="20" forecolor="#00004E" uuid="d2b9f2dd-27e5-4f27-a06e-b0295169f4d4">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[UBICACIÓN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="298" y="2" width="80" height="20" forecolor="#00004E" uuid="7521f608-218e-4096-b5e3-b9cbf6d4d1dd">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[TIPO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="379" y="2" width="83" height="20" forecolor="#00004E" uuid="74fc1cfd-fe25-46db-bfb5-74c8e1bf9a2c">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[MARCA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="2" width="50" height="20" uuid="7decb8d7-a91e-4d0b-8432-d007286ce367"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
-				</textElement>
-				<text><![CDATA[SIRENAS]]></text>
-			</staticText>
 			<textField>
 				<reportElement x="720" y="240" width="62" height="20" uuid="0fd58412-2b35-4c32-986c-b4791d56305b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -274,6 +184,96 @@
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[PRECIO TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="1" width="80" height="20" forecolor="#00004E" uuid="b9e0b25b-3af8-43d8-bd4d-c61b92f91cef">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="61" y="22" width="721" height="10" uuid="86d3f231-c781-485f-be3e-7a3b03a66ee3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{partelineasfuente}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["./parte4_fuente_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="302" y="1" width="80" height="20" forecolor="#00004E" uuid="004f6d9e-4a26-4c8b-be30-b20a8bfc0e2a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="1" width="80" height="20" forecolor="#00004E" uuid="5c946874-0cc4-4c75-bce0-08ce404d8547">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="1" width="80" height="20" forecolor="#00004E" uuid="a06d5e25-4cad-46e6-968f-e458c5f7d805">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="1" width="160" height="20" forecolor="#00004E" uuid="3508da87-e51d-4f73-a383-616050f33ad0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[UBICACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="542" y="1" width="80" height="20" forecolor="#00004E" uuid="592b4f3d-e4e4-4a00-998b-3334662deac1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="60" height="20" uuid="1101759c-8c7b-4ef7-9db9-ff4dfe6b980e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LUMINARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="1" width="80" height="20" forecolor="#00004E" uuid="bd6931e6-d9f9-425e-aeba-4111f84b59e8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AÑO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="622" y="1" width="80" height="20" forecolor="#00004E" uuid="61d81682-95a3-46e3-af61-331cddf6be94">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[LÚMENES]]></text>
 			</staticText>
 		</band>
 	</detail>
