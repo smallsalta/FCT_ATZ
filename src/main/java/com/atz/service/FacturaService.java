@@ -114,14 +114,15 @@ public class FacturaService
 	private String getNumero2(TFactura tc)
 	{
 		Calendar cal 		= Calendar.getInstance();
-		DecimalFormat fmt 	= new DecimalFormat("0000");
+		DecimalFormat fmt4 	= new DecimalFormat("0000");
+		DecimalFormat fmt2 	= new DecimalFormat("00");
 		StringBuffer n2		= new StringBuffer();
 		
 		cal.setTime( tc.getFecha() );
 
-		n2.append( tc.getTEmpresa().getOid() );
+		n2.append( fmt2.format(tc.getTEmpresa().getOid() ) );
 		n2.append( cal.get( Calendar.YEAR ) );
-		n2.append( fmt.format( tc.getNumero() ) );
+		n2.append( fmt4.format( tc.getNumero() ) );
 		
 		return n2.toString();
 	}
@@ -216,7 +217,8 @@ public class FacturaService
 		
 		this.copy(fb, tc);
 		
-		tc.setAuditoria2(new Date());
+		tc.setAuditoria2( new Date() );
+		tc.setNumero2( this.getNumero2(tc) );
 		
 		this.fdao.update(tc);
 		
