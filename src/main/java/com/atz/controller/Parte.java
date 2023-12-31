@@ -790,12 +790,14 @@ public class Parte
 				uri = this.pdfParte.getPdfFolder().getAbsolutePath() + "/" + fb.getNparte() + ".pdf";
 				break;
 			case "factura": 
-				uri = this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getNfactura() + ".pdf";
+				uri = this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
 				break;
 			case "contrato": 
 				uri = this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 				break;
 		}
+		
+		this.log.info(uri);
 		
 		f = new File(uri);
 		

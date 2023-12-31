@@ -64,24 +64,25 @@
 							            	&nbsp;
 							            	
 							            	<c:choose>
-							            		<c:when test="${ fn:substring( matrimonio[c.numero].numero2, 0, 1) eq '7' }">
+							            		<c:when test="${ fn:substring( matrimonio[c.numero].numero2, 0, 2) eq '07' }">
 					            					<span class="label label-primary lupaFactura" id="fc_${ cont.index }">  
 							            		</c:when>
 							            		<c:otherwise>
-						            				<span class="label label-info lupaFactura">
+						            				<span class="label label-info lupaFactura" id="fc_${ cont.index }">
 							            		</c:otherwise>
 							            	</c:choose>
 								            	
 							            	<c:choose>
 							            		<c:when test="${ pagadas[ matrimonio[c.numero].numero2 ] }">
-					            					<u> ${ matrimonio[c.numero].factura } ${ facturas } </u>  
+					            					<u> ${ matrimonio[c.numero].factura } </u>  
 							            		</c:when>
 							            		<c:otherwise>
-						            				${ matrimonio[c.numero].factura } ${ facturas }
+						            				${ matrimonio[c.numero].factura }
 							            		</c:otherwise>
 							            	</c:choose>
 							            	
 							            	</span>
+							            	
 							            	<span style="display: none;" id="fl_${ cont.index }"> ${ matrimonio[c.numero].numero2 } </span>
 						            	</c:if>
 						            	
@@ -104,7 +105,7 @@
 		
 		<form action="parte_matrimonio_lupa.do" method="post" id="frm2">
 			<input type="hidden" id="tipoLupa" name="tipoLupa" />
-			<input type="hidden" id="nfactura" name="nfactura" />
+			<input type="hidden" id="n2factura" name="n2factura" />
 			<input type="hidden" id="nparte" name="nparte" />
 			<input type="hidden" id="ncontrato" name="ncontrato" />
 		</form>

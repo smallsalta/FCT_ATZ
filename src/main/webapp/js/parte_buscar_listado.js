@@ -18,7 +18,7 @@ $(
 				var fl = "#fl_" + $(this).attr("id").split("_")[1];
 				
 				$("#tipoLupa").attr("value", "factura");
-				$("#nfactura").attr("value", $.trim( $(fl).text() ) );
+				$("#n2factura").attr("value", $.trim( $(fl).text() ) );
 				$("#frm2").submit();
 			}
 		);

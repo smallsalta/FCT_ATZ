@@ -16,6 +16,7 @@ public class ParteBuscarFb
 	private Integer oidestadoparte;
 	private Integer nparte;
 	private Integer nfactura;
+	private String n2factura;
 	private Integer ncontrato;
 	private Integer oidmatrimonio;
 	private String tipoLupa;
