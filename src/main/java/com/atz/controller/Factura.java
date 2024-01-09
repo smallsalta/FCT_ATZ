@@ -244,8 +244,9 @@ public class Factura
 	public ModelAndView copia(ContratosFb fb, HttpSession s) 
 	throws IllegalAccessException, InvocationTargetException 
 	{
-		fb.setNumero( this.fservice.maxNumero( fb.getOidempresa() ) );
+//		fb.setNumero( this.fservice.maxNumero( fb.getOidempresa() ) );
 		fb.setOid(null);
+		fb.setFecha( new Date() );
 		
 		return this.crearGuardar(fb, s);
 	}

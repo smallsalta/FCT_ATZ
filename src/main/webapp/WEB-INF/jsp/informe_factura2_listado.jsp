@@ -28,7 +28,7 @@
 					    		[
 					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
 			                        { targets: [0, 1, 5], className: 'dt-body-center' },
-			                        { targets: [6], className: 'dt-body-right' }
+			                        { targets: [6, 7, 8], className: 'dt-body-right' }
 			                    ]
 				    	};
 
@@ -61,7 +61,9 @@
 					<th>Dirección</th>
 					<th>Localidad</th>
 					<th>Teléfono</th>
-					<th>Importe</th>
+					<th>Base</th>
+					<th>IVA</th>
+					<th>Total</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -73,7 +75,9 @@
 						<td> ${c.TCliente.direccion} </td>
 						<td> ${c.TCliente.localidad} </td>
 						<td> ${c.TCliente.telefono1} / ${c.TCliente.telefono2} </td>
-						<td> <fmt:formatNumber value="${ precio[ c.oid] }" pattern="#,###,##0.00" /> &euro; </td>
+						<td> <fmt:formatNumber value="${ c.base }" pattern="#,###,##0.00" /> &euro; </td>
+						<td> <fmt:formatNumber value="${ c.baseIva }" pattern="#,###,##0.00" /> &euro; </td>
+						<td> <fmt:formatNumber value="${ c.total }" pattern="#,###,##0.00" /> &euro; </td>
 					</tr>
 				</c:forEach>
 			</tbody>

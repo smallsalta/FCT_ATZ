@@ -342,20 +342,10 @@ public class Informe
 		List<TFactura> facturas		= this.fservice.leerFacturasFechas( fb.getFini(), fb.getFfin(), fb.getOidempresa(), null, null );	
 		ModelMap m					= new ModelMap();
 		Map<Integer, Double> precio	= new HashMap<>();
-
-		facturas.forEach
-			( 
-				c -> precio.put
-						( 
-							c.getOid(), 
-							c.getTFacturaLineas().stream().mapToDouble( t -> t.getPrecio() ).sum() 
-						)
-			);
 		
 		m.put( "facturas", facturas );
 		m.put( "fini", fb.getFini() );
 		m.put( "ffin", fb.getFfin() );
-		m.put( "precio", precio );
 		
 		return new ModelAndView("informe_factura2_listado", m);
 	}

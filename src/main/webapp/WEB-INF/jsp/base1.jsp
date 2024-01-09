@@ -86,12 +86,12 @@
 							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Informes</a>
 				                    <ul class="dropdown-menu">
 	                    				<li><a href="informe_contrato.do">Contratos</a></li>
-			                    		<li><a href="informe_factura.do">Facturas</a></li>
+	                    				<li><a href="informe_contrato2_buscar.do">Contratos II</a></li>
 			                    		<li><a href="informe_estados.do">Estados</a></li>
-			                    		<li><a href="informe_resumen.do">Resumen</a></li>
-			                    		<li><a href="informe_partes.do">Partes II</a></li>
-			                    		<li><a href="informe_contrato2_buscar.do">Contratos II</a></li>
+			                    		<li><a href="informe_factura.do">Facturas</a></li>
 			                    		<li><a href="informe_factura2_buscar.do">Facturas II</a></li>
+			                    		<li><a href="informe_partes.do">Partes II</a></li>
+			                    		<li><a href="informe_resumen.do">Resumen</a></li>
 				                    </ul>
 				                </li>
 				             </c:if>

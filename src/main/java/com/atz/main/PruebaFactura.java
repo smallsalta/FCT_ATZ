@@ -2,12 +2,16 @@ package com.atz.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.atz.persistencia.TFactura;
 import com.atz.service.FacturaService;
 import com.atz.service.PdfFacturaService;
 
@@ -16,9 +20,8 @@ import net.sf.jasperreports.engine.JRException;
 public class PruebaFactura 
 {
 	public static void main(String[] args) 
-	throws FileNotFoundException, JRException 
+	throws FileNotFoundException, JRException, ParseException 
 	{
-		Map<String, Object> param	= new HashMap<>();
 		PruebaFactura p 			= new PruebaFactura();	
 		
 		ClassLoader classLoader 	= p.getClass().getClassLoader();
@@ -27,8 +30,27 @@ public class PruebaFactura
 		FacturaService fdao			= ctx.getBean( FacturaService.class );
 		PdfFacturaService fserv		= ctx.getBean( PdfFacturaService.class );
 		
-		fserv.setPdfFolder( new File("C:\\Users\\jsilva\\Desktop") );
-		fserv.crear( fdao.leer(2897) );
+		DateFormat fmt				= new SimpleDateFormat("dd/MM/yyyy");
+		Date fini					= fmt.parse("01/01/2023");
+		Date ffin					= fmt.parse("31/12/2023");
+		List<TFactura> lfact		= fdao.leerFacturasFechas( fini, ffin, 8, null, null );
+
+		fserv.setPdfFolder( new File("C:\\Users\\jsilva\\Desktop\\PDF") );
+		
+		lfact.forEach
+		( 
+			t -> 
+				{
+					try 
+					{
+						fserv.crear( fdao.leer( t.getOid() ) );
+					} 
+					catch (Exception e) 
+					{
+						e.printStackTrace();
+					}
+				} 
+		);
 		
 		/*
 		TFactura fct				= fdao.leer(2897);
