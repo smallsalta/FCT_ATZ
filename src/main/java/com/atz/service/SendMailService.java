@@ -2,6 +2,7 @@ package com.atz.service;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -92,10 +93,16 @@ public class SendMailService
 	public void enviarSinCC(TCliente c, String ccExtra, File ... fs) 
 	throws AddressException, MessagingException 
 	{
+		List<String> tmp = Arrays.asList( ccExtra.split(";") );
+		
+		tmp.add( this.copia1 );
+		tmp.add( c.getEmail() );
+				
 		this.enviarComun
 		( 
 			c, 
-			this.calculaTo( this.copia1, ccExtra, c.getEmail() ), 
+//			this.calculaTo( this.copia1, c.getEmail(), ccExtra.split(";") ), 
+			this.calculaTo( tmp.toArray( new String[0] ) ),
 			this.getCuerpo(), 
 			fs 
 		);
@@ -112,10 +119,18 @@ public class SendMailService
 	public void enviarConCC(TCliente c, String ccExtra, File ... fs) 
 	throws AddressException, MessagingException 
 	{
+		List<String> tmp = Arrays.asList( ccExtra.split(";") );
+		
+		tmp.add( this.copia1 );
+		tmp.add( this.copia2 );
+		tmp.add( c.getEmail() );
+		
+		
 		this.enviarComun
 		( 
 			c, 
-			this.calculaTo( this.copia1, this.copia2, ccExtra, c.getEmail() ), 
+//			this.calculaTo( this.copia1, this.copia2, c.getEmail(), ccExtra.split(";") ),
+			this.calculaTo( tmp.toArray( new String[0] ) ),
 			this.getCuerpo(), 
 			fs 
 		);
@@ -128,7 +143,7 @@ public class SendMailService
 	 * @throws AddressException
 	 * @throws MessagingException
 	 */
-	public void enviarConCCyCuadrante(TCliente c, File ... fs) 
+	public void enviarConCCyCuadrante(TCliente c, String cc, File ... fs) 
 	throws AddressException, MessagingException 
 	{
 		File cuadrante 	= new File( this.pdfFolder.getAbsolutePath() + "/cuadrante.pdf" );
@@ -136,7 +151,7 @@ public class SendMailService
 		File[] tmp 		= Arrays.copyOf( fs, tam+1 );
 		tmp[tam]		= cuadrante;
 		
-		this.enviarConCC( c, null, tmp );
+		this.enviarConCC( c, cc, tmp );
 	}
 	
 	/**
@@ -200,7 +215,7 @@ public class SendMailService
 	
 	private String toValido(String to, String append)
 	{
-		return ( to == null || to.isEmpty() ) ? "" : append + to;
+		return ( to == null || to.isEmpty() ) ? "" : append + to.trim();
 	}
 	
 	private void enviarComun(TCliente c, String mailto, String texto, File ... fs) 

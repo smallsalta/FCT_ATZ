@@ -20,7 +20,7 @@
       <jta.version>1.1</jta.version>
       <jackson.version>2.9.5</jackson.version>
       <log4j.version>2.8.1</log4j.version>
-      <lombok.version>1.18.24</lombok.version>
+      <lombok.version>1.18.30</lombok.version>
       <logging.version>1.2</logging.version>
       <mail.version>1.4.7</mail.version>
       <postgres.version>9.1-901-1.jdbc4</postgres.version>
@@ -318,7 +318,7 @@
             <mail.password>lydp pvzx gwzd zics</mail.password>
             <mail.subject>Extindet</mail.subject>
             <mail.copia1>administracion@extindet.com</mail.copia1>
-            <mail.copia2>alvaro@proyectosam.es</mail.copia2>
+            <mail.copia2>futuroCorreoPerito@sinmail.com</mail.copia2>
             <mail.copia3>administracion@extindet.com</mail.copia3>
             <contrato.jasper>_xtd</contrato.jasper>
          </properties>

@@ -591,7 +591,7 @@ public class Parte
 		
 		try 
 		{
-			this.smservice.enviarSinCC(c, fb.getCcemail(), pdfFile);
+			this.smservice.enviarSinCC( c, fb.getCcemail(), pdfFile );
 		} 
 		catch(MessagingException e)
 		{

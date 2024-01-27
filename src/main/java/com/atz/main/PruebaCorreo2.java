@@ -27,7 +27,7 @@ public class PruebaCorreo2
 		PdfContratoService pdf	= ctx.getBean( PdfContratoService.class );
 	    TContrato contrato		= serv.leer(2841);  
 	    
-		sm.enviarConCCyCuadrante( contrato.getTCliente(), pdf.crear(contrato) );
+		sm.enviarConCCyCuadrante( contrato.getTCliente(), null, pdf.crear(contrato) );
 		
 		System.out.println(1);
 	}

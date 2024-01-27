@@ -265,12 +265,12 @@ public class Contrato
 	{
 		File pdfFile	= this.pservice.crear(fb);	
 		TCliente c 		= this.cservice.leer( fb.getOidcliente() );
-		String mensaje	= "Mensaje enviado";
+		String mensaje	= "Mensaje enviado"; 
 		PrintWriter out = resp.getWriter();
         
 		try 
 		{
-			this.smservice.enviarConCCyCuadrante(c, pdfFile);
+			this.smservice.enviarConCCyCuadrante( c, fb.getCcemail(), null );
 		} 
 		catch(MessagingException e)
 		{
