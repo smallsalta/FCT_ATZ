@@ -34,10 +34,21 @@
 									</c:otherwise>
 								</c:choose>
 					            <label for="${cont.index}">
-					            	${c.numero} 
-					            	<fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy"/>
+					            	<h4>
+						            	<span class="label label-default">
+						            		${c.numero} 
+						            	</span>
+						            	&nbsp;
+						            	<span class="label label-success">
+						            		${c.TCliente.nombre} ${c.TCliente.apellidos}
+						            	</span>
+						            	&nbsp;
+						            	<span class="label label-primary"> 
+						            		<fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy"/>
+						            	</span>
+					            	</h4> 
 					            </label>
-					        </div>
+							</div>
 					    </c:forEach>
 					</div>
 					<br/>
