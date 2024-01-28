@@ -11,6 +11,7 @@
 
 	<tiles:putAttribute name="head">
 		<link href="css/contrato_buscar_listado.css" rel="stylesheet"/>
+		<script src="js/picadas_listado.js"></script>
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
@@ -23,7 +24,7 @@
 				No hay picadas.
 			</c:when>
 			<c:otherwise>
-				<form method="post" action="picadas_borrar.do">
+				<form id="frm_picada" method="post" action="picadas_borrar.do">
 					<div class="funkyradio">
 						<c:forEach items="${picadas}" var="c" varStatus="cont">
 							<div class="funkyradio-default">
@@ -73,7 +74,19 @@
 					</div>
 					
 					<br/>
-					<button class="btn btn-info btn-block login" type="submit">Borrar</button>
+					
+					<div class="container">
+						<div class="row">
+							<div class="col col-md-6 mt-5">
+								<button id="btn_modif" class="btn btn-info btn-block login" type="button">Modificar</button>
+							</div>
+							<div class="col col-md-6 mt-5">
+								<button id="btn_borr" class="btn btn-info btn-block login" type="button">Borrar</button>
+							</div>
+						</div>
+					</div>
+					
+					
 				</form>
 					
 			</c:otherwise>

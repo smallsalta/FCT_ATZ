@@ -67,6 +67,12 @@ public class PicadasService
 	}
 	
 	@Transactional
+	public TPicada leerPicada(PicadasFb fb) 
+	{
+		return this.dao.read( fb.getOid() );
+	}
+	
+	@Transactional
 	public void borrarPicadas(PicadasFb fb) 
 	{
 		this.dao.delete(fb);

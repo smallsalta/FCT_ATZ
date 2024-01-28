@@ -46,6 +46,11 @@ public class PicadaDAO
 		return qry.list();
 	}
 	
+	public TPicada read(int oid)
+	{
+		return this.sessionFactory.getCurrentSession().get( TPicada.class, oid );
+	}
+	
 	public void delete(PicadasFb fb)
 	{
 		Session ses = this.sessionFactory.getCurrentSession();

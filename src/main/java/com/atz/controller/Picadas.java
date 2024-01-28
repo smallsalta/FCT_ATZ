@@ -52,6 +52,30 @@ public class Picadas
 		return new ModelAndView("picadas_alta", m);
 	}
 	
+	@RequestMapping("picadas_modificar.do")
+	public ModelAndView modificar(PicadasFb fb) 
+	{
+		ModelMap m = new ModelMap();
+		
+		m.put( "picada" , this.ps.leerPicada(fb) );
+		
+		return new ModelAndView("picadas_modificar", m);
+	}
+	
+	@RequestMapping("picadas_modificar_guardar.do")
+	public ModelAndView modificarGuardar(PicadasFb fb, HttpSession ses) 
+	throws ParseException 
+	{
+		TUsuario tus = (TUsuario) ses.getAttribute("usuario");
+		
+		this.log.info(fb);
+		
+		this.ps.borrarPicadas(fb);
+		this.ps.altaPicada( tus, fb );
+		
+		return this.obtenerUltimasPicadas(ses, fb);
+	}
+	
 	@RequestMapping("picadas_guardar.do")
 	public ModelAndView guardar(PicadasFb fb, HttpSession ses) 
 	throws ParseException 
