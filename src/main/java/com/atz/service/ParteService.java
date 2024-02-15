@@ -243,16 +243,6 @@ public class ParteService {
 						+ ordenPulsadores.stream().filter(x -> x > 0).toList().size() 
 						+ ordenSirenas.stream().filter(x -> x > 0).toList().size();
 				
-				/*cant = new Integer[] { ordenCentral.size(), ordenDetectores.size(),
-						ordenPulsadores.size(), ordenSirenas.size() };
-				
-				agentes = new Integer[] { this.aservice.getOidByDescr("Central de incendio"), this.aservice.getOidByDescr("Detector"),
-						this.aservice.getOidByDescr("Pulsador"), this.aservice.getOidByDescr("Sirena") };*/
-				
-				/*precios = new Double[] { Arrays.asList(fb.getPrecioCentral()).stream().filter(x -> x != null).reduce(.0, Double::sum),
-				Arrays.asList(fb.getPrecioDetectores()).stream().filter(x -> x != null).reduce(.0, Double::sum),
-				Arrays.asList(fb.getPrecioPulsadores()).stream().filter(x -> x != null).reduce(.0, Double::sum),
-				Arrays.asList(fb.getPrecioSirenas()).stream().filter(x -> x != null).reduce(.0, Double::sum) };*/
 				List<Integer> cantAux = new ArrayList<>();
 				List<Integer> agentesAux = new ArrayList<>();
 				List<Double> preciosAux = new ArrayList<>();
@@ -304,30 +294,6 @@ public class ParteService {
 				marca = marcaAux.toArray(new String[0]);
 				ubicacion = ubicacionAux.toArray(new String[0]);
 				
-				
-				/*List<String> numPlacaAux = new ArrayList<>();
-				Collections.addAll(numPlacaAux, fb.getTipoCentral());
-				Collections.addAll(numPlacaAux, fb.getTipoPulsadores());
-				Collections.addAll(numPlacaAux, fb.getTipoSirenas());
-				Collections.addAll(numPlacaAux, fb.getFuncionDetectores());
-				
-				numPlaca = numPlacaAux.toArray(new String[0]);
-				
-				List<String> marcaAux = new ArrayList<>();
-				Collections.addAll(marcaAux, fb.getMarca());
-				Collections.addAll(marcaAux, fb.getMarcaPulsadores());
-				Collections.addAll(marcaAux, fb.getMarcaSirenas());
-				Collections.addAll(marcaAux, fb.getMarcaDetectores());
-				
-				marca = marcaAux.toArray(new String[0]);
-				
-				List<String> ubicacionAux = new ArrayList<>();
-				Collections.addAll(ubicacionAux, new String[1]);
-				Collections.addAll(ubicacionAux, fb.getUbiPulsadores());
-				Collections.addAll(ubicacionAux, fb.getUbiSirenas());
-				Collections.addAll(ubicacionAux, fb.getUbiDetectores());
-				
-				ubicacion = ubicacionAux.toArray(new String[0]);*/
 				
 			} else if (fb.getOidpartetipo() == 6) {
 				ordenEquipoAuxilar = Arrays.asList(fb.getOrdenEquipoAuxiliar()).stream().filter(x -> x != null && x > 0)
