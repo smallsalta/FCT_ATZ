@@ -91,6 +91,8 @@ extends PdfContrato
 		cliente.append(" ");
 		cliente.append( cli.getApellidos() );
 		cliente.append("\n");
+		cliente.append( cli.getEmail() );
+		cliente.append("\n");
 		cliente.append( cli.getDni() );
 		cliente.append("\n");
 		cliente.append( cli.getDireccion() );

@@ -29,7 +29,7 @@
 				</div>
 				<div class="col col-md-8">
 					<div class="col alert alert-info">
-						Bienvenido ${usuario.username}, estÃ¡s en <tiles:insertAttribute name="miga" />
+						Bienvenido ${usuario.username}, estás en <tiles:insertAttribute name="miga" />
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
     			<nav class="navbar navbar-default">
     				<div class="container-fluid">
 	    				<div class="navbar-header">
-	      					<a class="navbar-brand" href="#">MenÃº</a>
+	      					<a class="navbar-brand" href="#">Menú</a>
 	    				</div>
 	   					<ul class="nav navbar-nav">
 					        <li class="dropdown">
