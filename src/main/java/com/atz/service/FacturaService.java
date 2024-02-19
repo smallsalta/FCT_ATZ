@@ -90,8 +90,8 @@ public class FacturaService
 		List<TFactura> lf				= this.fdao.readFacturasNumero2(ln2);
 		Map<String, Boolean> pagadas 	= new HashMap<>();
 		
-		
-		lf.forEach( t -> pagadas.put( t.getNumero2(),  t.getTEstado().getOid() == 2 ) );
+		// PAGADAS = Todo lo que no sea SIN PAGAR
+		lf.forEach( t -> pagadas.put( t.getNumero2(),  t.getTEstado().getOid() != 1 ) );
 		
 		return pagadas;
 	}
