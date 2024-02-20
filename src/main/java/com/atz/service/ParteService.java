@@ -198,7 +198,7 @@ public class ParteService {
 
 			Integer[] cant = new Integer[fb.getOrden().length];
 			for (int i = 0; i < fb.getOrden().length; i++) {
-				cant[i] = 1; //fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
+				cant[i] = 1;
 			}
 			c.setCantidadExt(cant);
 
