@@ -187,13 +187,18 @@ public class ParteService {
 			c.setPrecioExt(fb.getPrecio());
 			c.setFechaFabExt(fb.getFechaRetimA());
 			c.setFechaRetExt(fb.getFechaRetimB());
-			c.setFabricanteExt(new String[fb.getOrden().length]);
 			c.setCapacidadExt(new Double[fb.getOrden().length]);
 			c.setPruebasExt(new Integer[fb.getOrden().length]);
+			
+			String[] fab = new String[fb.getOrden().length];
+			for (int i = 0; i < fb.getOrden().length; i++) {
+				fab[i] = "";
+			}
+			c.setFabricanteExt(fab);
 
 			Integer[] cant = new Integer[fb.getOrden().length];
 			for (int i = 0; i < fb.getOrden().length; i++) {
-				cant[i] = fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
+				cant[i] = 1; //fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
 			}
 			c.setCantidadExt(cant);
 
@@ -206,7 +211,7 @@ public class ParteService {
 			
 			String[] nPlaca = new String[fb.getOrden().length];
 			for(int i = 0; i < fb.getTipo().length; i++) {
-				nPlaca[i] = Integer.toString(fb.getTipo()[i]);
+				nPlaca[i] = fb.getNumSerie()[i];
 			}
 			c.setNumeroPlacaExt(nPlaca);
 			
