@@ -8,7 +8,8 @@
 <tiles:insertDefinition name="base">
 
 	<tiles:putAttribute name="head">
-		&nbsp;
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
@@ -51,6 +52,15 @@
 						Cliente  
 					</div>
 					<div class="col col-md-10">
+						<!--  
+						<select id="oidcliente" name="oidcliente" class="selectpicker form-control" data-live-search="true" required>
+							<option value="-1">:: Seleccione uno ::</option>
+							<c:forEach items="${clientes}" var="c">
+								<option value="${c.oid}">${c.nombre} ${c.apellidos}</option>
+							</c:forEach>
+						</select>
+						-->
+
 						<select id="oidcliente" name="oidcliente" class="selectpicker form-control" data-live-search="true" required>
 							<option value="-1">:: Seleccione uno ::</option>
 							<c:forEach items="${clientes}" var="c">

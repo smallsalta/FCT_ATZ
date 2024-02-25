@@ -120,10 +120,11 @@ extends PdfContrato
 		
 		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper , param );
 		JasperPrint fis2	= this.getJasperPrint( "atz2" + this.contratoJasper, param );
-		JasperPrint fis3 	= this.getJasperPrint( "atz3" + this.contratoJasper, param );
+//		JasperPrint fis3 	= this.getJasperPrint( "atz3" + this.contratoJasper, param );
 		JasperPrint fis4 	= this.getJasperPrint( "atz4" + this.contratoJasper, param );
 		
-		this.merge( fis1, fis2, fis3, fis4 );
+//		this.merge( fis1, fis2, fis3, fis4 );
+		this.merge( fis1, fis2, fis4 );
 		this.removeBlankPage( fis1.getPages() );
 		this.addPageCounter( fis1.getPages() );
 		

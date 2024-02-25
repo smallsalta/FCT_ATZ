@@ -2,6 +2,7 @@ package com.atz.service;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
@@ -93,16 +94,18 @@ public class SendMailService
 	public void enviarSinCC(TCliente c, String ccExtra, File ... fs) 
 	throws AddressException, MessagingException 
 	{
-		List<String> tmp = Arrays.asList( ccExtra.split(";") );
+		List<String> tmp1 	= Arrays.asList( ccExtra.split(";") );
+		List<String> tmp2	= new LinkedList<>();
 		
-		tmp.add( this.copia1 );
-		tmp.add( c.getEmail() );
+		tmp2.addAll( tmp1 );
+//		tmp2.add( this.copia1 );
+		tmp2.add( c.getEmail() );
 				
 		this.enviarComun
 		( 
 			c, 
 //			this.calculaTo( this.copia1, c.getEmail(), ccExtra.split(";") ), 
-			this.calculaTo( tmp.toArray( new String[0] ) ),
+			this.calculaTo( tmp2.toArray( new String[0] ) ),
 			this.getCuerpo(), 
 			fs 
 		);
@@ -119,18 +122,19 @@ public class SendMailService
 	public void enviarConCC(TCliente c, String ccExtra, File ... fs) 
 	throws AddressException, MessagingException 
 	{
-		List<String> tmp = Arrays.asList( ccExtra.split(";") );
+		List<String> tmp1 = Arrays.asList( ccExtra.split(";") );
+		List<String> tmp2 = new LinkedList<>();
 		
-		tmp.add( this.copia1 );
-		tmp.add( this.copia2 );
-		tmp.add( c.getEmail() );
-		
+		tmp2.addAll( tmp1 );
+//		tmp2.add( this.copia1 );
+//		tmp2.add( this.copia2 );
+		tmp2.add( c.getEmail() );
 		
 		this.enviarComun
 		( 
 			c, 
 //			this.calculaTo( this.copia1, this.copia2, c.getEmail(), ccExtra.split(";") ),
-			this.calculaTo( tmp.toArray( new String[0] ) ),
+			this.calculaTo( tmp2.toArray( new String[0] ) ),
 			this.getCuerpo(), 
 			fs 
 		);

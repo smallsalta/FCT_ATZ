@@ -10,7 +10,9 @@
 	<tiles:putAttribute name="head">
 		<link href="css/contrato_buscar_listado.css" rel="stylesheet"/>
 		<script>
-			$( document ).ready
+			var oids = null;
+			
+			$(document).ready
 			(
 				function() 
 				{
@@ -18,15 +20,23 @@
 					(
 						function()
 						{
+							oids = new Array();
+							
 							$(":radio").each
 							(
 								function(e)
 								{
-									$(this).attr("checked", true);
-									
+									oids[ oids.length ] = $(this).val();
+								}
+							);
+							
+							$.each
+							(
+								oids, 
+								function( index, value ) 
+								{
 									var win = window.open( '', '_blank' );
-									
-									win.location.href = "informe_factura_pdf.do?" + $("form").serialize();
+									win.location.href = "informe_factura_pdf.do?oid=" + value;
 								}
 							);
 						}
