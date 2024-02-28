@@ -243,10 +243,10 @@ public class ParteService {
 				ordenSirenas = Arrays.asList(fb.getOrdenSirenas()).stream().filter(x -> x != null && x > 0)
 						.collect(Collectors.toList());
 				
-				numLineas = ordenCentral.stream().filter(x -> x > 0).toList().size() 
-						+ ordenDetectores.stream().filter(x -> x > 0).toList().size()
-						+ ordenPulsadores.stream().filter(x -> x > 0).toList().size() 
-						+ ordenSirenas.stream().filter(x -> x > 0).toList().size();
+				numLineas = ordenCentral.stream().filter(x -> x > 0).collect(Collectors.toList()).size() 
+						+ ordenDetectores.stream().filter(x -> x > 0).collect(Collectors.toList()).size()
+						+ ordenPulsadores.stream().filter(x -> x > 0).collect(Collectors.toList()).size() 
+						+ ordenSirenas.stream().filter(x -> x > 0).collect(Collectors.toList()).size();
 				
 				List<Integer> cantAux = new ArrayList<>();
 				List<Integer> agentesAux = new ArrayList<>();
