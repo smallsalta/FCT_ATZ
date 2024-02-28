@@ -90,8 +90,7 @@
 						<button id="btn-email" class="btn btn-light btn-block login"
 							type="button">eMail</button>
 					</div>
-					<c:if
-						test="${oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4}">
+					<c:if test="${oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4}">
 						<div class="col col-md-4 mt-5">
 							<button id="btn-pdf" class="btn btn-secondary btn-block login"
 								type="button">PDF</button>
@@ -109,6 +108,17 @@
 								type="button">PDF</button>
 						</div>
 					</c:if>
+					<div class="col col-md-4 mt-5">
+						<c:if test='${partechapuza and (oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4)}'>
+							<button id="btn_fct_cont" class="btn btn-secondary btn-block" type="button">PDF Contrato</button>
+						</c:if>
+						<c:if test='${partechapuza and (oidpartetipo eq 5)}'>
+							<button id="btn_fct_cont_1" class="btn btn-secondary btn-block" type="button">PDF Contrato</button>
+						</c:if>
+						<c:if test='${partechapuza and (oidpartetipo eq 6)}'>
+							<button id="btn_fct_cont_2" class="btn btn-secondary btn-block" type="button">PDF Contrato</button>
+						</c:if>
+					</div>
 				</div>
 			</div>
 	
@@ -134,24 +144,6 @@
 				</div>
 			</div>
 			
-			<br />
-			
-			<div class="container">
-				<div class="row">
-					<div class="col col-md-4 mt-5">
-						<c:if test='${partechapuza and (oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4)}'>
-							<button id="btn_fct_cont" class="btn btn-default btn-block" type="button">PDF Contrato</button>
-						</c:if>
-						<c:if test='${partechapuza and (oidpartetipo eq 5)}'>
-							<button id="btn_fct_cont_1" class="btn btn-default btn-block" type="button">PDF Contrato</button>
-						</c:if>
-						<c:if test='${partechapuza and (oidpartetipo eq 6)}'>
-							<button id="btn_fct_cont_2" class="btn btn-default btn-block" type="button">PDF Contrato</button>
-						</c:if>
-					</div>
-				</div>
-			</div>
-
 			<div class="modal fade" id="myModal1">
 				<div class="modal-dialog">
 					<div class="modal-content">

@@ -270,7 +270,7 @@ public class Contrato
         
 		try 
 		{
-			this.smservice.enviarConCCyCuadrante( c, fb.getCcemail(), new File[0] );
+			this.smservice.enviarConCCyCuadrante( c, fb.getCcemail(), pdfFile );
 		} 
 		catch(MessagingException e)
 		{
