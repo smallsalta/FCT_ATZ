@@ -134,6 +134,23 @@
 				</div>
 			</div>
 			
+			<br />
+			
+			<div class="container">
+				<div class="row">
+					<div class="col col-md-4 mt-5">
+						<c:if test='${partechapuza and (oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4)}'>
+							<button id="btn_fct_cont" class="btn btn-default btn-block" type="button">PDF Contrato</button>
+						</c:if>
+						<c:if test='${partechapuza and (oidpartetipo eq 5)}'>
+							<button id="btn_fct_cont_1" class="btn btn-default btn-block" type="button">PDF Contrato</button>
+						</c:if>
+						<c:if test='${partechapuza and (oidpartetipo eq 6)}'>
+							<button id="btn_fct_cont_2" class="btn btn-default btn-block" type="button">PDF Contrato</button>
+						</c:if>
+					</div>
+				</div>
+			</div>
 
 			<div class="modal fade" id="myModal1">
 				<div class="modal-dialog">

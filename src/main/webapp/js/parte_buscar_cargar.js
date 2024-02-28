@@ -118,6 +118,36 @@ $(
 			}
 		);
 		
+		$("#btn_fct_cont").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_chapuza.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn_fct_cont_1").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_chapuza1.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn_fct_cont_2").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_chapuza2.do");
+				$("#frm").submit();
+			}
+		);
+		
 		cargarCliente();
 	}
 );

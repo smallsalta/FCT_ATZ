@@ -2,9 +2,11 @@ package com.atz.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +32,8 @@ import com.atz.pdf.ParteLineaFbArray;
 import com.atz.pdf.PreguntaFb;
 import com.atz.pdf.PreguntaFbArray;
 import com.atz.persistencia.TCliente;
+import com.atz.persistencia.TContrato;
+import com.atz.persistencia.TLineaContrato;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TParteLinea;
 import com.atz.persistencia.TPreguntas;
@@ -50,6 +54,12 @@ public class PdfParteService extends PdfContrato {
 	
 	@Autowired
 	private UsuarioService uservice;
+	
+	@Autowired
+	private MatrimonioService mservice;
+	
+	@Autowired
+	private ContratoService cservice;
 	
 	@Autowired
 	@Qualifier("parteFolder")
@@ -87,6 +97,135 @@ public class PdfParteService extends PdfContrato {
 		TParte p = this.pservice.leer(fb.getOid());
 		
 		return this.crearComun(p, 2);
+	}
+	
+
+	public File chapuza(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+		TParte p = this.pservice.leer(fb.getOid());
+		
+		return this.crearComunC(p, 0);
+	}
+	
+	public File chapuza1(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+		TParte p = this.pservice.leer(fb.getOid());
+		
+		return this.crearComunC(p, 1);
+	}
+	
+	public File chapuza2(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+		TParte p = this.pservice.leer(fb.getOid());
+		
+		return this.crearComunC(p, 2);
+	}
+	
+	private File crearComunC(TParte p, int pdfCentral) 
+	throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+		
+		Map<String, Object> param	= new HashMap<>();
+		ParteLineaFbArray pla		= new ParteLineaFbArray();
+		String pdfFile				= this.parteFolder.getAbsolutePath() + "/" + p.getNumero() + ".pdf";
+		
+		JasperPrint parte = null;
+		
+		/*param.put("nombre", p.getTCliente().getNombre() + " " + p.getTCliente().getApellidos());
+		param.put("fecha", p.getFecha());
+		param.put("numero", p.getNumero());
+		param.put("cliente_direccion", this.makeClienteDireccion(p.getTCliente()));
+		param.put("cliente_telefono", p.getTCliente().getTelefono1() == null ? "" : p.getTCliente().getTelefono1().toString());
+		param.put("cliente_correo", p.getTCliente().getEmail() == null ? "" : p.getTCliente().getEmail());
+		param.put("cliente_dni", p.getTCliente().getDni() == null ? "" : p.getTCliente().getDni());
+		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );*/
+		param.put("dni", p.getDni() == null ? "" : p.getDni());
+		param.put("usuario", this.makeUsuario(p.getTUsuario()));
+
+		
+		if(p.getTParteTipo().getOid() == 5 || p.getTParteTipo().getOid() == 6) {
+			ParteLineaFbArray plcentral = new ParteLineaFbArray();
+			ParteLineaFbArray pldetectores = new ParteLineaFbArray();
+			ParteLineaFbArray plfuente = new ParteLineaFbArray();
+			ParteLineaFbArray plpulsadores = new ParteLineaFbArray();
+			ParteLineaFbArray plsirenas = new ParteLineaFbArray();
+			ParteLineaFbArray plequipoauxiliar = new ParteLineaFbArray();
+			ParteLineaFbArray plretenedor = new ParteLineaFbArray();
+			ParteLineaFbArray plpuertas = new ParteLineaFbArray();
+			
+			this.copyCentralita(plcentral, p.getTParteLineas().stream().filter(x -> x.getOrdenCentral() != null && x.getOrdenCentral() > 0).sorted(new CentralComparator()).collect(Collectors.toList()), 1);
+			this.copyCentralita(plfuente, p.getTParteLineas().stream().filter(x -> x.getOrdenFuente() != null && x.getOrdenFuente() > 0).sorted(new FuenteComparator()).collect(Collectors.toList()), 2);
+			this.copyCentralita(pldetectores, p.getTParteLineas().stream().filter(x -> x.getOrdenDetectores() != null && x.getOrdenDetectores() > 0).sorted(new DetectoresComparator()).collect(Collectors.toList()), 3);
+			this.copyCentralita(plpulsadores, p.getTParteLineas().stream().filter(x -> x.getOrdenPulsadores() != null && x.getOrdenPulsadores() > 0).sorted(new PulsadoresComparator()).collect(Collectors.toList()), 4);
+			this.copyCentralita(plsirenas, p.getTParteLineas().stream().filter(x -> x.getOrdenSirenas() != null && x.getOrdenSirenas() > 0).sorted(new SirenasComparator()).collect(Collectors.toList()), 5);
+			this.copyCentralita(plequipoauxiliar, p.getTParteLineas().stream().filter(x -> x.getOrdenEquipoAuxiliar() != null && x.getOrdenEquipoAuxiliar() > 0).sorted(new EquipoAuxiliarComparator()).collect(Collectors.toList()), 6);
+			this.copyCentralita(plretenedor, p.getTParteLineas().stream().filter(x -> x.getOrdenRetenedor() != null && x.getOrdenRetenedor() > 0).sorted(new RetenedorComparator()).collect(Collectors.toList()), 7);
+			this.copyCentralita(plpuertas, p.getTParteLineas().stream().filter(x -> x.getOrdenPuertas() != null && x.getOrdenPuertas() > 0).sorted(new PuertasComparator()).collect(Collectors.toList()), 8);
+			
+			param.put("precio_total", this.calculaTotalCentralita(p.getTParteLineas()));
+			param.put("partelineascentral", plcentral);
+			param.put("partelineasfuente", plfuente);
+			param.put("partelineasdetectores", pldetectores);
+			param.put("partelineaspulsadores", plpulsadores);
+			param.put("partelineassirenas", plsirenas);
+			param.put("partelineasequipoauxiliar", plequipoauxiliar);
+			param.put("partelineasretenedor", plretenedor);
+			param.put("partelineaspuertas", plpuertas);
+			
+			
+			if(pdfCentral == 1) {
+				parte = this.getJasperPrint("centralita1_c", param);
+				JasperPrint c2 = this.getJasperPrint("centralita2_c", param);
+				JasperPrint c3 = this.getJasperPrint("centralita3_1_c", param);
+				this.merge(parte, c2, c3);
+				
+			} else if(pdfCentral == 2) {
+				parte = this.getJasperPrint("centralita3_2_c", param);
+				JasperPrint c2 = this.getJasperPrint("centralita4_c", param);
+				this.merge(parte, c2);
+				
+			}
+			
+			
+			this.removeBlankPageParte(parte.getPages());
+			
+			
+		} else {
+			
+			this.copy(pla, p);
+			
+			param.put("partelineas", pla);
+			
+			if(p.getTParteTipo().getOid() == 1 || p.getTParteTipo().getOid() == 2 || p.getTParteTipo().getOid() == 4) {
+				param.put("precio_total", this.calculaTotal(p.getTParteLineas()));
+			}
+			
+			parte 			= this.getJasperPrint(this.getJasperFromTipo(p.getTParteTipo().getOid()) + "_c", param);
+			
+			// this.removeBlankPageParte(jp.getPages());
+			
+			this.removeBlankPageParte(parte.getPages());
+			
+		}
+		
+		param.put( "nombre", "" );
+		param.put( "direccionCli", "" );
+		param.put( "fecha", new Date() );
+		param.put( "numero", 0 );
+		param.put( "direccionCert", "" );
+		param.put( "anexo", "" );
+		param.put( "precio", .0 );
+		param.put( "trimestral", .0 );
+		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
+		
+		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper + "_c" , param );
+		JasperPrint fis2	= this.getJasperPrint( "atz2" + this.contratoJasper + "_c", param );
+		JasperPrint fis4 	= this.getJasperPrint( "atz4" + this.contratoJasper + "_c", param );
+		
+		this.merge( fis1, parte, fis2, fis4 );
+		this.removeBlankPage( fis1.getPages() );
+		this.addPageCounter( fis1.getPages() );
+		
+		JasperExportManager.exportReportToPdfFile(fis1, pdfFile);
+		
+		return new File(pdfFile);
+		
 	}
 	
 	private File crearComun(TParte p, int pdfCentral) 
@@ -573,4 +712,5 @@ public class PdfParteService extends PdfContrato {
 	{
 		return this.parteFolder;
 	}
+
 }

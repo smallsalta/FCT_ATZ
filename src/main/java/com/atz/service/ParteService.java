@@ -73,6 +73,9 @@ public class ParteService {
 
 	@Autowired
 	private AgenteService aservice;
+	
+	@Autowired
+	private MatrimonioService mservice;
 
 	@Transactional(readOnly = true)
 	public List<TParte> leerTodos() {
@@ -655,5 +658,12 @@ public class ParteService {
 		tp.setAuditoriaEmail(new Date());
 
 		this.pdao.update(tp);
+	}
+	
+	public boolean isPaseChapuza(TParte p) throws IllegalAccessException, InvocationTargetException {
+		List<TParte> pa = new ArrayList<>();
+		pa.add(p);
+		
+		return this.mservice.leer(pa).size() > 0;
 	}
 }

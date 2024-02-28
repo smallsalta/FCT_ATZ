@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="17"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="direccionCli" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.Object"/>
+	<parameter name="numero" class="java.lang.Object"/>
+	<parameter name="direccionCert" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="extintores" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\jsilva\\Desktop\\jrxml\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="anexo" class="java.lang.String"/>
+	<parameter name="precio" class="java.lang.Object"/>
+	<parameter name="preguntas" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="115" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image>
+				<reportElement x="0" y="0" width="251" height="100" uuid="b12b9d38-0479-4102-bc72-bab3e53fbb15"/>
+				<imageExpression><![CDATA["./logo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement stretchType="RelativeToBandHeight" x="682" y="0" width="100" height="100" uuid="ef66899b-b886-4261-9eb6-2ffc6507c518"/>
+				<imageExpression><![CDATA["./eqa.jpeg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="291" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="103" width="178" height="20" uuid="f27753f9-a20e-48a3-8a3f-df42d60f88e7"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL CLIENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="123" width="178" height="20" uuid="ce98b8c5-123e-46c8-88e7-0a91bb83215f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="178" height="20" uuid="cf567c43-6383-49d3-91d9-60a861e3c374"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="163" width="178" height="20" uuid="9cec4073-44f1-4114-931e-3a94c3f9462a"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[NÚMERO DE CERTIFICADO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="183" width="178" height="20" uuid="958add5c-f3f3-4304-be5e-5cfca95bff8b"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DEL CERTIFICADO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="780" height="30" uuid="a435bbde-0fc6-421e-ad11-f9f10a4ed574"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="71" width="780" height="32" forecolor="#FF3333" uuid="41e6bbe7-f9c0-4a78-bc32-3fce467a91fe"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="18"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="780" height="21" uuid="f6a805db-523e-48ab-b8a9-bdb63e76ab89"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[*****************************************************************************************************************************************]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="203" width="780" height="21" uuid="87dfec27-5dc8-4462-b1e4-13e33102a49a"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[*****************************************************************************************************************************************]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="103" width="670" height="20" uuid="ce0605ec-a8cb-4ef3-ac29-027de0cc13e1"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Se informa a los señores clientes que tienen a su disposición la política de calidad según la norma UNE EN ISO 9001:2015. Aquellos que deseen una copia deberán solicitarla a info@extindet.com.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="102" width="110" height="20" uuid="163d2c7e-d2ac-4720-9778-d915bcfb1c8c"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[CONTADOR_PAGINAS]]></text>
+			</staticText>
+			<image>
+				<reportElement positionType="Float" x="581" y="0" width="200" height="91" uuid="19d2d57f-2b9c-4867-ae7a-ab689b826813"/>
+				<imageExpression><![CDATA["./sello_xtd.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

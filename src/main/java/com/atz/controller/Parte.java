@@ -334,7 +334,8 @@ public class Parte
 		}
 	}
 
-	private ModelAndView cargarParte(TParte c)
+	private ModelAndView cargarParte(TParte c) 
+	throws IllegalAccessException, InvocationTargetException
 	{
 		ModelMap m		= new ModelMap();
 		
@@ -352,6 +353,7 @@ public class Parte
 		m.put( "respuestas", this.qservice.getRespuestas() );
 		m.put( "pruebas", this.kservice.leerPruebas() );
 		m.put( "historial", this.pcservice.leerTodos( c.getOid() ) );
+		m.put( "partechapuza", this.pservice.isPaseChapuza(c));
 		
 		if(oidpartetipo == 1 || oidpartetipo == 2 ||oidpartetipo == 4) {
 			m.put( "tiposextintor", this.getTiposExtintor(oidpartetipo));
@@ -560,6 +562,33 @@ public class Parte
 	public void pdf2(PartesFb fb, HttpServletResponse resp)
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
 		File pdfFile = this.pdfservice.crear2(fb);
+		Descargar desc = new Descargar();
+		
+		desc.flush(pdfFile, resp);
+	}
+	
+	@RequestMapping("parte_chapuza.do")
+	public void parteChapuza(PartesFb fb, HttpServletResponse resp) 
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+		File pdfFile = this.pdfservice.chapuza(fb);
+		Descargar desc = new Descargar();
+		
+		desc.flush(pdfFile, resp);
+	}
+	
+	@RequestMapping("parte_chapuza1.do")
+	public void parteChapuza1(PartesFb fb, HttpServletResponse resp) 
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+		File pdfFile = this.pdfservice.chapuza1(fb);
+		Descargar desc = new Descargar();
+		
+		desc.flush(pdfFile, resp);
+	}
+	
+	@RequestMapping("parte_chapuza2.do")
+	public void parteChapuza2(PartesFb fb, HttpServletResponse resp) 
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+		File pdfFile = this.pdfservice.chapuza2(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
