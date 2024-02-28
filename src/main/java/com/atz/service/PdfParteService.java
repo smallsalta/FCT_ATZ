@@ -127,14 +127,6 @@ public class PdfParteService extends PdfContrato {
 		
 		JasperPrint parte = null;
 		
-		/*param.put("nombre", p.getTCliente().getNombre() + " " + p.getTCliente().getApellidos());
-		param.put("fecha", p.getFecha());
-		param.put("numero", p.getNumero());
-		param.put("cliente_direccion", this.makeClienteDireccion(p.getTCliente()));
-		param.put("cliente_telefono", p.getTCliente().getTelefono1() == null ? "" : p.getTCliente().getTelefono1().toString());
-		param.put("cliente_correo", p.getTCliente().getEmail() == null ? "" : p.getTCliente().getEmail());
-		param.put("cliente_dni", p.getTCliente().getDni() == null ? "" : p.getTCliente().getDni());
-		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );*/
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
 
