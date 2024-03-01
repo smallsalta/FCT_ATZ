@@ -661,9 +661,7 @@ public class ParteService {
 	}
 	
 	public boolean isPaseChapuza(TParte p) throws IllegalAccessException, InvocationTargetException {
-		List<TParte> pa = new ArrayList<>();
-		pa.add(p);
 		
-		return this.mservice.leer(pa).size() > 0;
+		return this.mservice.obtenerPorOid(p.getNumero()).getContrato() != null;
 	}
 }

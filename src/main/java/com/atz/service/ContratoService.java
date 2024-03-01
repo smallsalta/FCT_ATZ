@@ -84,6 +84,11 @@ public class ContratoService
 		return this.cdao.readContratosCliente(oid);
 	}
 	
+	@Transactional(readOnly = true)
+	public TContrato leerPorNumero(int n) {
+		return this.cdao.readPorNumero(n);
+	}
+	
 	@Transactional(readOnly=true)
 	public List<TContrato> leerContratosFechas(Date fini, Date ffin, Integer oid)
 	{

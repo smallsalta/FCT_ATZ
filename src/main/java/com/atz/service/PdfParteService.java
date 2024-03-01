@@ -34,6 +34,7 @@ import com.atz.pdf.PreguntaFbArray;
 import com.atz.persistencia.TCliente;
 import com.atz.persistencia.TContrato;
 import com.atz.persistencia.TLineaContrato;
+import com.atz.persistencia.TMatrimonio;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TParteLinea;
 import com.atz.persistencia.TPreguntas;
@@ -125,6 +126,10 @@ public class PdfParteService extends PdfContrato {
 		ParteLineaFbArray pla		= new ParteLineaFbArray();
 		String pdfFile				= this.parteFolder.getAbsolutePath() + "/" + p.getNumero() + ".pdf";
 		
+		TMatrimonio m = this.mservice.obtenerPorOid(p.getOid()); 
+		TContrato c = this.cservice.leerPorNumero(m.getContrato());
+		TCliente cl = c.getTCliente();
+		
 		JasperPrint parte = null;
 		
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
@@ -196,14 +201,15 @@ public class PdfParteService extends PdfContrato {
 			
 		}
 		
-		param.put( "nombre", "" );
-		param.put( "direccionCli", "" );
-		param.put( "fecha", new Date() );
-		param.put( "numero", 0 );
-		param.put( "direccionCert", "" );
-		param.put( "anexo", "" );
-		param.put( "precio", .0 );
-		param.put( "trimestral", .0 );
+		param.put( "nombre", cl.getNombre() + " " + cl.getApellidos() );
+		param.put( "direccionCli", cl.getDireccion() + ", " + cl.getLocalidad() + " (" + cl.getProvincia() + ")" );
+		param.put( "fecha", c.getFecha() );
+		param.put( "numero", c.getNumero() );
+		param.put( "direccionCert", c.getDireccion() );
+		param.put( "anexo", c.getAnexo() );
+		param.put( "trimestral", c.getTrimestral() );
+		param.put( "precio", c.getTLineaContratos().stream().mapToDouble( TLineaContrato::getPrecio ).sum() );
+		
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
 		
 		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper + "_c" , param );

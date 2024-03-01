@@ -36,6 +36,17 @@ public class ContratoDAO
 		return tc;
     }
 	
+	public TContrato readPorNumero(int n) {
+		
+		TContrato tc = (TContrato) this.sessionFactory.getCurrentSession().createQuery( "from TContrato c where c.numero  = " + n).uniqueResult(); 
+		
+		Hibernate.initialize( tc.getTLineaContratos() );
+		Hibernate.initialize( tc.getTCliente() );
+		Hibernate.initialize( tc.getTPreguntasContratos() );
+		
+		return tc;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<TContrato> readContratosCliente(int oid)
     {

@@ -49,35 +49,35 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="0" y="103" width="178" height="20" uuid="f27753f9-a20e-48a3-8a3f-df42d60f88e7"/>
+				<reportElement x="202" y="103" width="178" height="20" uuid="f27753f9-a20e-48a3-8a3f-df42d60f88e7"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[NOMBRE DEL CLIENTE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="123" width="178" height="20" uuid="ce98b8c5-123e-46c8-88e7-0a91bb83215f"/>
+				<reportElement x="202" y="123" width="178" height="20" uuid="ce98b8c5-123e-46c8-88e7-0a91bb83215f"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[DIRECCIÓN:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="143" width="178" height="20" uuid="cf567c43-6383-49d3-91d9-60a861e3c374"/>
+				<reportElement x="202" y="143" width="178" height="20" uuid="cf567c43-6383-49d3-91d9-60a861e3c374"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="163" width="178" height="20" uuid="9cec4073-44f1-4114-931e-3a94c3f9462a"/>
+				<reportElement x="202" y="163" width="178" height="20" uuid="9cec4073-44f1-4114-931e-3a94c3f9462a"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[NÚMERO DE CERTIFICADO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="183" width="178" height="20" uuid="958add5c-f3f3-4304-be5e-5cfca95bff8b"/>
+				<reportElement x="202" y="183" width="178" height="20" uuid="958add5c-f3f3-4304-be5e-5cfca95bff8b"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
@@ -111,6 +111,41 @@
 				</textElement>
 				<text><![CDATA[*****************************************************************************************************************************************]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="381" y="143" width="390" height="20" uuid="31bd9beb-df77-4db6-bd50-d36a63859395"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $P{fecha} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="123" width="390" height="20" uuid="7d575b05-5eab-4233-8edc-6ab6590fb0ea"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionCli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="163" width="390" height="20" uuid="dde94ad6-368b-4047-b835-3dd2ae2bd9b6"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$P{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="183" width="390" height="20" uuid="fbafab96-ea55-41ff-a9fc-187742d17484"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionCert}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="103" width="390" height="20" uuid="4143ff98-bfeb-447f-a6a0-7c29dab70b2a"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
