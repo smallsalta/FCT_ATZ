@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -478,7 +479,6 @@ public class Parte
 	public ModelAndView crearFilas(HttpSession s) 
 	{
 		ModelMap m 			= new ModelMap();
-		TUsuario u			= (TUsuario) s.getAttribute("usuario");
 		TParte p			= new TParte();
 		TParteLinea lp		= new TParteLinea();
 		Date d				= new Date();
@@ -569,7 +569,7 @@ public class Parte
 	
 	@RequestMapping("parte_chapuza.do")
 	public void parteChapuza(PartesFb fb, HttpServletResponse resp) 
-	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
 		File pdfFile = this.pdfservice.chapuza(fb);
 		Descargar desc = new Descargar();
 		
@@ -578,7 +578,7 @@ public class Parte
 	
 	@RequestMapping("parte_chapuza1.do")
 	public void parteChapuza1(PartesFb fb, HttpServletResponse resp) 
-	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
 		File pdfFile = this.pdfservice.chapuza1(fb);
 		Descargar desc = new Descargar();
 		
@@ -587,7 +587,7 @@ public class Parte
 	
 	@RequestMapping("parte_chapuza2.do")
 	public void parteChapuza2(PartesFb fb, HttpServletResponse resp) 
-	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
+	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
 		File pdfFile = this.pdfservice.chapuza2(fb);
 		Descargar desc = new Descargar();
 		

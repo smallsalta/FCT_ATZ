@@ -29,23 +29,18 @@ import com.atz.persistencia.TCliente;
 import com.atz.persistencia.TEmpresa;
 import com.atz.persistencia.TFactura;
 import com.atz.persistencia.TFacturaLinea;
-import com.atz.persistencia.TUsuario;
 import com.atz.service.ClienteService;
 import com.atz.service.EmpresaService;
 import com.atz.service.EstadosService;
 import com.atz.service.FacturaService;
 import com.atz.service.PdfFacturaService;
 import com.atz.service.SendMailService;
-import com.atz.service.UsuarioService;
 
 import net.sf.jasperreports.engine.JRException;
 
 @Controller
 public class Factura 
 {
-	@Autowired
-	private UsuarioService uservice;
-	
 	@Autowired
 	private FacturaService fservice;
 	
@@ -75,7 +70,6 @@ public class Factura
 	@RequestMapping("factura_buscar.do")
 	public ModelAndView buscar(HttpSession s) 
 	{
-		TUsuario u	= (TUsuario) s.getAttribute("usuario");
 		ModelMap m 	= new ModelMap();
 		
 		m.put( "clientes", this.cservice.leerTodos() );

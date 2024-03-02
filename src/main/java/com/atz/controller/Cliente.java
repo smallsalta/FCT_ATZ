@@ -15,16 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.atz.fb.ClientesFb;
 import com.atz.persistencia.TCliente;
-import com.atz.persistencia.TUsuario;
 import com.atz.service.ClienteService;
-import com.atz.service.UsuarioService;
 
 @Controller
 public class Cliente 
 {
-	@Autowired
-	private UsuarioService uservice;
-	
 	@Autowired
 	private ClienteService cservice;
 	
@@ -32,7 +27,6 @@ public class Cliente
 	public ModelAndView buscar(HttpSession s) 
 	{
 		ModelMap m 	= new ModelMap();
-		TUsuario u	= (TUsuario) s.getAttribute("usuario");
 		
 		m.put( "clientes", this.cservice.leerTodos() );
 		

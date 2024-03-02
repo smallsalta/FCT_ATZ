@@ -341,7 +341,6 @@ public class Informe
 	{
 		List<TFactura> facturas		= this.fservice.leerFacturasFechas( fb.getFini(), fb.getFfin(), fb.getOidempresa(), null, null );	
 		ModelMap m					= new ModelMap();
-		Map<Integer, Double> precio	= new HashMap<>();
 		
 		m.put( "facturas", facturas );
 		m.put( "fini", fb.getFini() );

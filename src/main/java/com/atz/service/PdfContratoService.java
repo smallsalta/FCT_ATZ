@@ -125,7 +125,7 @@ extends PdfContrato
 		
 //		this.merge( fis1, fis2, fis3, fis4 );
 		this.merge( fis1, fis2, fis4 );
-		this.removeBlankPage( fis1.getPages() );
+		this.removeBlankPage( fis1.getPages(), 5 );
 		this.addPageCounter( fis1.getPages() );
 		
 		JasperExportManager.exportReportToPdfFile(fis1, pdfFile);

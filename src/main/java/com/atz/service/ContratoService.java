@@ -79,14 +79,15 @@ public class ContratoService
 	}
 	
 	@Transactional(readOnly=true)
+	public TContrato leer2(int numero)
+	{
+		return this.cdao.readNumero(numero);
+	}
+	
+	@Transactional(readOnly=true)
 	public List<TContrato> leerContratosCliente(int oid)
 	{
 		return this.cdao.readContratosCliente(oid);
-	}
-	
-	@Transactional(readOnly = true)
-	public TContrato leerPorNumero(int n) {
-		return this.cdao.readPorNumero(n);
 	}
 	
 	@Transactional(readOnly=true)
@@ -326,7 +327,7 @@ public class ContratoService
 			p.setNumSerie(new String[numLin]);
 		} else if(p.getOidpartetipo() == 5) {
 			List<Integer> agentes = Arrays.asList(fb.getAgentesExt());
-			int ordenCentral = 0, ordenFuente = 0, ordenDetectores = 0, ordenPulsadores = 0, ordenSirenas = 0, ordenEquipoAuxiliar = 0;
+			int ordenCentral = 0, ordenDetectores = 0, ordenPulsadores = 0, ordenSirenas = 0, ordenEquipoAuxiliar = 0;
 			List<String> ubiDet = new ArrayList<>(), ubiPulsadores = new ArrayList<>(), ubiSirenas = new ArrayList<>(), ubiEquipoAuxiliar = new ArrayList<>();
 			List<Double> precioCentral = new ArrayList<>(), precioDet = new ArrayList<>(), precioPulsadores = new ArrayList<>(), precioSirenas = new ArrayList<>(), precioEquipoAuxiliar = new ArrayList<>();
 			

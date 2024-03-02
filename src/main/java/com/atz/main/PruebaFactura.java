@@ -22,9 +22,6 @@ public class PruebaFactura
 	public static void main(String[] args) 
 	throws FileNotFoundException, JRException, ParseException 
 	{
-		PruebaFactura p 			= new PruebaFactura();	
-		
-		ClassLoader classLoader 	= p.getClass().getClassLoader();
 		ApplicationContext ctx		= new ClassPathXmlApplicationContext("beans_*.xml");
 		
 		FacturaService fdao			= ctx.getBean( FacturaService.class );

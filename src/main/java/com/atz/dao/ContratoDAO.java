@@ -36,16 +36,15 @@ public class ContratoDAO
 		return tc;
     }
 	
-	public TContrato readPorNumero(int n) {
+	public TContrato readNumero(int num)
+    {
+		String hql	= "FROM TContrato WHERE numero = :num";
+		Query qry 	= this.sessionFactory.getCurrentSession().createQuery(hql);
 		
-		TContrato tc = (TContrato) this.sessionFactory.getCurrentSession().createQuery( "from TContrato c where c.numero  = " + n).uniqueResult(); 
+		qry.setParameter("num", num);
 		
-		Hibernate.initialize( tc.getTLineaContratos() );
-		Hibernate.initialize( tc.getTCliente() );
-		Hibernate.initialize( tc.getTPreguntasContratos() );
-		
-		return tc;
-	}
+		return (TContrato) qry.uniqueResult();
+    }
 	
 	@SuppressWarnings("unchecked")
 	public List<TContrato> readContratosCliente(int oid)

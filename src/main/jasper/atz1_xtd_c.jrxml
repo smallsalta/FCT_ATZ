@@ -49,35 +49,35 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="202" y="103" width="178" height="20" uuid="f27753f9-a20e-48a3-8a3f-df42d60f88e7"/>
+				<reportElement x="0" y="103" width="178" height="20" uuid="f27753f9-a20e-48a3-8a3f-df42d60f88e7"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[NOMBRE DEL CLIENTE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="123" width="178" height="20" uuid="ce98b8c5-123e-46c8-88e7-0a91bb83215f"/>
+				<reportElement x="0" y="123" width="178" height="20" uuid="ce98b8c5-123e-46c8-88e7-0a91bb83215f"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[DIRECCIÓN:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="143" width="178" height="20" uuid="cf567c43-6383-49d3-91d9-60a861e3c374"/>
+				<reportElement x="0" y="143" width="178" height="20" uuid="cf567c43-6383-49d3-91d9-60a861e3c374"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="163" width="178" height="20" uuid="9cec4073-44f1-4114-931e-3a94c3f9462a"/>
+				<reportElement x="0" y="163" width="178" height="20" uuid="9cec4073-44f1-4114-931e-3a94c3f9462a"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<text><![CDATA[NÚMERO DE CERTIFICADO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="183" width="178" height="20" uuid="958add5c-f3f3-4304-be5e-5cfca95bff8b"/>
+				<reportElement x="0" y="183" width="178" height="20" uuid="958add5c-f3f3-4304-be5e-5cfca95bff8b"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
@@ -112,40 +112,49 @@
 				<text><![CDATA[*****************************************************************************************************************************************]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="381" y="143" width="390" height="20" uuid="31bd9beb-df77-4db6-bd50-d36a63859395"/>
+				<reportElement x="178" y="103" width="357" height="20" uuid="8d398bb1-7989-4f68-b798-312272d7b300"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $P{fecha} )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="123" width="390" height="20" uuid="7d575b05-5eab-4233-8edc-6ab6590fb0ea"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{direccionCli}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="381" y="163" width="390" height="20" uuid="dde94ad6-368b-4047-b835-3dd2ae2bd9b6"/>
+				<reportElement x="178" y="163" width="357" height="20" uuid="f9814161-c059-42f5-a12c-527048112e98"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[""+$P{numero}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="183" width="390" height="20" uuid="fbafab96-ea55-41ff-a9fc-187742d17484"/>
+				<reportElement x="178" y="143" width="357" height="20" uuid="a03bea1d-287a-4d33-8be8-b81fa1fad5e0"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $P{fecha} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="183" width="357" height="20" uuid="35f6f32f-2b00-48c8-bd48-036d3558332c"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{direccionCert}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="103" width="390" height="20" uuid="4143ff98-bfeb-447f-a6a0-7c29dab70b2a"/>
+				<reportElement x="178" y="123" width="357" height="20" uuid="9adfa85c-53d8-4f6e-8986-88dd7e29682d"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{direccionCli}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="253" width="780" height="35" uuid="ecd1078f-4495-4215-9049-284113069d45"/>
+				<text><![CDATA[Pruebas realizadas según el reglamento de Instalaciones de Protección Contraincendios (R.D.513/2017 de 22 de mayo). D. Carlos Andrés Rodríguez Sánchez, ingeniero técnico industrial, colegiado nº 11.109  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="223" width="781" height="20" uuid="eae248d1-e409-4d8a-ab12-6c6143cba03f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RT: RETIMBRADO  -  RC: RECARGA  -  RV: REVISIÓN  -  N: NUEVO]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

@@ -94,13 +94,13 @@ public abstract class PdfContrato
 	 * 
 	 * @param pages	Páginas del PDF
 	 */
-	protected void removeBlankPage(List<JRPrintPage> pages) 
+	protected void removeBlankPage(List<JRPrintPage> pages, int nElem) 
 	{
 		for( Iterator<JRPrintPage> i = pages.iterator(); i.hasNext(); ) 
 		{
 			JRPrintPage page = i.next();
 			
-			if( page.getElements().size() <= 5 )
+			if( page.getElements().size() <= nElem )
 			{
 				i.remove();
 			}

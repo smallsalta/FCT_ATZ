@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +35,6 @@ import com.atz.pdf.PreguntaFb;
 import com.atz.pdf.PreguntaFbArray;
 import com.atz.persistencia.TCliente;
 import com.atz.persistencia.TContrato;
-import com.atz.persistencia.TLineaContrato;
 import com.atz.persistencia.TMatrimonio;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TParteLinea;
@@ -73,9 +74,6 @@ public class PdfParteService extends PdfContrato {
 	@Autowired
 	private PreguntaService qservice;
 	
-	private int OBSERVACIONES_LINE = 23;
-	
-
 	private Map<Integer, String> mrespuestas;
 	private Map<Integer, String> mpreguntas;
 	
@@ -101,40 +99,39 @@ public class PdfParteService extends PdfContrato {
 	}
 	
 
-	public File chapuza(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+	public File chapuza(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException, ParseException {
 		TParte p = this.pservice.leer(fb.getOid());
 		
 		return this.crearComunC(p, 0);
 	}
 	
-	public File chapuza1(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+	public File chapuza1(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException, ParseException {
 		TParte p = this.pservice.leer(fb.getOid());
 		
 		return this.crearComunC(p, 1);
 	}
 	
-	public File chapuza2(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+	public File chapuza2(PartesFb fb) throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException, ParseException {
 		TParte p = this.pservice.leer(fb.getOid());
 		
 		return this.crearComunC(p, 2);
 	}
 	
 	private File crearComunC(TParte p, int pdfCentral) 
-	throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException {
+	throws FileNotFoundException, JRException, IllegalAccessException, InvocationTargetException, ParseException 
+	{	
+		TCliente cl					= p.getTCliente();
+		TMatrimonio tm				= this.mservice.leer( Arrays.asList(p) ).get(0);
+		TContrato tc				= this.cservice.leer2( tm.getContrato() );
 		
 		Map<String, Object> param	= new HashMap<>();
 		ParteLineaFbArray pla		= new ParteLineaFbArray();
-		String pdfFile				= this.parteFolder.getAbsolutePath() + "/" + p.getNumero() + ".pdf";
 		
-		TMatrimonio m = this.mservice.obtenerPorOid(p.getOid()); 
-		TContrato c = this.cservice.leerPorNumero(m.getContrato());
-		TCliente cl = c.getTCliente();
-		
-		JasperPrint parte = null;
+		String pdfFile				= this.parteFolder.getAbsolutePath() + "/" + tm.getContrato() + ".pdf";
+		JasperPrint parte 			= null;
 		
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
-
 		
 		if(p.getTParteTipo().getOid() == 5 || p.getTParteTipo().getOid() == 6) {
 			ParteLineaFbArray plcentral = new ParteLineaFbArray();
@@ -165,7 +162,6 @@ public class PdfParteService extends PdfContrato {
 			param.put("partelineasretenedor", plretenedor);
 			param.put("partelineaspuertas", plpuertas);
 			
-			
 			if(pdfCentral == 1) {
 				parte = this.getJasperPrint("centralita1_c", param);
 				JasperPrint c2 = this.getJasperPrint("centralita2_c", param);
@@ -178,7 +174,6 @@ public class PdfParteService extends PdfContrato {
 				this.merge(parte, c2);
 				
 			}
-			
 			
 			this.removeBlankPageParte(parte.getPages());
 			
@@ -201,29 +196,34 @@ public class PdfParteService extends PdfContrato {
 			
 		}
 		
+		NumberFormat dec = new DecimalFormat( "###,##0.00", new DecimalFormatSymbols(Locale.GERMAN) );
+		
 		param.put( "nombre", cl.getNombre() + " " + cl.getApellidos() );
 		param.put( "direccionCli", cl.getDireccion() + ", " + cl.getLocalidad() + " (" + cl.getProvincia() + ")" );
-		param.put( "fecha", c.getFecha() );
-		param.put( "numero", c.getNumero() );
-		param.put( "direccionCert", c.getDireccion() );
-		param.put( "anexo", c.getAnexo() );
-		param.put( "trimestral", c.getTrimestral() );
-		param.put( "precio", c.getTLineaContratos().stream().mapToDouble( TLineaContrato::getPrecio ).sum() );
+		
+		param.put( "fecha", p.getFecha() );
+		
+		param.put( "numero", tm.getContrato() );
+		
+		param.put( "anexo", tc.getAnexo() );
+		param.put( "direccionCert", tc.getDireccion() );
+		param.put( "trimestral", tc.getTrimestral() );
 		
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
+		
+		param.put( "precio", dec.parse( param.get("precio_total").toString() ).doubleValue() );
 		
 		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper + "_c" , param );
 		JasperPrint fis2	= this.getJasperPrint( "atz2" + this.contratoJasper + "_c", param );
 		JasperPrint fis4 	= this.getJasperPrint( "atz4" + this.contratoJasper + "_c", param );
 		
 		this.merge( fis1, parte, fis2, fis4 );
-		this.removeBlankPage( fis1.getPages() );
+		this.removeBlankPage( fis1.getPages(), 6 );
 		this.addPageCounter( fis1.getPages() );
 		
 		JasperExportManager.exportReportToPdfFile(fis1, pdfFile);
 		
 		return new File(pdfFile);
-		
 	}
 	
 	private File crearComun(TParte p, int pdfCentral) 
