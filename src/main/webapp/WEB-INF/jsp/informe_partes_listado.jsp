@@ -29,7 +29,7 @@
 					    		[
 					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
 			                        { targets: [0, 1, 5], className: 'dt-body-center' },
-			                        { targets: [6], className: 'dt-body-right' }
+			                        { targets: [6, 7], className: 'dt-body-right' }
 			                    ]
 				    	};
 	    	
@@ -63,6 +63,7 @@
 					<th>Localidad</th>
 					<th>Teléfono</th>
 					<th>Importe</th>
+					<th>Estado</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,6 +76,7 @@
 						<td> ${c.TCliente.localidad} </td>
 						<td> ${c.TCliente.telefono1} / ${c.TCliente.telefono2} </td>
 						<td> <fmt:formatNumber value="${totales[c.oid]}" pattern="#,###,##0.00" /> &euro; </td>
+						<td> ${c.estado2.descr} </td>
 					</tr>
 				</c:forEach>
 			</tbody>

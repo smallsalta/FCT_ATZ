@@ -25,10 +25,10 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col col-md-2">
+	<div class="col col-md-2" style="display:none;">
 		Otro cliente *
 	</div>
-	<div class="col col-md-10">
+	<div class="col col-md-10" style="display:none;">
 		<select id="oidcliente2" name="oidcliente2" class="selectpicker form-control" data-live-search="true">
 			<c:forEach items="${clientes}" var="c">
 				<c:choose>

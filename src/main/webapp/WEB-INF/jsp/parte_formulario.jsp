@@ -43,7 +43,7 @@
 </div>
 <div class="row">
 	<div class="col col-md-2">
-		Estado *
+		Estado 1 *
 	</div>
 	<div class="col col-md-10">
 		<select id="oidestadoparte" name="oidestadoparte" class="selectpicker form-control" data-live-search="true">
@@ -54,6 +54,25 @@
 					</c:when>
 					<c:otherwise>
 						<option value="${e.oid}">${e.descripcion}</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-2">
+		Estado 2
+	</div>
+	<div class="col col-md-10">
+		<select id="oidestado" name="oidestado" class="selectpicker form-control" data-live-search="true">
+			<c:forEach items="${estados}" var="e">
+				<c:choose>
+					<c:when test="${parte.estado2.oid eq e.oid}">
+						<option value="${e.oid}" selected="selected">${e.descr}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${e.oid}">${e.descr}</option>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>

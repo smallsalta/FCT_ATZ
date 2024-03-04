@@ -38,6 +38,7 @@ public class TParte implements java.io.Serializable {
 	private TCliente TCliente;
 	private TParteTipo TParteTipo;
 	private TEstadoParte estado;
+	private TEstado estado2;
 	private TUsuario TUsuario;
 	private Date fecha;
 	private Date auditoria1;
@@ -103,12 +104,26 @@ public class TParte implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "estado")
-	public TEstadoParte getEstado() {
+	public TEstadoParte getEstado() 
+	{
 		return estado;
 	}
-
-	public void setEstado(TEstadoParte estado) {
+	
+	public void setEstado(TEstadoParte estado) 
+	{
 		this.estado = estado;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "estado2")
+	public TEstado getEstado2() 
+	{
+		return estado2;
+	}
+	
+	public void setEstado2(TEstado estado2) 
+	{
+		this.estado2 = estado2;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)

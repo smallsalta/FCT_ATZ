@@ -186,26 +186,24 @@ public class Parte
 		m.put("oidpartetipo", 1);
 
 		m.put( "tiposextintor", this.teservice.leerTodos());
+		m.put( "estados", this.stservice.getTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
 		comboSiNo.add(ComboSiNo.SI);
 		comboSiNo.add(ComboSiNo.NC);
 		
-		
 		List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
 		comboTrueFalse.add(ComboTrueFalse.NO);
 		comboTrueFalse.add(ComboTrueFalse.SI);
 		
-		
 		List<ComboLongBIE> comboLongBie = new ArrayList<>();
 		comboLongBie.addAll(Arrays.asList(ComboLongBIE.values()));
 			
-		
 		m.put("combosino", comboSiNo);
 		m.put("combotruefalse", comboTrueFalse);
 		m.put("combolongbie", comboLongBie);
-		m.put( "pruebas", this.kservice.leerPruebas() );
+		m.put("pruebas", this.kservice.leerPruebas());
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -214,25 +212,23 @@ public class Parte
 	public ModelAndView crearBie(Integer oid) 
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
-		m.put("oidpartetipo", 2);
 		
-		m.put( "tiposextintor", this.tbservice.leerTodos());
+		m.put("oidpartetipo", 2);
+		m.put("tiposextintor", this.tbservice.leerTodos());
+		m.put( "estados", this.stservice.getTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
 		comboSiNo.add(ComboSiNo.SI);
 		comboSiNo.add(ComboSiNo.NC);
 		
-		
 		List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
 		comboTrueFalse.add(ComboTrueFalse.NO);
 		comboTrueFalse.add(ComboTrueFalse.SI);
 		
-		
 		List<ComboLongBIE> comboLongBie = new ArrayList<>();
 		comboLongBie.addAll(Arrays.asList(ComboLongBIE.values()));
 			
-		
 		m.put("combosino", comboSiNo);
 		m.put("combotruefalse", comboTrueFalse);
 		m.put("combolongbie", comboLongBie);
@@ -245,6 +241,7 @@ public class Parte
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
 		m.put("oidpartetipo", 4);
+		m.put( "estados", this.stservice.getTodos() );
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -271,7 +268,7 @@ public class Parte
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
 		m.put("oidpartetipo", 5);
-		
+		m.put( "estados", this.stservice.getTodos() );
 		m.put("tiposequipoauxiliar", this.selectService.getAllTipoEquipoAuxiliar());
 		m.put("estadolineacentralita", this.selectService.getAllEstadoLineaCentralita());
 		m.put("tiposirenas", this.selectService.getAllTipoSirenas());
@@ -288,7 +285,7 @@ public class Parte
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
 		m.put("oidpartetipo", 6);
-		
+		m.put( "estados", this.stservice.getTodos() );
 		m.put("tiposequipoauxiliar", this.selectService.getAllTipoEquipoAuxiliar());
 		m.put("estadolineacentralita", this.selectService.getAllEstadoLineaCentralita());
 		m.put("tiposirenas", this.selectService.getAllTipoSirenas());
@@ -304,8 +301,8 @@ public class Parte
 	public ModelAndView crearGuardar(PartesFb fb, HttpSession s) 
 	throws IllegalAccessException, InvocationTargetException 
 	{
-		Integer n		= this.pservice.maxNumero();
-		TUsuario u		= (TUsuario) s.getAttribute("usuario");	
+		Integer n	= this.pservice.maxNumero();
+		TUsuario u	= (TUsuario) s.getAttribute("usuario");	
 		
 		fb.setNumero(n);
 		fb.setOidusuario( u.getOid() );
@@ -349,6 +346,7 @@ public class Parte
 		m.put( "clientes", this.cservice.leerTodos() );
 		m.put( "parte", c );
 		m.put( "oidpartetipo", oidpartetipo);
+		m.put( "estados", this.stservice.getTodos() );
 		
 		m.put( "preguntas", this.qservice.getPreguntas(o));
 		m.put( "respuestas", this.qservice.getRespuestas() );

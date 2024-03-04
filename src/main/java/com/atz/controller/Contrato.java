@@ -47,6 +47,7 @@ import com.atz.persistencia.TUsuario;
 import com.atz.service.ClienteService;
 import com.atz.service.ContratoService;
 import com.atz.service.EstadoParteService;
+import com.atz.service.EstadosService;
 import com.atz.service.ParteCambioService;
 import com.atz.service.PdfContratoService;
 import com.atz.service.PreguntaService;
@@ -85,6 +86,9 @@ public class Contrato
 	
 	@Autowired
 	private ParteCambioService pcservice;
+	
+	@Autowired
+	private EstadosService stservice;
 	
 	@Autowired
 	@Qualifier("pdfFolder")
@@ -326,6 +330,7 @@ public class Contrato
 		List<TEstadoParte> l = this.epservice.leerTodos();
 		
 		m.put( "estadosparte", l);
+		m.put( "estados", this.stservice.getTodos() );
 		m.put( "clientes", this.cservice.leerTodos() );
 		m.put( "parte", c );
 		m.put( "oidpartetipo", oidpartetipo);

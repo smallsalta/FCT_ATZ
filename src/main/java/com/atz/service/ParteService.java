@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.atz.dao.ClienteDAO;
+import com.atz.dao.EstadoDAO;
 import com.atz.dao.EstadoParteDAO;
 import com.atz.dao.ParteCambiosDAO;
 import com.atz.dao.ParteDAO;
@@ -61,6 +62,9 @@ public class ParteService {
 
 	@Autowired
 	private EstadoParteDAO epdao;
+	
+	@Autowired
+	private EstadoDAO edao;
 
 	@Autowired
 	private PreguntasDAO qdao;
@@ -348,7 +352,8 @@ public class ParteService {
 		return c;
 	}
 
-	private void copy(PartesFb fb, TParte tc) {
+	private void copy(PartesFb fb, TParte tc) 
+	{
 		tc.setTCliente(this.kdao.read(fb.getOidcliente()));
 		tc.setTUsuario(this.udao.get(fb.getOidusuario()));
 		tc.setTParteTipo(this.ptdao.get(fb.getOidpartetipo()));
@@ -357,6 +362,7 @@ public class ParteService {
 		tc.setDni(fb.getDni());
 		tc.setObservaciones(fb.getObservaciones());
 		tc.setEstado(this.epdao.get(fb.getOidestadoparte()));
+		tc.setEstado2(this.edao.get( fb.getOidestado() == null ? 1 : fb.getOidestado() ));
 		tc.setCcEmail(fb.getCcemail());
 
 		if (fb.getOidpartetipo().equals(5)) {

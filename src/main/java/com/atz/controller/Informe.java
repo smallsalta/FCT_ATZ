@@ -256,7 +256,7 @@ public class Informe
 		List<TParte> lp				= null;
 		Map<Integer, Double> total 	= new HashMap<>();
 		
-		lp = this.ptservice.leerPartesBuscar(  fb.getFini(), fb.getFfin() );
+		lp = this.ptservice.leerPartesBuscar( fb.getFini(), fb.getFfin() );
 		
 		m.put( "partes", lp );
 		m.put( "fini", fb.getFini() );
@@ -270,10 +270,7 @@ public class Informe
 				total.put
 				( 
 					p.getOid(),
-					p.getTParteLineas().stream().
-					filter( t -> t.getPrecio() != null ).
-					mapToDouble( l -> l.getPrecio() ).
-					sum()
+					p.getTParteLineas().stream().filter( t -> t.getPrecio() != null ).mapToDouble( l -> l.getPrecio() ).sum()
 				);
 			} 
 		);

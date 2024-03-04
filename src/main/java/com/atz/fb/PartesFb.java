@@ -12,6 +12,7 @@ public class PartesFb {
 	private Integer oidpartetipo;
 	private Integer oidusuario;
 	private Integer oidestadoparte;
+	private Integer oidestado;
 	private Date fecha;
 	private Date auditoria1;
 	private Date auditoria2;

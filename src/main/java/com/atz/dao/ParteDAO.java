@@ -97,7 +97,8 @@ public class ParteDAO
 	
 	public List<TParte> readPartes(Date fini, Date ffin)
     {
-		String hql		= "FROM TParte AS f INNER JOIN FETCH f.TCliente WHERE fecha BETWEEN :fini AND :ffin";
+		String hql		= "FROM TParte AS f INNER JOIN FETCH f.TCliente";
+		hql				+= " WHERE fecha BETWEEN :fini AND :ffin";
 		hql				+= " ORDER BY fecha desc, numero desc";
 		
 		Query qry 		= this.sessionFactory.getCurrentSession().createQuery(hql);
@@ -108,7 +109,8 @@ public class ParteDAO
 		List<TParte> l 	= qry.list();
 		
 		l.forEach( p -> Hibernate.initialize( p.getTParteLineas() ) );
-		
+		l.forEach( p -> Hibernate.initialize( p.getEstado2() ) );
+
 		return l;
 	}
 	
