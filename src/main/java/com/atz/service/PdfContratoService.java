@@ -100,7 +100,7 @@ extends PdfContrato
 		PreguntaFbArray fbp			= new PreguntaFbArray();
 		
 		TCliente cl					= c.getTCliente();
-		double cantidad				= c.getTLineaContratos().stream().mapToDouble( TLineaContrato::getPrecio ).sum();
+		double cantidad				= c.getTLineaContratos().stream().filter( t -> t.getPrecio() != null ).mapToDouble( TLineaContrato::getPrecio ).sum();
 		String pdfFile				= this.pdfFolder.getAbsolutePath() + "/" + c.getNumero() + ".pdf";
 
 		this.copy(fbe, c);

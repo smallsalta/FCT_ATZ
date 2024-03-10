@@ -247,6 +247,7 @@ public class PdfParteService extends PdfContrato {
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
+		param.put("estado", p.getEstado2().getDescr() );
 		
 		this.copy(fbp, p);
 		param.put("preguntas", fbp);

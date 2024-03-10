@@ -29,6 +29,7 @@
 	<parameter name="cliente_telefono" class="java.lang.String"/>
 	<parameter name="cliente_correo" class="java.lang.String"/>
 	<parameter name="cliente_dni" class="java.lang.String"/>
+	<parameter name="estado" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -176,6 +177,13 @@
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="38" width="100" height="20" forecolor="#0000FF" uuid="f2c2c16f-3151-47a9-a209-1531826e148f"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
