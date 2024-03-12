@@ -264,7 +264,7 @@ public class ParteService {
 				List<String> ubicacionAux = new ArrayList<>();
 				
 				if(ordenCentral.size() > 0) {
-					cantAux.add(ordenCentral.stream().filter(x -> x > 0).reduce(0, Integer::sum));
+					cantAux.add(ordenCentral.stream().filter(x -> x > 0).collect(Collectors.toList()).size());
 					agentesAux.add(this.aservice.getOidByDescr("Central de incendio"));
 					preciosAux.add(Arrays.asList(fb.getPrecioCentral()).stream().filter(x -> x != null).reduce(.0, Double::sum));
 					Collections.addAll(numPlacaAux, fb.getTipoCentral());
@@ -273,7 +273,7 @@ public class ParteService {
 				}
 				
 				if(ordenDetectores.size() > 0) {
-					cantAux.add(ordenDetectores.stream().filter(x -> x > 0).reduce(0, Integer::sum));
+					cantAux.add(ordenDetectores.stream().filter(x -> x > 0).collect(Collectors.toList()).size());
 					agentesAux.add(this.aservice.getOidByDescr("Detector"));
 					preciosAux.add(Arrays.asList(fb.getPrecioDetectores()).stream().filter(x -> x != null).reduce(.0, Double::sum));
 					Collections.addAll(numPlacaAux, fb.getFuncionDetectores());
@@ -283,7 +283,7 @@ public class ParteService {
 				}
 				
 				if(ordenPulsadores.size() > 0) {
-					cantAux.add(ordenPulsadores.stream().filter(x -> x > 0).reduce(0, Integer::sum));
+					cantAux.add(ordenPulsadores.stream().filter(x -> x > 0).collect(Collectors.toList()).size());
 					agentesAux.add(this.aservice.getOidByDescr("Pulsador"));
 					preciosAux.add(Arrays.asList(fb.getPrecioPulsadores()).stream().filter(x -> x != null).reduce(.0, Double::sum));
 					Collections.addAll(numPlacaAux, fb.getTipoPulsadores());
@@ -292,7 +292,7 @@ public class ParteService {
 				}
 				
 				if(ordenSirenas.size() > 0) {
-					cantAux.add(ordenSirenas.stream().filter(x -> x > 0).reduce(0, Integer::sum));
+					cantAux.add(ordenSirenas.stream().filter(x -> x > 0).collect(Collectors.toList()).size());
 					agentesAux.add(this.aservice.getOidByDescr("Sirena"));
 					preciosAux.add(Arrays.asList(fb.getPrecioSirenas()).stream().filter(x -> x != null).reduce(.0, Double::sum));
 					Collections.addAll(numPlacaAux, fb.getTipoSirenas());
