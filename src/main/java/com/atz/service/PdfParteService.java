@@ -248,6 +248,7 @@ public class PdfParteService extends PdfContrato {
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
 		param.put("estado", p.getEstado2().getDescr() );
+		param.put("anterior", p.getAnterior() );
 		
 		this.copy(fbp, p);
 		param.put("preguntas", fbp);

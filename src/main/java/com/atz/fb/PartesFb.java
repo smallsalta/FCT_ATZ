@@ -20,6 +20,8 @@ public class PartesFb {
 	private String dni;
 	private String ccemail;
 	private Integer numero;
+	private String anterior;
+	
 	private Integer[] orden;
 	private Integer[] tipo;
 	

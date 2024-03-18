@@ -50,6 +50,7 @@ public class TParte implements java.io.Serializable {
 	private Date auditoriaEmail;
 	private String ccEmail;
 	private Set<TPreguntasParte> TPreguntasParte = new LinkedHashSet<>(0);
+	private String anterior;
 
 	public TParte() {
 	}
@@ -245,4 +246,12 @@ public class TParte implements java.io.Serializable {
 		return this.TParteLineas;
 	}
 
+	@Column(name = "anterior")
+	public String getAnterior() {
+		return anterior;
+	}
+
+	public void setAnterior(String anterior) {
+		this.anterior = anterior;
+	}
 }

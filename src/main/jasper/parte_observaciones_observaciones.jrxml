@@ -30,6 +30,7 @@
 	<parameter name="cliente_correo" class="java.lang.String"/>
 	<parameter name="cliente_dni" class="java.lang.String"/>
 	<parameter name="estado" class="java.lang.String"/>
+	<parameter name="anterior" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -262,6 +263,20 @@
 					<font fontName="DejaVu Sans" size="7"/>
 				</textElement>
 				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="266" y="84" width="139" height="13" uuid="1a4fc298-797a-4755-a99a-5562f721be4f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{anterior}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="176" y="84" width="90" height="13" uuid="74141e78-a78a-4b8b-bce9-84b32116f091"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa anterior:]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

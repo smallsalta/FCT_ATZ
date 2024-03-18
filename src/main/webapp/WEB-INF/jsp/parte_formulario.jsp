@@ -148,6 +148,14 @@
 		<textarea id="observaciones" name="observaciones" class="form-control" rows="5" cols="30">${parte.observaciones}</textarea>
 	</div>
 </div>
+<div class="row">
+	<div class="col col-md-2">
+		Empresa anterior
+	</div>
+	<div class="col col-md-10">
+		<input id="anterior" name="anterior" class="form-control" class="form-control" value="${parte.anterior}"/>
+	</div>
+</div>
 
 <input type="hidden" id="oidpartetipo" name="oidpartetipo" value="${oidpartetipo}"/>
 <input type="hidden" id="oid" name="oid" value="${parte.oid}"/>
