@@ -6,9 +6,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,12 +31,14 @@ import com.atz.fb.InformesFb;
 import com.atz.pdf.Descargar;
 import com.atz.persistencia.TContrato;
 import com.atz.persistencia.TFactura;
+import com.atz.persistencia.TMatrimonio;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TUsuario;
 import com.atz.service.ClienteService;
 import com.atz.service.ContratoService;
 import com.atz.service.EmpresaService;
 import com.atz.service.FacturaService;
+import com.atz.service.MatrimonioService;
 import com.atz.service.ParteService;
 import com.atz.service.PdfContratoService;
 import com.atz.service.PdfFacturaService;
@@ -64,6 +68,9 @@ public class Informe
 	
 	@Autowired
 	private ParteService ptservice;
+	
+	@Autowired
+	private MatrimonioService mservice;
 	
 	@Autowired
 	@Qualifier("pdfFolder")
@@ -251,18 +258,28 @@ public class Informe
 	
 	@RequestMapping("informe_partes_listado.do")
 	public ModelAndView listadoPartes(InformesFb fb, HttpSession s) 
+	throws IllegalAccessException, InvocationTargetException 
 	{
 		ModelMap m 					= new ModelMap();
 		List<TParte> lp				= null;
+		List<TMatrimonio> lm		= null;
 		Map<Integer, Double> total 	= new HashMap<>();
+		Map<Integer, String> n2 	= new HashMap<>();
+		Set<Integer> partesl		= new HashSet<>();
 		
-		lp = this.ptservice.leerPartesBuscar( fb.getFini(), fb.getFfin() );
+		lp 	= this.ptservice.leerPartesBuscar( fb.getFini(), fb.getFfin() );
+		lm 	= this.mservice.leer(lp);
 		
-		m.put( "partes", lp );
-		m.put( "fini", fb.getFini() );
-		m.put( "ffin", fb.getFfin() );
-		m.put( "totales", total );
+		// Sólo queremos los matrimonios con facturas
+		lm	= lm.stream().filter( r -> r.getNumero2() != null ).collect( Collectors.toList() );
 		
+		// Para cada parte obtenemos su numero2
+		n2.putAll
+		( 
+			lm.stream().collect( Collectors.toMap( TMatrimonio::getParte, TMatrimonio::getNumero2 ) )
+		);
+		
+		// Para cada parte obtenemos su total 
 		lp.forEach
 		( 
 			p -> 
@@ -274,6 +291,19 @@ public class Informe
 				);
 			} 
 		);
+		
+		// Identificamos los partes con factura SL
+		partesl.addAll
+		(
+			lm.stream().filter( p -> p.getNumero2().matches("08\\d{8}") ).map( TMatrimonio::getParte ).collect( Collectors.toSet() )
+		);
+			
+		m.put( "partes", lp );
+		m.put( "fini", fb.getFini() );
+		m.put( "ffin", fb.getFfin() );
+		m.put( "totales", total );
+		m.put( "partesl", partesl );
+		m.put( "n2", n2 );
 		
 		return new ModelAndView("informe_partes_listado", m);
 	}

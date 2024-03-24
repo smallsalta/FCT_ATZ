@@ -27,9 +27,9 @@
 			    		buttons: 	[ 'excel', 'pdf', 'print' ],
 				    	columnDefs: 
 					    		[
-					    			{ targets: [2, 3, 4], className: 'dt-body-left' },
+					    			{ targets: [2, 3, 4, 9], className: 'dt-body-left' },
 			                        { targets: [0, 1, 5], className: 'dt-body-center' },
-			                        { targets: [6, 7], className: 'dt-body-right' }
+			                        { targets: [6, 7, 8], className: 'dt-body-right' }
 			                    ]
 				    	};
 	    	
@@ -42,6 +42,13 @@
 			);
 		</script>
 		
+		<style>
+			table.dataTable td 
+			{
+  				font-size: 0.75em;
+			}
+		</style>
+		
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
@@ -52,8 +59,8 @@
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="body">
-
-		<table id="t0" class="example display nowrap compact">
+	
+		<table id="t0" class="example display compact">
 			<thead>
 				<tr>
 					<th>Número</th>
@@ -62,20 +69,47 @@
 					<th>Dirección</th>
 					<th>Localidad</th>
 					<th>Teléfono</th>
-					<th>Importe</th>
+					<th>Base</th>
+					<th>IVA</th>
+					<th>IRPF</th>
 					<th>Estado</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${partes}" var="c">
 					<tr>
-						<td> ${c.numero} </td>
+					
+						<c:choose>
+							<c:when test="${not empty n2[c.numero]}">
+								<td title="${n2[c.numero]}"> ${c.numero} </td>
+							</c:when>
+							<c:otherwise>
+								<td> ${c.numero} </td>
+							</c:otherwise>
+						</c:choose>
+						
 						<td> <fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy" /> </td>
 						<td> ${c.TCliente.nombre} ${c.TCliente.apellidos} </td>
 						<td> ${c.TCliente.direccion} </td>
 						<td> ${c.TCliente.localidad} </td>
 						<td> ${c.TCliente.telefono1} / ${c.TCliente.telefono2} </td>
 						<td> <fmt:formatNumber value="${totales[c.oid]}" pattern="#,###,##0.00" /> &euro; </td>
+						
+						<c:choose>
+							<c:when test="${partesl.contains(c.numero)}">
+								<td> 
+									<fmt:formatNumber value="${totales[c.oid]*0.21}" pattern="#,###,##0.00" /> &euro;
+								</td>
+								<td>
+									<fmt:formatNumber value="${totales[c.oid]*0.2}" pattern="#,###,##0.00" /> &euro;
+								</td>
+							</c:when>
+							<c:otherwise>
+								<td> &nbsp; </td>
+								<td> &nbsp; </td>
+							</c:otherwise>
+						</c:choose>
+						
 						<td> ${c.estado2.descr} </td>
 					</tr>
 				</c:forEach>
