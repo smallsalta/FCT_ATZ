@@ -18,6 +18,18 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
 		
+		<style>
+			.bg-dark 
+			{
+				background-color: gray;
+			}
+			
+			.navbar-default .navbar-nav .bg-dark > a 
+			{
+				color: white;
+			}
+		</style>
+		
 		<tiles:insertAttribute name="head" />
 	</head>
 	<body>
@@ -37,11 +49,13 @@
     			<nav class="navbar navbar-default">
     				<div class="container-fluid">
 	    				<div class="navbar-header">
-	      					<a class="navbar-brand" href="#">Menú</a>
+	      					<a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-home"></span> </a>
 	    				</div>
 	   					<ul class="nav navbar-nav">
-					        <li class="dropdown">
-						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clientes</a>
+					        <li class="dropdown bg-dark">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						        	Clientes <span class="caret"></span>
+						        </a>
 			                    <ul class="dropdown-menu">
 			                    	<li><a href="cliente_crear.do">Crear</a></li>
 			                    	<li><a href="cliente_buscar.do">Buscar</a></li>
@@ -49,7 +63,7 @@
 			                </li>
 			                <li class="dropdown">
 						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							        Partes de trabajo
+							        Partes de trabajo <span class="caret"></span>
 						        </a>
 			                    <ul class="dropdown-menu">
 			                    	<li><a href="parte_crear_bie.do">Crear BIE</a></li>
@@ -63,8 +77,10 @@
 			                    	</c:if>
 			                    </ul>
 			                </li>
-		                    <li class="dropdown">
-						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contratos</a>
+		                    <li class="dropdown bg-dark">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						        	Contratos <span class="caret"></span>
+						        </a>
 			                    <ul class="dropdown-menu">
 			                    	<c:if test='${usuario.TRol.descr eq "factura"}'>
 			                    		<li><a href="contrato_crear.do">Crear</a></li>
@@ -73,7 +89,9 @@
 			                    </ul>
 			                </li>
 			                <li class="dropdown">
-						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturas</a>
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						        	Facturas <span class="caret"></span>
+						        </a>
 			                    <ul class="dropdown-menu">
 			                    	<c:if test='${usuario.TRol.descr eq "factura"}'>
 			                    		<li><a href="factura_crear.do">Crear</a></li>
@@ -82,8 +100,10 @@
 			                    </ul>
 			                </li>
 				            <c:if test='${usuario.TRol.descr eq "factura"}'>    
-				                <li class="dropdown">
-							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Informes</a>
+				                <li class="dropdown bg-dark">
+							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							        	Informes <span class="caret"></span>
+							        </a>
 				                    <ul class="dropdown-menu">
 	                    				<li><a href="informe_contrato.do">Contratos</a></li>
 	                    				<li><a href="informe_contrato2_buscar.do">Contratos II</a></li>
@@ -96,14 +116,18 @@
 				                </li>
 				             </c:if>
 				             <li class="dropdown">
-					        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Picadas</a>
+					        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					        		Picadas <span class="caret"></span>
+					        	</a>
 	                    		<ul class="dropdown-menu">
                    					<li><a href="picadas_alta.do">Alta</a></li>
 	                    			<li><a href="picadas_buscar.do">Buscar</a></li>
 		                    	</ul>
 		                	</li>  
-			                <li><a href="j_spring_security_logout.do">Salir</a> </li>
 		                </ul>
+		                <div class="navbar-header">
+	      					<a class="navbar-brand" href="j_spring_security_logout.do"> <span class="glyphicon glyphicon-off"></span> </a>
+	    				</div>
 	                </div>
 		        </nav>
 		        <div class="container">
