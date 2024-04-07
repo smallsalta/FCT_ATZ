@@ -41,6 +41,13 @@
 				} 
 			);
 		</script>
+		
+		<style>
+			table.dataTable td 
+			{
+  				font-size: 0.75em;
+			}
+		</style>
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
@@ -52,7 +59,7 @@
 	
 	<tiles:putAttribute name="body">
 	
-		<table id="t0" class="example display nowrap compact">
+		<table id="t0" class="example display compact">
 			<thead>
 				<tr>
 					<th>Número</th>

@@ -48,7 +48,6 @@
   				font-size: 0.75em;
 			}
 		</style>
-
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">
