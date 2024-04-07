@@ -91,7 +91,8 @@ public class FacturaDAO
 					+ "inner join fetch f.TCliente2 "
 					+ "where f.fecha between :fini and :ffin and f.TEmpresa.oid = :oidempresa";
 		
-		if( oidcliente != null && oidcliente > -1) {
+		if( oidcliente != null && oidcliente > -1) 
+		{
 			hql += " and f.TCliente.oid = :oidcliente";
 		}
 		
@@ -169,7 +170,7 @@ public class FacturaDAO
 	
 	public List<TFactura> readFacturas(Date fini, Date ffin, Integer oidempresa, Integer oidcliente, Integer numero)
     {
-		String hql	= "from TFactura as f inner join fetch f.TCliente2 where fecha between :fini and :ffin";
+		String hql	= "from TFactura as f inner join fetch f.TCliente2 inner join fetch f.TEstado where fecha between :fini and :ffin";
 		
 		if( oidempresa != -1 )
 		{

@@ -111,7 +111,7 @@
 			                    		<li><a href="informe_factura.do">Facturas</a></li>
 			                    		<li><a href="informe_factura2_buscar.do">Facturas II</a></li>
 			                    		<li><a href="informe_partes.do">Partes II</a></li>
-			                    		<li><a href="informe_resumen.do">Resumen</a></li>
+			                    		<!--  <li><a href="informe_resumen.do">Resumen</a></li> -->
 				                    </ul>
 				                </li>
 				             </c:if>

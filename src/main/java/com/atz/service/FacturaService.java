@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -67,7 +68,11 @@ public class FacturaService
 	@Transactional(readOnly=true)
 	public List<TFactura> leerFacturasFechas(Date fini, Date ffin, Integer oidempresa, Integer oidcliente, Integer oid)
 	{
-		return this.fdao.readFacturasFechas(fini, ffin, oidempresa, oidcliente, oid);
+		List<TFactura> tmp = this.fdao.readFacturasFechas(fini, ffin, oidempresa, oidcliente, oid);
+		
+		tmp.forEach( t -> Hibernate.initialize( t.getTEstado() ) );
+		 
+		return tmp;
 	}
 	
 	@Transactional(readOnly=true)
