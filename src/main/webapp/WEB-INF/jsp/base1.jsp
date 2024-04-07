@@ -13,22 +13,11 @@
 	    
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet"/>
 		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css" rel="stylesheet"/>
+		<link href="css/base1.css" rel="stylesheet"/>
 		
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
-		
-		<style>
-			.bg-dark 
-			{
-				background-color: gray;
-			}
-			
-			.navbar-default .navbar-nav .bg-dark > a 
-			{
-				color: white;
-			}
-		</style>
 		
 		<tiles:insertAttribute name="head" />
 	</head>
@@ -52,8 +41,8 @@
 	      					<a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-home"></span> </a>
 	    				</div>
 	   					<ul class="nav navbar-nav">
-					        <li class="dropdown bg-dark">
-						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					        <li class="dropdown">
+						        <a href="#" class="dropdown-toggle bg-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						        	Clientes <span class="caret"></span>
 						        </a>
 			                    <ul class="dropdown-menu">
@@ -77,8 +66,8 @@
 			                    	</c:if>
 			                    </ul>
 			                </li>
-		                    <li class="dropdown bg-dark">
-						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		                    <li class="dropdown">
+						        <a href="#" class="dropdown-toggle bg-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						        	Contratos <span class="caret"></span>
 						        </a>
 			                    <ul class="dropdown-menu">
@@ -100,8 +89,8 @@
 			                    </ul>
 			                </li>
 				            <c:if test='${usuario.TRol.descr eq "factura"}'>    
-				                <li class="dropdown bg-dark">
-							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				                <li class="dropdown">
+							        <a href="#" class="dropdown-toggle bg-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							        	Informes <span class="caret"></span>
 							        </a>
 				                    <ul class="dropdown-menu">

@@ -11,6 +11,7 @@
 	
 		<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet"/>
 		<link href="//cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css" rel="stylesheet"/>
+		<link href="css/informe_datatable.css" rel="stylesheet"/>
 		
 		<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 		<script src="//cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
@@ -42,14 +43,6 @@
 				} 
 			);
 		</script>
-		
-		<style>
-			table.dataTable td 
-			{
-  				font-size: 0.75em;
-			}
-		</style>
-		
 	</tiles:putAttribute>
 	
 	<tiles:putAttribute name="miga">

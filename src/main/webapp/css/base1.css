@@ -1,0 +1,14 @@
+.bg-dark
+{
+	background-color: gray;
+}
+
+.bg-dark:hover 
+{
+	background-color: gray !important;
+}
+
+.navbar-default .navbar-nav .bg-dark
+{
+	color: white;
+}
