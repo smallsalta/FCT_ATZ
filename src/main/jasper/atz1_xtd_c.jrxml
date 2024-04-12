@@ -150,11 +150,6 @@
 				<reportElement x="0" y="253" width="780" height="35" uuid="ecd1078f-4495-4215-9049-284113069d45"/>
 				<text><![CDATA[Pruebas realizadas según el reglamento de Instalaciones de Protección Contraincendios (R.D.513/2017 de 22 de mayo). D. Carlos Andrés Rodríguez Sánchez, ingeniero técnico industrial, colegiado nº 11.109  ]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="-1" y="223" width="781" height="20" uuid="eae248d1-e409-4d8a-ab12-6c6143cba03f"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[RT: RETIMBRADO  -  RC: RECARGA  -  RV: REVISIÓN  -  N: NUEVO]]></text>
-			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

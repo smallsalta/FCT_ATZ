@@ -63,12 +63,12 @@
 				<text><![CDATA[*****************************************************************************************************************************************]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="9" y="41" width="760" height="22" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
+				<reportElement x="28" y="41" width="722" height="22" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<dataSourceExpression><![CDATA[$P{partelineas}]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./parte1_subreport.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["./parte1_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement positionType="Float" x="-1" y="83" width="781" height="21" uuid="34059f9f-83f2-4cda-83e1-1623e655a805"/>
@@ -78,105 +78,98 @@
 				<text><![CDATA[*****************************************************************************************************************************************]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="731" y="21" width="38" height="20" uuid="c714c2df-64f6-42d0-8849-12540fc4ebab"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[PRECIO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="9" y="21" width="52" height="20" uuid="e11d6c9d-09e8-46be-a723-aff8a5a0f86d"/>
+				<reportElement x="28" y="21" width="52" height="20" uuid="e11d6c9d-09e8-46be-a723-aff8a5a0f86d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[ORDEN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="159" y="21" width="47" height="20" uuid="f0561faf-57e7-4930-bf84-fc4d0b025bc7"/>
+				<reportElement x="178" y="21" width="47" height="20" uuid="f0561faf-57e7-4930-bf84-fc4d0b025bc7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Nº PLACA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="61" y="21" width="98" height="20" uuid="34418f5e-794f-4cfd-b774-6f209341e179"/>
+				<reportElement x="80" y="21" width="98" height="20" uuid="34418f5e-794f-4cfd-b774-6f209341e179"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[UBICACION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="238" y="21" width="60" height="20" uuid="1ae44706-8564-4852-9c5e-db750102a34f"/>
+				<reportElement x="257" y="21" width="60" height="20" uuid="1ae44706-8564-4852-9c5e-db750102a34f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[CAPAC. (KG)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="206" y="21" width="32" height="20" uuid="426f44e6-8eb9-47db-b7f5-2a1a5c6846ad"/>
+				<reportElement x="225" y="21" width="32" height="20" uuid="426f44e6-8eb9-47db-b7f5-2a1a5c6846ad"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="671" y="21" width="60" height="20" uuid="a3744cc2-9e4b-4741-b2f4-6dcf07a7bdfb"/>
+				<reportElement x="690" y="21" width="60" height="20" uuid="a3744cc2-9e4b-4741-b2f4-6dcf07a7bdfb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[ALTURA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="21" width="65" height="20" uuid="602492fa-ee95-4ef1-a256-72f1188f6c0a"/>
+				<reportElement x="378" y="21" width="65" height="20" uuid="602492fa-ee95-4ef1-a256-72f1188f6c0a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[F. FABRIC.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="549" y="21" width="28" height="20" uuid="a2856369-9231-4beb-9c6d-5f0c855071fd"/>
+				<reportElement x="568" y="21" width="28" height="20" uuid="a2856369-9231-4beb-9c6d-5f0c855071fd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[RT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="489" y="21" width="32" height="20" uuid="c941a8dd-7d10-4fe6-877f-1cf93f62fd0f"/>
+				<reportElement x="508" y="21" width="32" height="20" uuid="c941a8dd-7d10-4fe6-877f-1cf93f62fd0f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[RV]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="521" y="21" width="28" height="20" uuid="18fdc230-a107-406e-89d1-7d5801c57c86"/>
+				<reportElement x="540" y="21" width="28" height="20" uuid="18fdc230-a107-406e-89d1-7d5801c57c86"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[RC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="577" y="21" width="34" height="20" uuid="c5a2f26f-27ea-4b3e-85f8-5c20ed2d5a22"/>
+				<reportElement x="596" y="21" width="34" height="20" uuid="c5a2f26f-27ea-4b3e-85f8-5c20ed2d5a22"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[NUEVO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="611" y="21" width="60" height="20" uuid="4fac22c2-574d-4a44-af9d-1a93419d8d87"/>
+				<reportElement x="630" y="21" width="60" height="20" uuid="4fac22c2-574d-4a44-af9d-1a93419d8d87"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[CARTEL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="298" y="21" width="61" height="20" uuid="4c6ab195-dcc7-4b6e-a383-4a0145abf151"/>
+				<reportElement x="317" y="21" width="61" height="20" uuid="4c6ab195-dcc7-4b6e-a383-4a0145abf151"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[FABRICANTE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="424" y="21" width="65" height="20" uuid="05a08417-fa83-4c8f-9869-ccc671163e83"/>
+				<reportElement x="443" y="21" width="65" height="20" uuid="05a08417-fa83-4c8f-9869-ccc671163e83"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>

@@ -59,17 +59,17 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<subreport>
-				<reportElement positionType="Float" x="60" y="21" width="721" height="10" uuid="d7e6c1de-7a92-4916-a0f9-7bb77b924376">
+				<reportElement positionType="Float" x="82" y="21" width="642" height="10" uuid="d7e6c1de-7a92-4916-a0f9-7bb77b924376">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<dataSourceExpression><![CDATA[$P{partelineaspuertas}]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./parte4_puertas_subreport.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["./parte4_puertas_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="130" y="1" width="172" height="20" forecolor="#00004E" uuid="872223d1-0ccc-4c30-9a43-48d1b63b652f">
+				<reportElement x="152" y="1" width="172" height="20" forecolor="#00004E" uuid="872223d1-0ccc-4c30-9a43-48d1b63b652f">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
 				</reportElement>
@@ -79,7 +79,7 @@
 				<text><![CDATA[UBICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="530" y="1" width="172" height="20" forecolor="#00004E" uuid="262799b9-1de5-4144-a6e2-35188569e914">
+				<reportElement x="552" y="1" width="172" height="20" forecolor="#00004E" uuid="262799b9-1de5-4144-a6e2-35188569e914">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -88,7 +88,7 @@
 				<text><![CDATA[ESTADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="410" y="1" width="120" height="20" forecolor="#00004E" uuid="2683b042-7eef-4b80-a032-585d2049c4b2">
+				<reportElement x="432" y="1" width="120" height="20" forecolor="#00004E" uuid="2683b042-7eef-4b80-a032-585d2049c4b2">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -97,17 +97,7 @@
 				<text><![CDATA[AÑO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="702" y="1" width="80" height="20" forecolor="#00004E" uuid="9bd2ffc7-1011-4f75-b934-d558c8ad99ec">
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[PRECIO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="302" y="1" width="108" height="20" forecolor="#00004E" uuid="68eda4fd-6075-4ab7-b537-6f94e48389a1">
+				<reportElement x="324" y="1" width="108" height="20" forecolor="#00004E" uuid="68eda4fd-6075-4ab7-b537-6f94e48389a1">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -126,7 +116,7 @@
 				<text><![CDATA[PUERTAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="60" y="1" width="70" height="20" forecolor="#00004E" uuid="76554270-1eae-4a20-80bd-c7d4ad33da09">
+				<reportElement x="82" y="1" width="70" height="20" forecolor="#00004E" uuid="76554270-1eae-4a20-80bd-c7d4ad33da09">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
