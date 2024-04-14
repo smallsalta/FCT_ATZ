@@ -86,9 +86,6 @@ public class Parte
 	@Autowired
 	private ParteService pservice;
 	
-//	@Autowired
-//	private PdfParteService pdfservice;
-	
 	@Autowired
 	private PdfParteService pdfParte;
 	
@@ -814,47 +811,43 @@ public class Parte
 		switch( fb.getTipoLupa() )
 		{
 			case "parte": 
-				uri = this.pdfParte.getPdfFolder().getAbsolutePath() + "/" + fb.getNparte() + ".pdf";
+				uri	= this.pdfParte.getPdfFolder().getAbsolutePath() + "/" + fb.getNparte() + ".pdf";
 				break;
 				
 			case "factura": 
-				uri = this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
+				uri	= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
 				break;
 				
 			case "contrato": 
-				uri = this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
+				uri	= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 				break;
 				
 			case "mail": 
 				TParte op = this.pservice.leer( fb.getNparte() );
 				
-				// Creamos y enviamos la factura ...
-				try 
+				try	// Creamos y enviamos la factura ... 
 				{
 					
 					TFactura of	= this.fservice.leerN2( fb.getN2factura() );
+					uri			= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
 					
 					this.pdfFactura.crear(of);	
 					this.smservice.enviarSinCC( op.getTCliente(), "", f );
-					this.fservice.actualizarFechaEnvio( of.getOid() );
-					
-					uri	= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
+					this.fservice.actualizarFechaEnvio( of.getOid() );				
 				} 
 				catch(Exception e)
 				{
 					this.log.info("Ups", e);
 				}
 				
-				// Creamos y enviamos el contrato ...
-				try 
+				try	// Creamos y enviamos el contrato ... 
 				{
-					TContrato oc = this.kservice.leer2( fb.getNcontrato() );
+					TContrato oc	= this.kservice.leer2( fb.getNcontrato() );
+					uri				= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 					
 					this.pdfContrato.crear(oc);
 					this.smservice.enviarConCCyCuadrante( op.getTCliente(), "", f );
 					this.kservice.actualizaAuditoriaEmail( oc.getOid() );
-					
-					uri	= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 				} 
 				catch(Exception e)
 				{
