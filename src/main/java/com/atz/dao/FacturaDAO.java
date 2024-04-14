@@ -77,7 +77,15 @@ public class FacturaDAO
 			lf	= qry.list();
 			lf 	= lf.stream().filter( t -> t.getTEstado() != null ).collect( Collectors.toList() );
 			
-			lf.forEach( t -> Hibernate.initialize( t.getTEstado() ) );
+			lf.forEach
+			( 
+				t -> 
+				{
+					Hibernate.initialize( t.getTEstado() );
+					Hibernate.initialize( t.getTCliente() );
+					Hibernate.initialize( t.getTEmpresa() );
+				}
+			);
 		}
 		
 		return lf;

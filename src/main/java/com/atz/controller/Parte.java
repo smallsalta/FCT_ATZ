@@ -86,8 +86,11 @@ public class Parte
 	@Autowired
 	private ParteService pservice;
 	
+//	@Autowired
+//	private PdfParteService pdfservice;
+	
 	@Autowired
-	private PdfParteService pdfservice;
+	private PdfParteService pdfParte;
 	
 	@Autowired
 	private SendMailService smservice;
@@ -121,9 +124,6 @@ public class Parte
 	
 	@Autowired
 	private PdfFacturaService pdfFactura;
-	
-	@Autowired
-	private PdfParteService pdfParte;
 	
 	@Autowired
 	private EmpresaService eservice;
@@ -541,7 +541,7 @@ public class Parte
 	@RequestMapping("parte_pdf.do")
 	public void pdf(PartesFb fb, HttpServletResponse resp)
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
-		File pdfFile = this.pdfservice.crear(fb);
+		File pdfFile = this.pdfParte.crear(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -550,7 +550,7 @@ public class Parte
 	@RequestMapping("parte_pdf_1.do")
 	public void pdf1(PartesFb fb, HttpServletResponse resp)
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
-		File pdfFile = this.pdfservice.crear1(fb);
+		File pdfFile = this.pdfParte.crear1(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -559,7 +559,7 @@ public class Parte
 	@RequestMapping("parte_pdf_2.do")
 	public void pdf2(PartesFb fb, HttpServletResponse resp)
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException {
-		File pdfFile = this.pdfservice.crear2(fb);
+		File pdfFile = this.pdfParte.crear2(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -568,7 +568,7 @@ public class Parte
 	@RequestMapping("parte_chapuza.do")
 	public void parteChapuza(PartesFb fb, HttpServletResponse resp) 
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
-		File pdfFile = this.pdfservice.chapuza(fb);
+		File pdfFile = this.pdfParte.chapuza(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -577,7 +577,7 @@ public class Parte
 	@RequestMapping("parte_chapuza1.do")
 	public void parteChapuza1(PartesFb fb, HttpServletResponse resp) 
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
-		File pdfFile = this.pdfservice.chapuza1(fb);
+		File pdfFile = this.pdfParte.chapuza1(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -586,7 +586,7 @@ public class Parte
 	@RequestMapping("parte_chapuza2.do")
 	public void parteChapuza2(PartesFb fb, HttpServletResponse resp) 
 	throws IllegalAccessException, InvocationTargetException, JRException, IOException, ParseException {
-		File pdfFile = this.pdfservice.chapuza2(fb);
+		File pdfFile = this.pdfParte.chapuza2(fb);
 		Descargar desc = new Descargar();
 		
 		desc.flush(pdfFile, resp);
@@ -602,13 +602,13 @@ public class Parte
 		switch (fb.getOidpartetipo()) 
 		{
 		case 5:
-			pdfFile = this.pdfservice.crear1(fb);
+			pdfFile = this.pdfParte.crear1(fb);
 			break;
 		case 6:
-			pdfFile = this.pdfservice.crear2(fb);
+			pdfFile = this.pdfParte.crear2(fb);
 			break;
 		default:
-			pdfFile = this.pdfservice.crear(fb);
+			pdfFile = this.pdfParte.crear(fb);
 			break;
 		}
 		
@@ -816,18 +816,58 @@ public class Parte
 			case "parte": 
 				uri = this.pdfParte.getPdfFolder().getAbsolutePath() + "/" + fb.getNparte() + ".pdf";
 				break;
+				
 			case "factura": 
 				uri = this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
 				break;
+				
 			case "contrato": 
 				uri = this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 				break;
+				
+			case "mail": 
+				TParte op = this.pservice.leer( fb.getNparte() );
+				
+				// Creamos y enviamos la factura ...
+				try 
+				{
+					
+					TFactura of	= this.fservice.leerN2( fb.getN2factura() );
+					
+					this.pdfFactura.crear(of);	
+					this.smservice.enviarSinCC( op.getTCliente(), "", f );
+					this.fservice.actualizarFechaEnvio( of.getOid() );
+					
+					uri	= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
+				} 
+				catch(Exception e)
+				{
+					this.log.info("Ups", e);
+				}
+				
+				// Creamos y enviamos el contrato ...
+				try 
+				{
+					TContrato oc = this.kservice.leer2( fb.getNcontrato() );
+					
+					this.pdfContrato.crear(oc);
+					this.smservice.enviarConCCyCuadrante( op.getTCliente(), "", f );
+					this.kservice.actualizaAuditoriaEmail( oc.getOid() );
+					
+					uri	= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
+				} 
+				catch(Exception e)
+				{
+					this.log.info("Ups", e);
+				}
+				
+				break;	
 		}
 		
 		this.log.info(uri);
 		
 		f = new File(uri);
-		
+
 		if( !f.exists() )
 		{
 			uri	= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/error.pdf";
@@ -835,7 +875,6 @@ public class Parte
 		}
 		
 		desc.flush( f, resp );
-		
 	}	
 		
 	private ModelAndView cargarContrato(TContrato c, HttpSession s)

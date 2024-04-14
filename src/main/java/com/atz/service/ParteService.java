@@ -94,6 +94,7 @@ public class ParteService {
 		Hibernate.initialize(p.getTParteTipo());
 		Hibernate.initialize(p.getTPreguntasParte());
 		Hibernate.initialize(p.getEstado2());
+		Hibernate.initialize(p.getTCliente());
 		
 		return p;
 	}

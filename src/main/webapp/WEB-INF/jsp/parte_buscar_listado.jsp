@@ -40,18 +40,18 @@
 					            		<c:choose>
 						            		<c:when test="${c.estado.oid == 4}">
 						            			<span class="label label-danger lupaParte"> 
-						            				${c.numero} 
+						            				<c:if test="${c.TParteTipo.oid == 4}">!</c:if> ${c.numero}
 						            			</span>
 						            		</c:when>
 						            		<c:otherwise>
 						            			<span class="label label-default lupaParte"> 
-						            				${c.numero} 
+						            				<c:if test="${c.TParteTipo.oid == 4}">!</c:if> ${c.numero}
 						            			</span>
 						            		</c:otherwise>
 					            		</c:choose>
 						            	
 						            	&nbsp;
-						            	<span class="label label-default">
+						            	<span class="label label-default lupaMail" id="ml_${ cont.index }">
 						            		${c.TCliente.nombre} ${c.TCliente.apellidos} 
 						            	</span>
 						            	
@@ -88,7 +88,7 @@
 						            	
 						            	<c:if test="${ matrimonio[c.numero].contrato != null }">
 							            	&nbsp;
-							            	<span class="label label-warning lupaContrato">
+							            	<span class="label label-warning lupaContrato" id="lc_${ cont.index }">
 							            		${ matrimonio[c.numero].contrato }
 							            	</span>
 							            </c:if>

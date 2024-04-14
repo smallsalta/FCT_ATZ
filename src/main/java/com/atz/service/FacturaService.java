@@ -60,6 +60,14 @@ public class FacturaService
 	}
 	
 	@Transactional(readOnly=true)
+	public TFactura leerN2(String n2)
+	{
+		List<TFactura> tmp = this.fdao.readFacturasNumero2( Arrays.asList(n2) );
+		
+		return tmp.isEmpty() ? null : tmp.get(0);
+	}
+	
+	@Transactional(readOnly=true)
 	public List<TFactura> leerFacturasCliente(ContratosBuscarFb fb)
 	{
 		return this.fdao.readFacturasCliente( fb.getOidcliente() );
