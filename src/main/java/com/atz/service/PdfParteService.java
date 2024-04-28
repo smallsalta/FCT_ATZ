@@ -129,11 +129,13 @@ public class PdfParteService extends PdfContrato {
 		
 		String pdfFile				= this.parteFolder.getAbsolutePath() + "/" + tm.getContrato() + ".pdf";
 		JasperPrint parte 			= null;
+		NumberFormat dec			= new DecimalFormat( "###,##0.00", new DecimalFormatSymbols(Locale.GERMAN) );
 		
 		param.put("dni", p.getDni() == null ? "" : p.getDni());
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
 		
-		if(p.getTParteTipo().getOid() == 5 || p.getTParteTipo().getOid() == 6) {
+		if(p.getTParteTipo().getOid() == 5 || p.getTParteTipo().getOid() == 6) 
+		{
 			ParteLineaFbArray plcentral = new ParteLineaFbArray();
 			ParteLineaFbArray pldetectores = new ParteLineaFbArray();
 			ParteLineaFbArray plfuente = new ParteLineaFbArray();
@@ -162,55 +164,50 @@ public class PdfParteService extends PdfContrato {
 			param.put("partelineasretenedor", plretenedor);
 			param.put("partelineaspuertas", plpuertas);
 			
-			if(pdfCentral == 1) {
+			if(pdfCentral == 1) 
+			{
 				parte = this.getJasperPrint("centralita1_c", param);
 				JasperPrint c2 = this.getJasperPrint("centralita2_c", param);
 				JasperPrint c3 = this.getJasperPrint("centralita3_1_c", param);
-				this.merge(parte, c2, c3);
-				
-			} else if(pdfCentral == 2) {
+				this.merge(parte, c2, c3);	
+			} 
+			else if(pdfCentral == 2)
+			{
 				parte = this.getJasperPrint("centralita3_2_c", param);
 				JasperPrint c2 = this.getJasperPrint("centralita4_c", param);
 				this.merge(parte, c2);
-				
 			}
 			
 			this.removeBlankPageParte(parte.getPages());
-			
-			
-		} else {
-			
+		} 
+		else 
+		{	
 			this.copy(pla, p);
 			
 			param.put("partelineas", pla);
 			
-			if(p.getTParteTipo().getOid() == 1 || p.getTParteTipo().getOid() == 2 || p.getTParteTipo().getOid() == 4) {
-				param.put("precio_total", this.calculaTotal(p.getTParteLineas()));
+			// No sé qué pasa con el resto de partes ...
+			if(p.getTParteTipo().getOid() == 1 || p.getTParteTipo().getOid() == 2 || p.getTParteTipo().getOid() == 4) 
+			{
+				String pt 			= this.calculaTotal( p.getTParteLineas() );
+				double precio 		= ( p.getCmto() != null && p.getCmto() != 0 ) ? p.getCmto() : dec.parse(pt).doubleValue();
+				
+				param.put( "precio_total", dec.format(precio) );
 			}
 			
-			parte 			= this.getJasperPrint(this.getJasperFromTipo(p.getTParteTipo().getOid()) + "_c", param);
-			
-			// this.removeBlankPageParte(jp.getPages());
-			
-			this.removeBlankPageParte(parte.getPages());
-			
+			parte = this.getJasperPrint(this.getJasperFromTipo(p.getTParteTipo().getOid()) + "_c", param);
+
+			this.removeBlankPageParte(parte.getPages());	
 		}
-		
-		NumberFormat dec = new DecimalFormat( "###,##0.00", new DecimalFormatSymbols(Locale.GERMAN) );
 		
 		param.put( "nombre", cl.getNombre() + " " + cl.getApellidos() );
 		param.put( "direccionCli", cl.getDireccion() + ", " + cl.getLocalidad() + " (" + cl.getProvincia() + ")" );
-		
 		param.put( "fecha", p.getFecha() );
-		
 		param.put( "numero", tm.getContrato() );
-		
 		param.put( "anexo", tc.getAnexo() );
 		param.put( "direccionCert", tc.getDireccion() );
 		param.put( "trimestral", tc.getTrimestral() );
-		
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
-		
 		param.put( "precio", dec.parse( param.get("precio_total").toString() ).doubleValue() );
 		
 		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper + "_c" , param );
@@ -497,11 +494,11 @@ public class PdfParteService extends PdfContrato {
 		pla.setPartelineas(lin);
 	}
 	
-	private String calculaTotal(List<TParteLinea> l) {
+	private String calculaTotal(List<TParteLinea> l) 
+	{
 		DecimalFormat dec = new DecimalFormat("###,##0.00", new DecimalFormatSymbols(Locale.GERMAN));
 		
 		return dec.format((Double)l.stream().filter(x -> x.getPrecio() != null).mapToDouble(x -> x.getPrecio()).sum());
-
 	}
 	
 	private String calculaTotalCentralita(List<TParteLinea> l) {

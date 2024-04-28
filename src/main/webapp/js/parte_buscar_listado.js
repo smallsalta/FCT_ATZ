@@ -5,8 +5,10 @@ $(
 		(
 			function()
 			{
+				var np = $.trim( $(this).text().split("/")[1] );
+				
 				$("#tipoLupa").attr("value", "parte");
-				$("#nparte").attr("value", $.trim( $(this).text() ) );
+				$("#nparte").attr("value", np );
 				
 				$("#frm2").submit();
 			}

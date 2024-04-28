@@ -21,6 +21,7 @@ public class PartesFb {
 	private String ccemail;
 	private Integer numero;
 	private String anterior;
+	private Double cmto;
 	
 	private Integer[] orden;
 	private Integer[] tipo;
