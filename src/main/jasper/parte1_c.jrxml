@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version last-->
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -176,14 +176,14 @@
 				<text><![CDATA[F. RETIMB.]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" x="731" y="63" width="38" height="20" uuid="c0cfca55-de33-495e-bbfd-fbea21272373"/>
+				<reportElement positionType="Float" x="710" y="63" width="59" height="20" uuid="c0cfca55-de33-495e-bbfd-fbea21272373"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{precio_total} + " €"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="693" y="63" width="38" height="20" uuid="6f33f0cf-6d38-4158-b764-68a0e26596a9"/>
+				<reportElement positionType="Float" x="672" y="63" width="38" height="20" uuid="6f33f0cf-6d38-4158-b764-68a0e26596a9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>

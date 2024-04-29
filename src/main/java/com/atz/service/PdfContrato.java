@@ -119,4 +119,17 @@ public abstract class PdfContrato
 			}
 		}
 	}
+	
+	protected void removeBlankPageParteC(List<JRPrintPage> pages) 
+	{
+		for( Iterator<JRPrintPage> i = pages.iterator(); i.hasNext(); ) 
+		{
+			JRPrintPage page = i.next();
+			
+			if( page.getElements().size() <= 23 )
+			{
+				i.remove();
+			}
+		}
+	}
 }

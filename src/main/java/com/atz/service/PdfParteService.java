@@ -178,7 +178,7 @@ public class PdfParteService extends PdfContrato {
 				this.merge(parte, c2);
 			}
 			
-			this.removeBlankPageParte(parte.getPages());
+			this.removeBlankPageParteC(parte.getPages());
 		} 
 		else 
 		{	
