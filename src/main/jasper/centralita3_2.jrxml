@@ -151,7 +151,7 @@
 				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $P{fecha} )]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="660" y="0" width="120" height="21" uuid="5a0cd0e8-8b18-484e-a63d-3e62d25198a9"/>
+				<reportElement x="570" y="0" width="210" height="21" uuid="5a0cd0e8-8b18-484e-a63d-3e62d25198a9"/>
 				<box leftPadding="0">
 					<topPen lineWidth="2.0"/>
 					<leftPen lineWidth="2.0"/>
@@ -159,7 +159,7 @@
 					<rightPen lineWidth="2.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[PARTE DE TRABAJO]]></text>
+				<text><![CDATA[PARTE DE TRABAJO EQUIPO AUXILIAR]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

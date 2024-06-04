@@ -39,22 +39,22 @@
 					            	<h4>
 					            	
 					            		<c:choose>
-					            			<c:when test="${c.estado.oid == 1}">
+					            			<c:when test="${c.TParteTipo.oid == 1}">
 						            			<c:set var="pre" value="EX" />
 						            		</c:when>
-						            		<c:when test="${c.estado.oid == 2}">
+						            		<c:when test="${c.TParteTipo.oid == 2}">
 						            			<c:set var="pre" value="BI" />
 						            		</c:when>
-						            		<c:when test="${c.estado.oid == 3}">
+						            		<c:when test="${c.TParteTipo.oid == 3}">
 						            			<c:set var="pre" value="CE" />
 						            		</c:when>
-						            		<c:when test="${c.estado.oid == 4}">
+						            		<c:when test="${c.TParteTipo.oid == 4}">
 						            			<c:set var="pre" value="OB" />
 						            		</c:when>
-						            		<c:when test="${c.estado.oid == 5}">
+						            		<c:when test="${c.TParteTipo.oid == 5}">
 						            			<c:set var="pre" value="CE" />
 						            		</c:when>
-						            		<c:when test="${c.estado.oid == 6}">
+						            		<c:when test="${c.TParteTipo.oid == 6}">
 						            			<c:set var="pre" value="AU" />
 						            		</c:when>
 					            		</c:choose>
