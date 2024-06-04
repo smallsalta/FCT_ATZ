@@ -30,6 +30,7 @@ import com.atz.fb.ParteBuscarFb;
 import com.atz.fb.PartesFb;
 import com.atz.persistencia.TCliente;
 import com.atz.persistencia.TContrato;
+import com.atz.persistencia.TMatrimonio;
 import com.atz.persistencia.TParte;
 import com.atz.persistencia.TParteLinea;
 import com.atz.persistencia.TPreguntasParte;
@@ -670,10 +671,26 @@ public class ParteService {
 		this.pdao.update(tp);
 	}
 	
-	public boolean isPaseChapuza(TParte p) throws IllegalAccessException, InvocationTargetException {
-		List<TParte> pa = new ArrayList<>();
-		pa.add(p);
+	/**
+	 * Tiene que salir el botón "PDF Contrato" para un parte, si ...
+	 * + Existe un matrimonio para el parte
+	 * + El matrimonio tiene un contrato
+	 * @param p
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws InvocationTargetException
+	 */
+	public boolean isPaseChapuza(TParte p) 
+	throws IllegalAccessException, InvocationTargetException 
+	{
+//		List<TParte> pa = new ArrayList<>();
+//		pa.add(p);	
+//		return this.mservice.leer(pa).size() > 0;
 		
-		return this.mservice.leer(pa).size() > 0;
+		List<TParte> pa 		= Arrays.asList(p);
+		List<TMatrimonio> ma 	= this.mservice.leer(pa);
+		boolean chapuza			= !ma.isEmpty() && ma.get(0).getContrato() != null;
+		
+		return chapuza;
 	}
 }
