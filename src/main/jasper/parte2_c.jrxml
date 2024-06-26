@@ -87,13 +87,6 @@
 				<text><![CDATA[UBICACION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="156" y="21" width="18" height="20" uuid="80c35f89-3e7c-4308-9ec9-9f9b9a79c8f2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[Nº]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="497" y="21" width="79" height="20" uuid="e3ee0001-922a-4dfe-8bab-0fbeb4127051">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -131,7 +124,7 @@
 				<text><![CDATA[*****************************************************************************************************************************************]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="174" y="21" width="62" height="20" uuid="20c10962-0ea7-409c-a7a3-1198e5f435da">
+				<reportElement x="156" y="21" width="80" height="20" uuid="20c10962-0ea7-409c-a7a3-1198e5f435da">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>

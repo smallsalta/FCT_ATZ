@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version last-->
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -67,7 +67,7 @@
 				<text><![CDATA[DETECTORES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="254" y="139" width="80" height="20" forecolor="#00004E" uuid="83e3fdca-9e44-4d56-b2c4-f62eb6adba17">
+				<reportElement x="290" y="139" width="80" height="20" forecolor="#00004E" uuid="83e3fdca-9e44-4d56-b2c4-f62eb6adba17">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -76,28 +76,8 @@
 				</textElement>
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="654" y="139" width="80" height="20" forecolor="#00004E" uuid="7562d3af-6773-413d-8e39-226e48c4b787">
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ESTADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="574" y="139" width="80" height="20" forecolor="#00004E" uuid="e9ab6e70-f460-412c-b481-db7055bfbd86">
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ZONA]]></text>
-			</staticText>
 			<subreport>
-				<reportElement x="94" y="159" width="640" height="10" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
+				<reportElement x="130" y="159" width="480" height="10" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -107,7 +87,7 @@
 				<subreportExpression><![CDATA["./parte4_detectores_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="174" y="139" width="80" height="20" forecolor="#00004E" uuid="2044156d-ab40-4fd3-90ee-8208bff4da91">
+				<reportElement x="210" y="139" width="80" height="20" forecolor="#00004E" uuid="2044156d-ab40-4fd3-90ee-8208bff4da91">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -117,7 +97,7 @@
 				<text><![CDATA[UBICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="414" y="139" width="80" height="20" forecolor="#00004E" uuid="352d5b4c-f8ca-4142-a0a0-26c67f829271">
+				<reportElement x="450" y="139" width="80" height="20" forecolor="#00004E" uuid="352d5b4c-f8ca-4142-a0a0-26c67f829271">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -127,7 +107,7 @@
 				<text><![CDATA[FUNCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="494" y="139" width="80" height="20" forecolor="#00004E" uuid="ca7eb480-82d0-4f4c-be9c-24ba321bf7ff">
+				<reportElement x="530" y="139" width="80" height="20" forecolor="#00004E" uuid="ca7eb480-82d0-4f4c-be9c-24ba321bf7ff">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -137,7 +117,7 @@
 				<text><![CDATA[AÑO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="334" y="139" width="80" height="20" forecolor="#00004E" uuid="683f48a1-17a5-4455-8fcd-0df04c8ae9b5">
+				<reportElement x="370" y="139" width="80" height="20" forecolor="#00004E" uuid="683f48a1-17a5-4455-8fcd-0df04c8ae9b5">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -147,7 +127,7 @@
 				<text><![CDATA[MARCA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="94" y="139" width="80" height="20" forecolor="#00004E" uuid="8af757d3-775f-4e7b-bb81-ce7b2d34a868">
+				<reportElement x="130" y="139" width="80" height="20" forecolor="#00004E" uuid="8af757d3-775f-4e7b-bb81-ce7b2d34a868">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -157,7 +137,7 @@
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="411" y="2" width="83" height="20" forecolor="#00004E" uuid="30cb5009-916d-4479-a1b6-db4f4f71fb9d">
+				<reportElement x="449" y="2" width="83" height="20" forecolor="#00004E" uuid="30cb5009-916d-4479-a1b6-db4f4f71fb9d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -166,16 +146,7 @@
 				<text><![CDATA[MARCA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="654" y="2" width="80" height="20" forecolor="#00004E" uuid="809252d7-0474-410d-bba4-52ac18ae3ae5">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ESTADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="330" y="2" width="80" height="20" forecolor="#00004E" uuid="71eb8f9b-74b1-4f06-8e08-f6a20dd16a7e">
+				<reportElement x="368" y="2" width="80" height="20" forecolor="#00004E" uuid="71eb8f9b-74b1-4f06-8e08-f6a20dd16a7e">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -184,7 +155,7 @@
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="92" y="22" width="642" height="10" uuid="922495f2-cc93-44be-8c70-0920f7c02571">
+				<reportElement x="130" y="22" width="482" height="10" uuid="922495f2-cc93-44be-8c70-0920f7c02571">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -194,16 +165,7 @@
 				<subreportExpression><![CDATA["./parte4_sirenas_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="574" y="2" width="80" height="20" forecolor="#00004E" uuid="2986ce3e-9084-49e3-9d2a-1b01a45cddc0">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[ZONA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="92" y="2" width="110" height="20" forecolor="#00004E" uuid="27491a3d-ac65-4580-afdf-9d0c15388abb">
+				<reportElement x="130" y="2" width="110" height="20" forecolor="#00004E" uuid="27491a3d-ac65-4580-afdf-9d0c15388abb">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -213,7 +175,7 @@
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="2" width="128" height="20" forecolor="#00004E" uuid="21201423-4e5c-456b-a2e4-ed8a8ca747ca">
+				<reportElement x="240" y="2" width="128" height="20" forecolor="#00004E" uuid="21201423-4e5c-456b-a2e4-ed8a8ca747ca">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -222,7 +184,7 @@
 				<text><![CDATA[UBICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="494" y="2" width="80" height="20" forecolor="#00004E" uuid="96b3dc53-19b6-424d-833b-8b6ea6fba192">
+				<reportElement x="532" y="2" width="80" height="20" forecolor="#00004E" uuid="96b3dc53-19b6-424d-833b-8b6ea6fba192">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">

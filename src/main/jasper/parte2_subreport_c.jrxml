@@ -38,13 +38,6 @@
 	<detail>
 		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="2" width="18" height="20" uuid="8935c6fb-333b-4d70-b056-b4328374cde4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{orden}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="154" y="2" width="42" height="20" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
@@ -89,7 +82,7 @@
 				<textFieldExpression><![CDATA[$F{ubicacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="18" y="2" width="62" height="20" uuid="6772112c-d469-4836-9ce6-9329d978feba">
+				<reportElement x="0" y="2" width="80" height="20" uuid="6772112c-d469-4836-9ce6-9329d978feba">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
