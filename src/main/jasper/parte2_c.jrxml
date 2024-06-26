@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version last-->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -55,13 +55,6 @@
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<staticText>
-				<reportElement x="-1" y="0" width="781" height="21" uuid="87dfec27-5dc8-4462-b1e4-13e33102a49a"/>
-				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<text><![CDATA[*****************************************************************************************************************************************]]></text>
-			</staticText>
 			<subreport>
 				<reportElement x="156" y="41" width="420" height="23" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -109,20 +102,6 @@
 				</textElement>
 				<text><![CDATA[FECHA FABRIC.]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="703" y="64" width="62" height="20" uuid="468d12d3-8d0c-431f-8861-40eb7fb196af"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{precio_total} + " €"]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement positionType="Float" x="-1" y="84" width="781" height="21" uuid="145d9f40-c8c9-4918-9fbc-d1321494f8e8"/>
-				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<text><![CDATA[*****************************************************************************************************************************************]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="156" y="21" width="80" height="20" uuid="20c10962-0ea7-409c-a7a3-1198e5f435da">
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -132,13 +111,6 @@
 					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[NUM. SERIE]]></text>
-			</staticText>
-			<staticText>
-				<reportElement positionType="Float" x="669" y="64" width="33" height="20" uuid="a00bc09c-970f-4154-bafb-8a5351a87747"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[PRECIO]]></text>
 			</staticText>
 		</band>
 	</detail>

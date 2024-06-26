@@ -55,13 +55,6 @@
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<staticText>
-				<reportElement x="-1" y="0" width="781" height="21" uuid="87dfec27-5dc8-4462-b1e4-13e33102a49a"/>
-				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<text><![CDATA[*****************************************************************************************************************************************]]></text>
-			</staticText>
 			<subreport>
 				<reportElement stretchType="RelativeToTallestObject" x="29" y="41" width="722" height="22" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -71,26 +64,12 @@
 				<subreportExpression><![CDATA["./parte3_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement positionType="Float" x="-1" y="83" width="781" height="21" uuid="34059f9f-83f2-4cda-83e1-1623e655a805"/>
-				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<text><![CDATA[*****************************************************************************************************************************************]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="29" y="21" width="52" height="20" uuid="e11d6c9d-09e8-46be-a723-aff8a5a0f86d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[ORDEN]]></text>
 			</staticText>
-			<textField>
-				<reportElement positionType="Float" x="731" y="63" width="38" height="20" uuid="c0cfca55-de33-495e-bbfd-fbea21272373"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{precio_total} + " €"]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="81" y="21" width="49" height="20" uuid="fa7e3b44-ab46-42d0-8a29-7e49f404a7da"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -104,13 +83,6 @@
 					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[DESCRIPCION]]></text>
-			</staticText>
-			<staticText>
-				<reportElement positionType="Float" x="693" y="63" width="38" height="20" uuid="c5fa60e7-33f2-4928-8400-94f21a1c61ea"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[PRECIO]]></text>
 			</staticText>
 		</band>
 	</detail>
