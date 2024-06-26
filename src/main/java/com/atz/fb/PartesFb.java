@@ -22,6 +22,7 @@ public class PartesFb {
 	private Integer numero;
 	private String anterior;
 	private Double cmto;
+	private String dirtra;
 	
 	private Integer[] orden;
 	private Integer[] tipo;

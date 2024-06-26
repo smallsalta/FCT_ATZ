@@ -187,6 +187,11 @@ public class FacturaService
 		tlc.setPrecio( t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 );
 		tlc.setCantidad( 1 );
 		tlc.setDescripcion( descr );
+		
+		if( fb.getDirtra() != null && !fb.getDirtra().isEmpty() )
+		{
+			tlc.setDescripcion( tlc.getDescripcion() + "\n" + fb.getDirtra() );
+		}
 			
 		tlc.setTFactura(tc);
 		tc.getTFacturaLineas().add(tlc);

@@ -131,8 +131,8 @@ public class PdfParteService extends PdfContrato {
 		JasperPrint parte 			= null;
 		NumberFormat dec			= new DecimalFormat( "###,##0.00", new DecimalFormatSymbols(Locale.GERMAN) );
 		
-		param.put("dni", p.getDni() == null ? "" : p.getDni());
-		param.put("usuario", this.makeUsuario(p.getTUsuario()));
+		param.put( "dni", p.getDni() == null ? "" : p.getDni() );
+		param.put( "usuario", this.makeUsuario( p.getTUsuario() ) );
 		
 		if(p.getTParteTipo().getOid() == 5 || p.getTParteTipo().getOid() == 6) 
 		{
@@ -205,7 +205,7 @@ public class PdfParteService extends PdfContrato {
 		param.put( "fecha", p.getFecha() );
 		param.put( "numero", tm.getContrato() );
 		param.put( "anexo", tc.getAnexo() );
-		param.put( "direccionCert", tc.getDireccion() );
+		param.put( "direccionCert", p.getDirtra() );
 		param.put( "trimestral", tc.getTrimestral() );
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
 		param.put( "precio", dec.parse( param.get("precio_total").toString() ).doubleValue() );

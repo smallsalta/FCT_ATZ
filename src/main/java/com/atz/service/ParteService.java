@@ -369,6 +369,7 @@ public class ParteService {
 		tc.setCcEmail(fb.getCcemail());
 		tc.setAnterior( fb.getAnterior() );
 		tc.setCmto( fb.getCmto() );
+		tc.setDirtra( fb.getDirtra() );
 
 		if (fb.getOidpartetipo().equals(5)) {
 
