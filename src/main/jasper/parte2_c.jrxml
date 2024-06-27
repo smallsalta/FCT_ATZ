@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version last-->
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -56,7 +56,7 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<subreport>
-				<reportElement x="156" y="41" width="420" height="23" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
+				<reportElement x="95" y="41" width="551" height="23" uuid="b10a43b2-4334-41bf-964f-9f14f30ef278">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -66,21 +66,21 @@
 				<subreportExpression><![CDATA["./parte2_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="310" y="21" width="42" height="20" uuid="2d0cc049-22cf-4b8d-8bd6-93d2ac455095"/>
+				<reportElement x="273" y="21" width="60" height="20" uuid="2d0cc049-22cf-4b8d-8bd6-93d2ac455095"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="236" y="21" width="74" height="20" uuid="20303f9c-8b34-47ae-9336-bc2032a9eb12"/>
+				<reportElement x="189" y="21" width="84" height="20" uuid="20303f9c-8b34-47ae-9336-bc2032a9eb12"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[UBICACION]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="497" y="21" width="79" height="20" uuid="e3ee0001-922a-4dfe-8bab-0fbeb4127051">
+				<reportElement x="533" y="21" width="113" height="20" uuid="e3ee0001-922a-4dfe-8bab-0fbeb4127051">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -89,21 +89,21 @@
 				<text><![CDATA[FECHA RETIMB.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="352" y="21" width="66" height="20" uuid="4afe038e-8819-4ae0-be28-867f9ffb8cc8"/>
+				<reportElement x="333" y="21" width="88" height="20" uuid="4afe038e-8819-4ae0-be28-867f9ffb8cc8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[LONG. MANG]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="418" y="21" width="79" height="20" uuid="14d548bb-1147-4d6c-81c3-66de398f2f69"/>
+				<reportElement x="421" y="21" width="112" height="20" uuid="14d548bb-1147-4d6c-81c3-66de398f2f69"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[FECHA FABRIC.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="156" y="21" width="80" height="20" uuid="20c10962-0ea7-409c-a7a3-1198e5f435da">
+				<reportElement x="95" y="21" width="94" height="20" uuid="20c10962-0ea7-409c-a7a3-1198e5f435da">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>

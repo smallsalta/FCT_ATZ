@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz_subreport1" pageWidth="420" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="420" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7f37c2b0-7a67-42f2-beb6-ad7babff79a9">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz_subreport1" pageWidth="551" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="551" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7f37c2b0-7a67-42f2-beb6-ad7babff79a9">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -38,14 +31,16 @@
 	<detail>
 		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="154" y="2" width="42" height="20" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb"/>
+				<reportElement x="178" y="2" width="60" height="20" uuid="731be7a3-33c1-45c1-88bc-2464b16af0cb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Sans" size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="196" y="2" width="66" height="20" uuid="00d30b91-de7f-4e94-a647-0aec504fcf4d">
+				<reportElement x="238" y="2" width="88" height="20" uuid="00d30b91-de7f-4e94-a647-0aec504fcf4d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -54,7 +49,7 @@
 				<textFieldExpression><![CDATA[$F{longMang}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="262" y="2" width="79" height="20" uuid="d5fac0c3-a048-4a30-afc2-63d8fbe5380d">
+				<reportElement x="326" y="2" width="112" height="20" uuid="d5fac0c3-a048-4a30-afc2-63d8fbe5380d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -63,7 +58,7 @@
 				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $F{fechaRetimA} )]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="341" y="2" width="79" height="20" uuid="3d283c08-4d4a-4d97-b625-0d98f86ea02f">
+				<reportElement x="438" y="2" width="113" height="20" uuid="3d283c08-4d4a-4d97-b625-0d98f86ea02f">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -72,7 +67,7 @@
 				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format( $F{fechaRetimB} )]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="2" width="74" height="20" uuid="804703a1-e978-413e-a001-04246c7c3120">
+				<reportElement x="94" y="2" width="84" height="20" uuid="804703a1-e978-413e-a001-04246c7c3120">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -82,7 +77,7 @@
 				<textFieldExpression><![CDATA[$F{ubicacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="2" width="80" height="20" uuid="6772112c-d469-4836-9ce6-9329d978feba">
+				<reportElement x="0" y="2" width="94" height="20" uuid="6772112c-d469-4836-9ce6-9329d978feba">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
