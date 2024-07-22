@@ -255,5 +255,4 @@ public class PartesFb {
 	    
 	    this.setCantidadDetectores(new String[1]);
 	}
-	
 }

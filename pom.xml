@@ -4,7 +4,7 @@
    <groupId>com.atz</groupId>
    <artifactId>XTD</artifactId>
    <packaging>war</packaging>
-   <version>01.32.00</version>
+   <version>01.32.05</version>
    <name>Extindet Extintores</name>
    <url>http://maven.apache.org</url>
    <properties>
@@ -260,7 +260,7 @@
             <activeByDefault>true</activeByDefault>
          </activation>
          <properties>
-            <bd.url>jdbc:postgresql://82.223.25.252:5432/fct_xtd_2</bd.url>
+            <bd.url>jdbc:postgresql://212.227.83.59:5432/fct_xtd_2</bd.url>
             <bd.usr>adminkxji33l</bd.usr>
             <bd.pwd>VyeYZzylsphP</bd.pwd>
             <folder.pdf>C:/Users/jsilva/Desktop/pdf</folder.pdf>
@@ -309,9 +309,9 @@
             <bd.url>jdbc:postgresql://127.0.0.1:5432/fct_xtd_2</bd.url>
             <bd.usr>adminkxji33l</bd.usr>
             <bd.pwd>VyeYZzylsphP</bd.pwd>
-            <folder.pdf>/opt/tomcat_xtd/pdf</folder.pdf>
-            <folder.parte>/opt/tomcat_xtd/parte</folder.parte>
-            <folder.fct>/opt/tomcat_xtd/fct</folder.fct>
+            <folder.pdf>/opt/tomcat/pdf</folder.pdf>
+            <folder.parte>/opt/tomcat/parte</folder.parte>
+            <folder.fct>/opt/tomcat/fct</folder.fct>
             <project.logo>logo_xtd.png</project.logo>
             <mail.from>extindet.facturas@gmail.com</mail.from>
             <mail.username>extindet.facturas</mail.username>

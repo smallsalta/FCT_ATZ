@@ -12,6 +12,7 @@
    			<label>
    				<input type="radio" name="borrar"/>
 	   			Orden *
+	   			<input type="checkbox"/>
    			</label>
 		</div>
 		<div class="col col-md-10">
