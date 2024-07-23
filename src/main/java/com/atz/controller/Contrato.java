@@ -275,6 +275,7 @@ public class Contrato
 		try 
 		{
 			this.smservice.enviarConCCyCuadrante( c, fb.getCcemail(), pdfFile );
+			this.kservice.actualizaAuditoriaEmail(fb.getOid());
 		} 
 		catch(MessagingException e)
 		{
@@ -282,8 +283,6 @@ public class Contrato
 			
 			mensaje		= "Error al enviar el mensaje";
 		}
-		
-		this.kservice.actualizaAuditoriaEmail(fb.getOid());
 		
 		out.println(mensaje);
 		out.close();

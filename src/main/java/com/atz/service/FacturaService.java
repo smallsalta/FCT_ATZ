@@ -60,6 +60,14 @@ public class FacturaService
 	}
 	
 	@Transactional(readOnly=true)
+	public TFactura leerN2(String n2)
+	{
+		List<TFactura> tmp = this.fdao.readFacturasNumero2( Arrays.asList(n2) );
+		
+		return tmp.isEmpty() ? null : tmp.get(0);
+	}
+	
+	@Transactional(readOnly=true)
 	public List<TFactura> leerFacturasCliente(ContratosBuscarFb fb)
 	{
 		return this.fdao.readFacturasCliente( fb.getOidcliente() );
@@ -179,6 +187,11 @@ public class FacturaService
 		tlc.setPrecio( t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 );
 		tlc.setCantidad( 1 );
 		tlc.setDescripcion( descr );
+		
+		if( fb.getDirtra() != null && !fb.getDirtra().isEmpty() )
+		{
+			tlc.setDescripcion( tlc.getDescripcion() + "\n" + fb.getDirtra() );
+		}
 			
 		tlc.setTFactura(tc);
 		tc.getTFacturaLineas().add(tlc);

@@ -51,6 +51,8 @@ public class TParte implements java.io.Serializable {
 	private String ccEmail;
 	private Set<TPreguntasParte> TPreguntasParte = new LinkedHashSet<>(0);
 	private String anterior;
+	private Double cmto;
+	private String dirtra;
 
 	public TParte() {
 	}
@@ -253,5 +255,23 @@ public class TParte implements java.io.Serializable {
 
 	public void setAnterior(String anterior) {
 		this.anterior = anterior;
+	}
+	
+	@Column(name = "cmto")
+	public Double getCmto() {
+		return cmto;
+	}
+
+	public void setCmto(Double cmto) {
+		this.cmto = cmto;
+	}
+	
+	@Column(name = "dirtra")
+	public String getDirtra() {
+		return dirtra;
+	}
+
+	public void setDirtra(String dirtra) {
+		this.dirtra = dirtra;
 	}
 }

@@ -71,17 +71,34 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${partes}" var="c">
-					<tr>
-					
-						<c:choose>
-							<c:when test="${not empty n2[c.numero]}">
-								<td title="${n2[c.numero]}"> ${c.numero} </td>
-							</c:when>
-							<c:otherwise>
-								<td> ${c.numero} </td>
-							</c:otherwise>
-						</c:choose>
-						
+					<tr>					
+						<td title="${n2[c.numero]}">
+							<c:choose>
+		            			<c:when test="${c.TParteTipo.oid == 1}">
+			            			<c:set var="pre" value="EX" />
+			            		</c:when>
+			            		<c:when test="${c.TParteTipo.oid == 2}">
+			            			<c:set var="pre" value="BI" />
+			            		</c:when>
+			            		<c:when test="${c.TParteTipo.oid == 3}">
+			            			<c:set var="pre" value="CE" />
+			            		</c:when>
+			            		<c:when test="${c.TParteTipo.oid == 4}">
+			            			<c:set var="pre" value="OB" />
+			            		</c:when>
+			            		<c:when test="${c.TParteTipo.oid == 5}">
+			            			<c:set var="pre" value="CE" />
+			            		</c:when>
+			            		<c:when test="${c.TParteTipo.oid == 6}">
+			            			<c:set var="pre" value="AU" />
+			            		</c:when>
+			            		<c:otherwise>
+			            			<c:set var="pre" value="¿?" />
+			            		</c:otherwise>
+		            		</c:choose>
+		            		
+		            		${pre} / ${c.numero}
+						</td>
 						<td> <fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy" /> </td>
 						<td> ${c.TCliente.nombre} ${c.TCliente.apellidos} </td>
 						<td> ${c.TCliente.direccion} </td>

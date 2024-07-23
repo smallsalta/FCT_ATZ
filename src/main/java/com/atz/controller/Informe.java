@@ -284,11 +284,7 @@ public class Informe
 		( 
 			p -> 
 			{
-				total.put
-				( 
-					p.getOid(),
-					p.getTParteLineas().stream().filter( t -> t.getPrecio() != null ).mapToDouble( l -> l.getPrecio() ).sum()
-				);
+				total.put( p.getOid(), this.totalParte(p) );
 			} 
 		);
 		
@@ -315,6 +311,50 @@ public class Informe
 		double total	= base + iva;
 		
 		return new double[]{base, iva, total};
+	}
+	
+	/**
+	 * Calculamos el total del parte.
+	 * Total parte = Suma total filas del parte.
+	 * Total filas del parte = suma de todos los precios ... En teoría todos serán null y 1 tendrá valor
+	 * @param p		Parte
+	 * @return		Total de parte 
+	 */
+	private double totalParte(TParte p)
+	{
+		double[] total = { 0d };
+		
+		p.getTParteLineas().forEach
+		(
+			l ->
+			{
+				double tmp = 0;
+				
+				tmp += this.getTotalLimpio( l.getPrecio() );
+				tmp += this.getTotalLimpio( l.getPrecioCentral() );
+				tmp += this.getTotalLimpio( l.getPrecioDetectores() );
+				tmp += this.getTotalLimpio( l.getPrecioEquipoAuxiliar() );
+				tmp += this.getTotalLimpio( l.getPrecioFuente() );
+				tmp += this.getTotalLimpio( l.getPrecioPuertas() );
+				tmp += this.getTotalLimpio( l.getPrecioPulsadores() );
+				tmp += this.getTotalLimpio( l.getPrecioRetenedor() );
+				tmp += this.getTotalLimpio( l.getPrecioSirenas() );
+				
+				total[0] += tmp;
+			}
+		);
+		
+		return total[0];
+	}
+	
+	/**
+	 * Como tenemos un Double, puede ser nulo.
+	 * @param d		Double
+	 * @return		Su valor o 0
+	 */
+	private double getTotalLimpio(Double d)
+	{
+		return d != null ? d : 0.0;
 	}
 	
 	@RequestMapping("informe_contrato2_buscar.do")

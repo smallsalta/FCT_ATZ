@@ -124,23 +124,6 @@
 				</textElement>
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="640" y="240" width="80" height="20" uuid="d7e7cb67-b4de-457d-b351-71494be1aeac">
-					<property name="local_mesure_unity" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
-				</textElement>
-				<text><![CDATA[PRECIO TOTAL]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="720" y="240" width="62" height="20" uuid="58f9bfe3-8e57-4c23-81d6-6a0110baf80b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{precio_total} + " €"]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<pageFooter>

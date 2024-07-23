@@ -21,6 +21,8 @@ public class PartesFb {
 	private String ccemail;
 	private Integer numero;
 	private String anterior;
+	private Double cmto;
+	private String dirtra;
 	
 	private Integer[] orden;
 	private Integer[] tipo;
@@ -253,5 +255,4 @@ public class PartesFb {
 	    
 	    this.setCantidadDetectores(new String[1]);
 	}
-	
 }

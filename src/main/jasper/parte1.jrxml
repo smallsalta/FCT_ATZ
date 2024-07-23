@@ -147,7 +147,7 @@
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="672" y="0" width="108" height="20" uuid="77034ccb-e84a-4b4f-b52c-8ac55cc74c6a"/>
+				<reportElement x="577" y="0" width="203" height="20" uuid="77034ccb-e84a-4b4f-b52c-8ac55cc74c6a"/>
 				<box leftPadding="0">
 					<topPen lineWidth="2.0"/>
 					<leftPen lineWidth="2.0"/>
@@ -155,7 +155,7 @@
 					<rightPen lineWidth="2.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[PARTE DE TRABAJO]]></text>
+				<text><![CDATA[PARTE DE TRABAJO EXTINTOR]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

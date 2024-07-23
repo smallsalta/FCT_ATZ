@@ -12,6 +12,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -81,7 +82,11 @@ public class ContratoService
 	@Transactional(readOnly=true)
 	public TContrato leer2(int numero)
 	{
-		return this.cdao.readNumero(numero);
+		TContrato tc = this.cdao.readNumero(numero);
+		
+		Hibernate.initialize( tc.getTCliente() );
+		
+		return tc;
 	}
 	
 	@Transactional(readOnly=true)

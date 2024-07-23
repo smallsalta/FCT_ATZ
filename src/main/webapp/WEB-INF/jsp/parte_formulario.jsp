@@ -156,6 +156,22 @@
 		<input id="anterior" name="anterior" class="form-control" class="form-control" value="${parte.anterior}"/>
 	</div>
 </div>
+<div class="row">
+	<div class="col col-md-2">
+		Coste mantenimiento
+	</div>
+	<div class="col col-md-10">
+		<input id="cmto" name="cmto" class="form-control" class="form-control" value="${parte.cmto}" type="number" step='0.01' placeholder='0.00'/>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-2">
+		Dirección de trabajo
+	</div>
+	<div class="col col-md-10">
+		<input id="dirtra" name="dirtra" class="form-control" class="form-control" value="${parte.dirtra}"/>
+	</div>
+</div>
 
 <input type="hidden" id="oidpartetipo" name="oidpartetipo" value="${oidpartetipo}"/>
 <input type="hidden" id="oid" name="oid" value="${parte.oid}"/>
