@@ -351,6 +351,11 @@ public class Parte
 		m.put( "historial", this.pcservice.leerTodos( c.getOid() ) );
 		m.put( "partechapuza", this.pservice.isPaseChapuza(c));
 		
+		List<TMatrimonio> lm	= this.mservice.leer( Arrays.asList(c) );
+		TMatrimonio tm 			= lm.size() > 0 ? lm.get(0) : new TMatrimonio();
+		
+		m.put( "matrimoniado",  tm.getFactura() != null );
+		
 		if(oidpartetipo == 1 || oidpartetipo == 2 ||oidpartetipo == 4) {
 			m.put( "tiposextintor", this.getTiposExtintor(oidpartetipo));
 			

@@ -381,7 +381,7 @@ public class Informe
 				c -> precio.put
 						( 
 							c.getOid(), 
-							c.getTLineaContratos().stream().mapToDouble( t -> t.getPrecio() ).sum() 
+							c.getTLineaContratos().stream().filter( t -> t.getPrecio() != null ).mapToDouble( t -> t.getPrecio() ).sum() 
 						)
 			);
 		

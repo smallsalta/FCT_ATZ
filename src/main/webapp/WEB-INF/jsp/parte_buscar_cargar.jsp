@@ -134,12 +134,14 @@
 						</c:if>
 					</div>
 					<div class="col col-md-4 mt-5">
-						<c:if test='${usuario.TRol.descr eq "factura"}'>
+						<c:if test='${usuario.TRol.descr eq "factura" and not matrimoniado}'>
 							<button id="btn_fct_sl" class="btn btn-default btn-block" type="button">Crear factura SL</button>
 						</c:if>
 					</div>
 					<div class="col col-md-4 mt-5">
-						<button id="btn_fct_carpinteria" class="btn btn-default btn-block" type="button">Crear factura Carpinteria</button>
+						<c:if test='${not matrimoniado}'>
+							<button id="btn_fct_carpinteria" class="btn btn-default btn-block" type="button">Crear factura Carpinteria</button>
+						</c:if>	
 					</div>
 				</div>
 			</div>
