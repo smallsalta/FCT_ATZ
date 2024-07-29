@@ -54,6 +54,23 @@ public class PartesFb {
 	private String[] estadoGeneral;
 	private String[] numSerie;
 	
+	// BIE - Bomba
+	private String[] tipoBomba;
+	private String[] marcaBomba;
+	private String[] modeloBomba;
+	private Date[] fechaBomba;
+	private String[] motorBomba;
+	private String[] voltajeBomba;
+	private String[] rpmBomba;
+	private String[] manometroBomba;
+	private String[] esferaBomba;
+	private String[] valvulasBomba;
+	private String[] saltosBomba;
+	private String[] fusiblesBomba;
+	private String[] alarmaBomba;
+	private String[] caudalimetroBomba;
+	private String[] presionBomba;
+	
 	// Observaciones
 	private Integer[] cantidad;
 	private String[] descripcion;

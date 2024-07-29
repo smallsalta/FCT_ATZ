@@ -56,6 +56,22 @@ public class TParteLinea implements java.io.Serializable {
 	private TTipoBie tipoBie;
 	private String numSerie;
 	
+	private String tipoBomba;
+	private String marcaBomba;
+	private String modeloBomba;
+	private Date fechaBomba;
+	private String motorBomba;
+	private String voltajeBomba;
+	private String rpmBomba;
+	private String manometroBomba;
+	private String esferaBomba;
+	private String valvulasBomba;
+	private String saltosBomba;
+	private String fusiblesBomba;
+	private String alarmaBomba;
+	private String caudalimetroBomba;
+	private String presionBomba;
+	
 	private Integer cantidad;
 	private String descripcion;
 	
@@ -451,6 +467,126 @@ public class TParteLinea implements java.io.Serializable {
 
 	public void setNumSerie(String numSerie) {
 		this.numSerie = numSerie;
+	}
+
+	public String getTipoBomba() {
+		return tipoBomba;
+	}
+
+	public void setTipoBomba(String tipoBomba) {
+		this.tipoBomba = tipoBomba;
+	}
+
+	public String getMarcaBomba() {
+		return marcaBomba;
+	}
+
+	public void setMarcaBomba(String marcaBomba) {
+		this.marcaBomba = marcaBomba;
+	}
+
+	public String getModeloBomba() {
+		return modeloBomba;
+	}
+
+	public void setModeloBomba(String modeloBomba) {
+		this.modeloBomba = modeloBomba;
+	}
+
+	public Date getFechaBomba() {
+		return fechaBomba;
+	}
+
+	public void setFechaBomba(Date fechaBomba) {
+		this.fechaBomba = fechaBomba;
+	}
+
+	public String getMotorBomba() {
+		return motorBomba;
+	}
+
+	public void setMotorBomba(String motorBomba) {
+		this.motorBomba = motorBomba;
+	}
+
+	public String getVoltajeBomba() {
+		return voltajeBomba;
+	}
+
+	public void setVoltajeBomba(String voltajeBomba) {
+		this.voltajeBomba = voltajeBomba;
+	}
+
+	public String getRpmBomba() {
+		return rpmBomba;
+	}
+
+	public void setRpmBomba(String rpmBomba) {
+		this.rpmBomba = rpmBomba;
+	}
+
+	public String getManometroBomba() {
+		return manometroBomba;
+	}
+
+	public void setManometroBomba(String manometroBomba) {
+		this.manometroBomba = manometroBomba;
+	}
+
+	public String getEsferaBomba() {
+		return esferaBomba;
+	}
+
+	public void setEsferaBomba(String esferaBomba) {
+		this.esferaBomba = esferaBomba;
+	}
+
+	public String getValvulasBomba() {
+		return valvulasBomba;
+	}
+
+	public void setValvulasBomba(String valvulasBomba) {
+		this.valvulasBomba = valvulasBomba;
+	}
+
+	public String getSaltosBomba() {
+		return saltosBomba;
+	}
+
+	public void setSaltosBomba(String saltosBomba) {
+		this.saltosBomba = saltosBomba;
+	}
+
+	public String getFusiblesBomba() {
+		return fusiblesBomba;
+	}
+
+	public void setFusiblesBomba(String fusiblesBomba) {
+		this.fusiblesBomba = fusiblesBomba;
+	}
+
+	public String getAlarmaBomba() {
+		return alarmaBomba;
+	}
+
+	public void setAlarmaBomba(String alarmaBomba) {
+		this.alarmaBomba = alarmaBomba;
+	}
+
+	public String getCaudalimetroBomba() {
+		return caudalimetroBomba;
+	}
+
+	public void setCaudalimetroBomba(String caudalimetroBomba) {
+		this.caudalimetroBomba = caudalimetroBomba;
+	}
+
+	public String getPresionBomba() {
+		return presionBomba;
+	}
+
+	public void setPresionBomba(String presionBomba) {
+		this.presionBomba = presionBomba;
 	}
 
 	@Column(name = "cantidad")
