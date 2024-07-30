@@ -56,21 +56,22 @@ public class TParteLinea implements java.io.Serializable {
 	private TTipoBie tipoBie;
 	private String numSerie;
 	
+	private Integer ordenBomba;
 	private String tipoBomba;
 	private String marcaBomba;
 	private String modeloBomba;
 	private Date fechaBomba;
 	private String motorBomba;
-	private String voltajeBomba;
-	private String rpmBomba;
+	private Double voltajeBomba;
+	private Double rpmBomba;
 	private String manometroBomba;
 	private String esferaBomba;
 	private String valvulasBomba;
 	private String saltosBomba;
 	private String fusiblesBomba;
 	private String alarmaBomba;
-	private String caudalimetroBomba;
-	private String presionBomba;
+	private Double caudalimetroBomba;
+	private Double presionBomba;
 	
 	private Integer cantidad;
 	private String descripcion;
@@ -469,6 +470,16 @@ public class TParteLinea implements java.io.Serializable {
 		this.numSerie = numSerie;
 	}
 
+	@Column(name = "orden_bomba")
+	public Integer getOrdenBomba() {
+		return ordenBomba;
+	}
+
+	public void setOrdenBomba(Integer ordenBomba) {
+		this.ordenBomba = ordenBomba;
+	}
+
+	@Column(name = "tipo_bomba")
 	public String getTipoBomba() {
 		return tipoBomba;
 	}
@@ -477,6 +488,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.tipoBomba = tipoBomba;
 	}
 
+	@Column(name = "marca_bomba")
 	public String getMarcaBomba() {
 		return marcaBomba;
 	}
@@ -485,6 +497,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.marcaBomba = marcaBomba;
 	}
 
+	@Column(name = "modelo_bomba")
 	public String getModeloBomba() {
 		return modeloBomba;
 	}
@@ -493,6 +506,8 @@ public class TParteLinea implements java.io.Serializable {
 		this.modeloBomba = modeloBomba;
 	}
 
+	@Temporal(TemporalType.DATE)
+	@Column(name = "fecha_bomba")
 	public Date getFechaBomba() {
 		return fechaBomba;
 	}
@@ -501,6 +516,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.fechaBomba = fechaBomba;
 	}
 
+	@Column(name = "motor_bomba")
 	public String getMotorBomba() {
 		return motorBomba;
 	}
@@ -509,22 +525,25 @@ public class TParteLinea implements java.io.Serializable {
 		this.motorBomba = motorBomba;
 	}
 
-	public String getVoltajeBomba() {
+	@Column(name = "voltaje_bomba", precision = 17, scale = 17)
+	public Double getVoltajeBomba() {
 		return voltajeBomba;
 	}
 
-	public void setVoltajeBomba(String voltajeBomba) {
+	public void setVoltajeBomba(Double voltajeBomba) {
 		this.voltajeBomba = voltajeBomba;
 	}
 
-	public String getRpmBomba() {
+	@Column(name = "rpm_bomba", precision = 17, scale = 17)
+	public Double getRpmBomba() {
 		return rpmBomba;
 	}
 
-	public void setRpmBomba(String rpmBomba) {
+	public void setRpmBomba(Double rpmBomba) {
 		this.rpmBomba = rpmBomba;
 	}
 
+	@Column(name = "manometro_bomba")
 	public String getManometroBomba() {
 		return manometroBomba;
 	}
@@ -533,6 +552,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.manometroBomba = manometroBomba;
 	}
 
+	@Column(name = "esfera_bomba")
 	public String getEsferaBomba() {
 		return esferaBomba;
 	}
@@ -541,6 +561,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.esferaBomba = esferaBomba;
 	}
 
+	@Column(name = "valvulas_bomba")
 	public String getValvulasBomba() {
 		return valvulasBomba;
 	}
@@ -549,6 +570,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.valvulasBomba = valvulasBomba;
 	}
 
+	@Column(name = "saltos_bomba")
 	public String getSaltosBomba() {
 		return saltosBomba;
 	}
@@ -557,6 +579,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.saltosBomba = saltosBomba;
 	}
 
+	@Column(name = "fusibles_bomba")
 	public String getFusiblesBomba() {
 		return fusiblesBomba;
 	}
@@ -565,6 +588,7 @@ public class TParteLinea implements java.io.Serializable {
 		this.fusiblesBomba = fusiblesBomba;
 	}
 
+	@Column(name = "alarma_bomba")
 	public String getAlarmaBomba() {
 		return alarmaBomba;
 	}
@@ -573,19 +597,21 @@ public class TParteLinea implements java.io.Serializable {
 		this.alarmaBomba = alarmaBomba;
 	}
 
-	public String getCaudalimetroBomba() {
+	@Column(name = "caudalimetro_bomba", precision = 17, scale = 17)
+	public Double getCaudalimetroBomba() {
 		return caudalimetroBomba;
 	}
 
-	public void setCaudalimetroBomba(String caudalimetroBomba) {
+	public void setCaudalimetroBomba(Double caudalimetroBomba) {
 		this.caudalimetroBomba = caudalimetroBomba;
 	}
 
-	public String getPresionBomba() {
+	@Column(name = "presion_bomba", precision = 17, scale = 17)
+	public Double getPresionBomba() {
 		return presionBomba;
 	}
 
-	public void setPresionBomba(String presionBomba) {
+	public void setPresionBomba(Double presionBomba) {
 		this.presionBomba = presionBomba;
 	}
 
