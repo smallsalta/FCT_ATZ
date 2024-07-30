@@ -239,6 +239,17 @@
 		<br />
 		<div class="container fila">
 			<div class="row">
+				<div class="col col-md-2">
+					<label> <input type="radio" name="borrar" /> Orden * <input
+						type="checkbox" />
+					</label>
+				</div>
+				<div class="col col-md-10">
+					<input type="number" name="ordenBomba" class="form-control orden-input"
+						required value="${linea.ordenBomba}" min="1" />
+				</div>
+			</div>
+			<div class="row">
 				<div class="col col-md-2">Tipo de bomba</div>
 				<div class="col col-md-10">
 					<input name="tipoBomba" class="form-control"
@@ -276,14 +287,14 @@
 			<div class="row">
 				<div class="col col-md-2">Voltaje</div>
 				<div class="col col-md-10">
-					<input name="voltajeBomba" class="form-control"
+					<input type="number" name="voltajeBomba" class="form-control"
 						value="${linea.voltajeBomba}">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col col-md-2">RPM</div>
 				<div class="col col-md-10">
-					<input name="rpmBomba" class="form-control"
+					<input type="number" name="rpmBomba" class="form-control"
 						value="${linea.rpmBomba}">
 				</div>
 			</div>
@@ -332,14 +343,14 @@
 			<div class="row">
 				<div class="col col-md-2">Caudalímetro</div>
 				<div class="col col-md-10">
-					<input name="caudalimetroBomba" class="form-control"
+					<input type="number" name="caudalimetroBomba" class="form-control"
 						value="${linea.caudalimetroBomba}">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col col-md-2">Presión</div>
 				<div class="col col-md-10">
-					<input name="presionBomba" class="form-control"
+					<input type="number" name="presionBomba" class="form-control"
 						value="${linea.presionBomba}">
 				</div>
 			</div>
