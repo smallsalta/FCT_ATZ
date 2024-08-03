@@ -1,5 +1,6 @@
 package com.atz.pdf;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -419,6 +420,55 @@ public class ParteLineaFbArray implements JRDataSource {
 			break;
 		case "cantidadDetectores":
 			resp = this.actual.getCantidadDetectores();
+			break;
+		case "ordenBomba":
+			resp = this.actual.getOrdenBomba();
+			break;
+		case "tipoBomba":
+			resp = this.actual.getTipoBomba();
+			break;
+		case "marcaBomba":
+			resp = this.actual.getMarcaBomba();
+			break;
+		case "modeloBomba":
+			resp = this.actual.getModeloBomba();
+			break;
+		case "fechaBomba":
+			resp = new SimpleDateFormat("dd/MM/yyyy").format(this.actual.getFechaBomba());
+			break;
+		case "motorBomba":
+			resp = this.actual.getMotorBomba();
+			break;
+		case "voltajeBomba":
+			resp = this.actual.getVoltajeBomba();
+			break;
+		case "rpmBomba":
+			resp = this.actual.getRpmBomba();
+			break;
+		case "manometroBomba":
+			resp = this.actual.getManometroBomba();
+			break;
+		case "esferaBomba":
+			resp = this.actual.getEsferaBomba();
+			break;
+		case "valvulasBomba":
+			resp = this.actual.getValvulasBomba();
+			break;
+		case "saltosBomba":
+			resp = this.actual.getSaltosBomba();
+			break;
+		case "fusiblesBomba":
+			resp = this.actual.getFusiblesBomba();
+			break;
+		case "alarmaBomba":
+			resp = this.actual.getAlarmaBomba();
+			break;
+		case "caudalimetroBomba":
+			resp = this.actual.getCaudalimetroBomba();
+			break;
+		case "presionBomba":
+			resp = this.actual.getPresionBomba();
+			break;
 		default:
 			break;
 		}

@@ -146,6 +146,7 @@ public class ParteDAO
 		f.getTParteLineas().forEach(x -> {
 				Hibernate.initialize(x.getTipo());
 				Hibernate.initialize(x.getTipoBie());
+				Hibernate.initialize(x.getTipoBomba());
 			});
 		
 		return f;

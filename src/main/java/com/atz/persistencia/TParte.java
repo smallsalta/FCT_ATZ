@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.atz.comparator.TParteLineaBieBombaComparator;
 import com.atz.comparator.TParteLineaComparator;
 import com.atz.comparator.TPreguntasParteComp;
 
@@ -246,6 +248,16 @@ public class TParte implements java.io.Serializable {
 	public List<TParteLinea> getTParteLineasOrd() {
 		this.getTParteLineas().sort(new TParteLineaComparator());
 		return this.TParteLineas;
+	}
+	
+	@Transient
+	public List<TParteLinea> getTParteLineasBieOrd() {
+		return this.getTParteLineas().stream().filter(x -> x.getOrden() != null).sorted(new TParteLineaComparator()).collect(Collectors.toList());
+	}
+	
+	@Transient
+	public List<TParteLinea> getTParteLineasBieBombaOrd() {
+		return this.getTParteLineas().stream().filter(x -> x.getOrdenBomba() != null).sorted(new TParteLineaBieBombaComparator()).collect(Collectors.toList());
 	}
 
 	@Column(name = "anterior")

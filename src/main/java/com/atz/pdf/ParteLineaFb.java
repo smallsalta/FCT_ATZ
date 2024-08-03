@@ -39,6 +39,24 @@ public class ParteLineaFb {
 	private String estadoGeneral;
 	private String numSerie;
 	
+	// BIE - Bomba
+	private String ordenBomba;
+	private String tipoBomba;
+	private String marcaBomba;
+	private String modeloBomba;
+	private Date fechaBomba;
+	private String motorBomba;
+	private String voltajeBomba;
+	private String rpmBomba;
+	private String manometroBomba;
+	private String esferaBomba;
+	private String valvulasBomba;
+	private String saltosBomba;
+	private String fusiblesBomba;
+	private String alarmaBomba;
+	private String caudalimetroBomba;
+	private String presionBomba;
+	
 	private String cantidad;
 	private String descripcion;
 	
@@ -137,4 +155,5 @@ public class ParteLineaFb {
 	public void setNumeroSerie(String numSerie) {
 		this.numSerie = numSerie;
 	}
+
 }
