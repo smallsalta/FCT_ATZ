@@ -22,6 +22,7 @@ import com.atz.dao.ParteDAO;
 import com.atz.dao.ParteLineaDAO;
 import com.atz.dao.ParteTipoDAO;
 import com.atz.dao.PreguntasDAO;
+import com.atz.dao.TipoBieBombaDAO;
 import com.atz.dao.TipoBieDAO;
 import com.atz.dao.TipoExtintorDAO;
 import com.atz.dao.UsuarioDAO;
@@ -60,6 +61,9 @@ public class ParteService {
 
 	@Autowired
 	private TipoBieDAO tbdao;
+	
+	@Autowired
+	private TipoBieBombaDAO tbbdao;
 
 	@Autowired
 	private EstadoParteDAO epdao;
@@ -549,7 +553,7 @@ public class ParteService {
 				TParteLinea l = new TParteLinea();
 
 				l.setOrdenBomba(fb.getOrdenBomba()[i]);
-				l.setTipoBomba(fb.getTipoBomba()[i]);
+				l.setTipoBomba(this.tbbdao.get(fb.getTipoBomba()[i]));
 				l.setMarcaBomba(fb.getMarcaBomba()[i]);
 				l.setModeloBomba(fb.getModeloBomba()[i]);
 				l.setFechaBomba(fb.getFechaBomba()[i]);
