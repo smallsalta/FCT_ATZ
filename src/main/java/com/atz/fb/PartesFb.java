@@ -56,7 +56,7 @@ public class PartesFb {
 	
 	// BIE - Bomba
 	private Integer[] ordenBomba;
-	private String[] tipoBomba;
+	private Integer[] tipoBomba;
 	private String[] marcaBomba;
 	private String[] modeloBomba;
 	private Date[] fechaBomba;

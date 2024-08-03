@@ -57,7 +57,7 @@ public class TParteLinea implements java.io.Serializable {
 	private String numSerie;
 	
 	private Integer ordenBomba;
-	private String tipoBomba;
+	private TTipoBieBomba tipoBomba;
 	private String marcaBomba;
 	private String modeloBomba;
 	private Date fechaBomba;
@@ -478,13 +478,14 @@ public class TParteLinea implements java.io.Serializable {
 	public void setOrdenBomba(Integer ordenBomba) {
 		this.ordenBomba = ordenBomba;
 	}
-
-	@Column(name = "tipo_bomba")
-	public String getTipoBomba() {
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipo_bomba")
+	public TTipoBieBomba getTipoBomba() {
 		return tipoBomba;
 	}
 
-	public void setTipoBomba(String tipoBomba) {
+	public void setTipoBomba(TTipoBieBomba tipoBomba) {
 		this.tipoBomba = tipoBomba;
 	}
 

@@ -252,8 +252,18 @@
 			<div class="row">
 				<div class="col col-md-2">Tipo de bomba</div>
 				<div class="col col-md-10">
-					<input name="tipoBomba" class="form-control"
-						value="${linea.tipoBomba}">
+					<select name="tipoBomba" class="form-control" data-live-search="true">
+						<c:forEach items="${tiposbomba}" var="te">
+							<c:choose>
+								<c:when test="${linea.tipoBomba.oid eq te.oid}">
+									<option value="${te.oid}" selected="selected">${te.tipo}</option>
+								</c:when>
+								<c:otherwise>
+									<option value="${te.oid}">${te.tipo}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</select>
 				</div>
 			</div>
 			<div class="row">

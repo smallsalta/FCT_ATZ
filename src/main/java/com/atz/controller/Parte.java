@@ -65,6 +65,7 @@ import com.atz.service.PdfParteService;
 import com.atz.service.PreguntaService;
 import com.atz.service.SelectCentralitaService;
 import com.atz.service.SendMailService;
+import com.atz.service.TipoBieBombaService;
 import com.atz.service.TipoBieService;
 import com.atz.service.TipoExtintorService;
 import com.atz.service.UsuarioService;
@@ -97,6 +98,9 @@ public class Parte
 	
 	@Autowired
 	private TipoBieService tbservice;
+	
+	@Autowired
+	private TipoBieBombaService tbbservice;
 	
 	@Autowired
 	private EstadoParteService epservice;
@@ -212,6 +216,7 @@ public class Parte
 		
 		m.put("oidpartetipo", 2);
 		m.put("tiposextintor", this.tbservice.leerTodos());
+		m.put("tiposbomba", this.tbbservice.leerTodos());
 		m.put( "estados", this.stservice.getTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
@@ -373,6 +378,7 @@ public class Parte
 			m.put("combolongbie", comboLongBie);
 		} else if(oidpartetipo == 2) {
 			m.put( "tiposextintor", this.getTiposExtintor(oidpartetipo));
+			m.put("tiposbomba", this.tbbservice.leerTodos());
 			List<ComboSiNo> comboSiNo = new ArrayList<>();
 			comboSiNo.add(ComboSiNo.NO);
 			comboSiNo.add(ComboSiNo.SI);
