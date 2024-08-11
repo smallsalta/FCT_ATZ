@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.atz.persistencia.TTipoBie;
 import com.atz.persistencia.TTipoBieBomba;
 
 @Repository
