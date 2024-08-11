@@ -65,6 +65,7 @@ import com.atz.service.PdfParteService;
 import com.atz.service.PreguntaService;
 import com.atz.service.SelectCentralitaService;
 import com.atz.service.SendMailService;
+import com.atz.service.TipoBieBombaService;
 import com.atz.service.TipoBieService;
 import com.atz.service.TipoExtintorService;
 import com.atz.service.UsuarioService;
@@ -97,6 +98,9 @@ public class Parte
 	
 	@Autowired
 	private TipoBieService tbservice;
+	
+	@Autowired
+	private TipoBieBombaService tbbservice;
 	
 	@Autowired
 	private EstadoParteService epservice;
@@ -212,6 +216,7 @@ public class Parte
 		
 		m.put("oidpartetipo", 2);
 		m.put("tiposextintor", this.tbservice.leerTodos());
+		m.put("tiposbomba", this.tbbservice.leerTodos());
 		m.put( "estados", this.stservice.getTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
@@ -356,7 +361,7 @@ public class Parte
 		
 		m.put( "matrimoniado",  tm.getFactura() != null );
 		
-		if(oidpartetipo == 1 || oidpartetipo == 2 ||oidpartetipo == 4) {
+
 			m.put( "tiposextintor", this.getTiposExtintor(oidpartetipo));
 			
 			List<ComboSiNo> comboSiNo = new ArrayList<>();
@@ -376,6 +381,28 @@ public class Parte
 			m.put("combosino", comboSiNo);
 			m.put("combotruefalse", comboTrueFalse);
 			m.put("combolongbie", comboLongBie);
+		} else if(oidpartetipo == 2) {
+			m.put( "tiposextintor", this.getTiposExtintor(oidpartetipo));
+			m.put("tiposbomba", this.tbbservice.leerTodos());
+			List<ComboSiNo> comboSiNo = new ArrayList<>();
+			comboSiNo.add(ComboSiNo.NO);
+			comboSiNo.add(ComboSiNo.SI);
+			comboSiNo.add(ComboSiNo.NC);
+			
+			
+			List<ComboTrueFalse> comboTrueFalse = new ArrayList<>();
+			comboTrueFalse.add(ComboTrueFalse.NO);
+			comboTrueFalse.add(ComboTrueFalse.SI);
+			
+			List<ComboLongBIE> comboLongBie = new ArrayList<>();
+			comboLongBie.addAll(Arrays.asList(ComboLongBIE.values()));
+				
+			
+			m.put("combosino", comboSiNo);
+			m.put("combotruefalse", comboTrueFalse);
+			m.put("combolongbie", comboLongBie);
+			m.put("lineasbie", c.getTParteLineas().stream().filter(x -> x.getOrden() != null).collect(Collectors.toList()));
+			m.put("lineasbomba", c.getTParteLineas().stream().filter(x -> x.getOrdenBomba() != null).collect(Collectors.toList()));
 		} else {
 			m.put("lineascentral", c.getTParteLineas().stream().filter(x -> x.getOrdenCentral() != null).collect(Collectors.toList()));
 			m.put("lineasfuente", c.getTParteLineas().stream().filter(x -> x.getOrdenFuente() != null).collect(Collectors.toList()));

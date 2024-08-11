@@ -9,6 +9,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -309,15 +310,30 @@ public class PdfParteService extends PdfContrato {
 			
 		} else {
 			
-			this.copy(pla, p);
+			if(p.getTParteTipo().getOid() == 2) {
+				this.copyBie(pla, p, 0);
+				param.put("partelineas", pla);
+				
+			} else {
+				this.copy(pla, p);
+				
+				param.put("partelineas", pla);
+			}
 			
-			param.put("partelineas", pla);
+			
 			
 			if(p.getTParteTipo().getOid() == 1 || p.getTParteTipo().getOid() == 2 || p.getTParteTipo().getOid() == 4) {
 				param.put("precio_total", this.calculaTotal(p.getTParteLineas()));
 			}
 			
 			JasperPrint jp 			= this.getJasperPrint(this.getJasperFromTipo(p.getTParteTipo().getOid()), param);
+			if(p.getTParteTipo().getOid() == 2) {
+				ParteLineaFbArray plaB = new ParteLineaFbArray();
+				this.copyBie(plaB, p, 1);
+				param.put("partelineasbomba", plaB);
+				JasperPrint jpb = this.getJasperPrint("parte2_bomba", param);
+				this.merge(jp, jpb);
+			}
 			JasperPrint jPreguntas	= this.getJasperPrint("parte_preguntas", param);
 			
 			// this.removeBlankPageParte(jp.getPages());
@@ -574,17 +590,27 @@ public class PdfParteService extends PdfContrato {
 			
 			this.fillParteLineaExtintor(lin, tp.getTParteLineasOrd());
 			
-		} else if(tp.getTParteTipo().getOid() == 2) {
-			
-			this.fillParteLineaBie(lin, tp.getTParteLineasOrd());
-			
 		} else if(tp.getTParteTipo().getOid() == 4) {
 			
 			this.fillParteLineaObservaciones(lin, tp.getTParteLineasOrd());
 			
 		}
 		
+		pla.setPartelineas(lin);
+	}
+	
+	private void copyBie(ParteLineaFbArray pla, TParte tp, int pestanya) {
+		List<ParteLineaFb> lin = new ArrayList<>();
 		
+		if(pestanya == 0) { // Pestaña BIE
+			
+			this.fillParteLineaBie(lin, tp.getTParteLineasBieOrd());
+			
+		} else if(pestanya == 1) { // Pestaña Bomba
+			
+			this.fillParteLineaBieBomba(lin, tp.getTParteLineasBieBombaOrd());
+			
+		}
 		
 		pla.setPartelineas(lin);
 	}
@@ -651,6 +677,31 @@ public class PdfParteService extends PdfContrato {
 			p.setEstadoGeneral(l.getEstadoGeneral());
 			p.setPrecio(this.toStringField(l.getPrecio() == null ? .0d : l.getPrecio()));
 			p.setNumSerie(this.toStringField(l.getNumSerie()));
+			
+			lin.add(p);
+		}
+	}
+	
+	private void fillParteLineaBieBomba(List<ParteLineaFb> lin, List<TParteLinea> tpl) {
+		for(TParteLinea l : tpl) {
+			ParteLineaFb p = new ParteLineaFb();
+			
+			p.setOrdenBomba(this.toStringField(l.getOrdenBomba()));
+			p.setTipoBomba(this.toStringField(l.getTipoBomba().getTipo()));
+			p.setMarcaBomba(this.toStringField(l.getMarcaBomba()));
+			p.setModeloBomba(this.toStringField(l.getModeloBomba()));
+			p.setFechaBomba(l.getFechaBomba());
+			p.setMotorBomba(this.toStringField(l.getMotorBomba()));
+			p.setVoltajeBomba(this.toStringField(l.getVoltajeBomba()));
+			p.setRpmBomba(this.toStringField(l.getRpmBomba()));
+			p.setManometroBomba(this.toStringField(l.getManometroBomba()));
+			p.setEsferaBomba(this.toStringField(l.getEsferaBomba()));
+			p.setValvulasBomba(this.toStringField(l.getValvulasBomba()));
+			p.setSaltosBomba(this.toStringField(l.getSaltosBomba()));
+			p.setFusiblesBomba(this.toStringField(l.getFusiblesBomba()));
+			p.setAlarmaBomba(this.toStringField(l.getAlarmaBomba()));
+			p.setCaudalimetroBomba(this.toStringField(l.getCaudalimetroBomba()));
+			p.setPresionBomba(this.toStringField(l.getPresionBomba()));
 			
 			lin.add(p);
 		}

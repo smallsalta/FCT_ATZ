@@ -22,6 +22,7 @@ import com.atz.dao.ParteDAO;
 import com.atz.dao.ParteLineaDAO;
 import com.atz.dao.ParteTipoDAO;
 import com.atz.dao.PreguntasDAO;
+import com.atz.dao.TipoBieBombaDAO;
 import com.atz.dao.TipoBieDAO;
 import com.atz.dao.TipoExtintorDAO;
 import com.atz.dao.UsuarioDAO;
@@ -60,6 +61,9 @@ public class ParteService {
 
 	@Autowired
 	private TipoBieDAO tbdao;
+	
+	@Autowired
+	private TipoBieBombaDAO tbbdao;
 
 	@Autowired
 	private EstadoParteDAO epdao;
@@ -519,6 +523,55 @@ public class ParteService {
 				tc.getTParteLineas().add(l);
 			}
 
+		} else if (fb.getOidpartetipo().equals(2)) {
+			
+			for(int i = 0; i < fb.getOrden().length; i++) {
+				TParteLinea l = new TParteLinea();
+
+				l.setOrden(fb.getOrden()[i]);
+				l.setUbicacion(fb.getUbicacion()[i]);
+				l.setTipoBie(this.tbdao.get(fb.getTipo()[i]));
+				l.setLongMang(fb.getLongMang()[i]);
+				l.setFechaRetimA(fb.getFechaRetimA()[i]);
+				l.setFechaRetimB(fb.getFechaRetimB()[i]);
+				l.setPresionEstatica(fb.getPresionEstatica()[i]);
+				l.setPresionDinamica(fb.getPresionDinamica()[i]);
+				l.setManguera(fb.getManguera()[i]);
+				l.setLanza(fb.getLanza()[i]);
+				l.setValvula(fb.getValvula()[i]);
+				l.setManometro(fb.getManometro()[i]);
+				l.setCristal(fb.getCristal()[i]);
+				l.setSennales(fb.getSennales()[i]);
+				l.setEstadoGeneral(fb.getEstadoGeneral()[i]);
+				l.setPrecio(fb.getPrecio()[i]);
+				l.setNumSerie(fb.getNumSerie()[i]);
+				l.setTParte(tc);
+				tc.getTParteLineas().add(l);
+			}
+			
+			for(int i = 0; i < fb.getOrdenBomba().length; i++) {
+				TParteLinea l = new TParteLinea();
+
+				l.setOrdenBomba(fb.getOrdenBomba()[i]);
+				l.setTipoBomba(this.tbbdao.get(fb.getTipoBomba()[i]));
+				l.setMarcaBomba(fb.getMarcaBomba()[i]);
+				l.setModeloBomba(fb.getModeloBomba()[i]);
+				l.setFechaBomba(fb.getFechaBomba()[i]);
+				l.setMotorBomba(fb.getMotorBomba()[i]);
+				l.setVoltajeBomba(fb.getVoltajeBomba()[i]);
+				l.setRpmBomba(fb.getRpmBomba()[i]);
+				l.setManometroBomba(fb.getManometroBomba()[i]);
+				l.setEsferaBomba(fb.getEsferaBomba()[i]);
+				l.setValvulasBomba(fb.getValvulasBomba()[i]);
+				l.setSaltosBomba(fb.getSaltosBomba()[i]);
+				l.setFusiblesBomba(fb.getFusiblesBomba()[i]);
+				l.setAlarmaBomba(fb.getAlarmaBomba()[i]);
+				l.setCaudalimetroBomba(fb.getCaudalimetroBomba()[i]);
+				l.setPresionBomba(fb.getPresionBomba()[i]);
+				l.setTParte(tc);
+				tc.getTParteLineas().add(l);
+			}
+
 		} else {
 
 			for (int i = 0; i < fb.getOrden().length; i++) {
@@ -539,25 +592,6 @@ public class ParteService {
 					l.setAltura(fb.getAltura()[i]);
 					l.setPrecio(fb.getPrecio()[i]);
 					this.setPrueba(fb.getPrueba()[i], l);
-
-				} else if (fb.getOidpartetipo().equals(2)) {
-
-					l.setUbicacion(fb.getUbicacion()[i]);
-					l.setTipoBie(this.tbdao.get(fb.getTipo()[i]));
-					l.setLongMang(fb.getLongMang()[i]);
-					l.setFechaRetimA(fb.getFechaRetimA()[i]);
-					l.setFechaRetimB(fb.getFechaRetimB()[i]);
-					l.setPresionEstatica(fb.getPresionEstatica()[i]);
-					l.setPresionDinamica(fb.getPresionDinamica()[i]);
-					l.setManguera(fb.getManguera()[i]);
-					l.setLanza(fb.getLanza()[i]);
-					l.setValvula(fb.getValvula()[i]);
-					l.setManometro(fb.getManometro()[i]);
-					l.setCristal(fb.getCristal()[i]);
-					l.setSennales(fb.getSennales()[i]);
-					l.setEstadoGeneral(fb.getEstadoGeneral()[i]);
-					l.setPrecio(fb.getPrecio()[i]);
-					l.setNumSerie(fb.getNumSerie()[i]);
 
 				} else if (fb.getOidpartetipo().equals(4)) {
 

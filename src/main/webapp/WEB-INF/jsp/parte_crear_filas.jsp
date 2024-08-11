@@ -13,8 +13,11 @@
 			<c:forEach items="${parte.TParteLineas}" var="l" varStatus="i">
 				<c:set scope="request" var="idx" value="${i.index}"/>
 				<c:set scope="request" var="linea" value="${l}"/>
-				<c:if test="${oidpartetipo eq 1 or oidpartetipo eq 2 or oidpartetipo eq 4}">
+				<c:if test="${oidpartetipo eq 1 or oidpartetipo eq 4}">
 					<jsp:include page="parte_formulario_linea.jsp"/>
+				</c:if>
+				<c:if test="${oidpartetipo eq 2}">
+					<jsp:include page="parte_bie_formulario_linea.jsp"/>
 				</c:if>
 				<c:if test="${oidpartetipo eq 5 or oidpartetipo eq 6}">
 					<jsp:include page="parte_centralita_formulario_linea.jsp"/>
