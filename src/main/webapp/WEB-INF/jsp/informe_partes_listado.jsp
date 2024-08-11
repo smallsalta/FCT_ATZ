@@ -29,9 +29,9 @@
 			    		buttons: 	[ 'excel', 'pdf', 'print' ],
 				    	columnDefs: 
 					    		[
-					    			{ targets: [2, 3, 4, 9], className: 'dt-body-left' },
-			                        { targets: [0, 1, 5], className: 'dt-body-center' },
-			                        { targets: [6, 7, 8], className: 'dt-body-right' }
+					    			{ targets: [3, 4, 5, 10], className: 'dt-body-left' },
+			                        { targets: [0, 1, 2, 6], className: 'dt-body-center' },
+			                        { targets: [7, 8, 9], className: 'dt-body-right' }
 			                    ]
 				    	};
 	    	
@@ -58,6 +58,7 @@
 			<thead>
 				<tr>
 					<th>Número</th>
+					<th>Factura</th>
 					<th>Fecha</th>
 					<th>Cliente</th>
 					<th>Dirección</th>
@@ -72,7 +73,7 @@
 			<tbody>
 				<c:forEach items="${partes}" var="c">
 					<tr>					
-						<td title="${n2[c.numero]}">
+						<td>
 							<c:choose>
 		            			<c:when test="${c.TParteTipo.oid == 1}">
 			            			<c:set var="pre" value="EX" />
@@ -99,6 +100,7 @@
 		            		
 		            		${pre} / ${c.numero}
 						</td>
+						<td> ${n2[c.numero]} </td>
 						<td> <fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy" /> </td>
 						<td> ${c.TCliente.nombre} ${c.TCliente.apellidos} </td>
 						<td> ${c.TCliente.direccion} </td>

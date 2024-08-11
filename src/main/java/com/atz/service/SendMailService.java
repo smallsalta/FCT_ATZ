@@ -281,8 +281,8 @@ public class SendMailService
 	{
 		String txt1	=	"Este es un mensaje automático. Por favor no responda a este correo electrónico."; 
 		txt1		+= 	"\n\nTras la nueva normativa del RD 513/2017, se ruega que la documentación adjunta en este correo, nos las devuelvan firmada a " + this.copia3 + ".";		
-		txt1		+= 	"\n\nPara cualquier duda, pueden contactar con nosotros tanto en el 651-735-069 como en el 623-350-730.";		
-
+		txt1		+= 	"\n\nPara cualquier duda, pueden contactar con nosotros en 651 735 069 / 649 258 267 / 954 023 295";	
+		
 		return txt1;
 	}
 }
