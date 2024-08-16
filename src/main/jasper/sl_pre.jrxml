@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.610510000000001"/>
 	<property name="ireport.x" value="0"/>
@@ -14,6 +15,8 @@
 	</parameter>
 	<parameter name="lineas" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="biva" class="java.lang.Double"/>
+	<parameter name="ajuste" class="java.lang.Double"/>
+	<parameter name="totaltotal" class="java.lang.Double"/>
 	<background>
 		<band height="782">
 			<image>
@@ -113,6 +116,54 @@
         java.util.Locale.GERMANY
     )
 ).format( $P{total} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="87" width="43" height="20" uuid="d8f9852e-f65e-457d-8a97-56bed5baad29"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{totaltotal} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="66" width="43" height="20" uuid="5a2d29e0-f4b7-43c4-acc1-8ad79ba7f7f8"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{ajuste} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="66" width="44" height="20" uuid="57481fb8-bf8b-4680-b1d7-72e781590f49">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ajuste"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="87" width="44" height="20" uuid="d8bd2507-0798-40e8-b2e4-4bb821c7628b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TOTAL"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

@@ -15,6 +15,8 @@
 	</parameter>
 	<parameter name="lineas" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="biva" class="java.lang.Double"/>
+	<parameter name="ajuste" class="java.lang.Double"/>
+	<parameter name="totaltotal" class="java.lang.Double"/>
 	<background>
 		<band height="782">
 			<image>
@@ -107,6 +109,54 @@
         java.util.Locale.GERMANY
     )
 ).format( $P{total} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="87" width="43" height="20" uuid="c8457ac1-e5fc-472b-bad7-90e22b9b69ca"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{totaltotal} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="66" width="43" height="20" uuid="a83541c8-90f6-4ab9-9a1b-e92880fe3542"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{ajuste} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="66" width="44" height="20" uuid="6697f702-fb5f-4bc2-8ec5-c1a0baf8ecb7">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ajuste"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="87" width="44" height="20" uuid="373ab514-765c-47e8-8443-31652c3b082e">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TOTAL"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

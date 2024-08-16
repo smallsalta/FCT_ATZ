@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.610510000000001"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="cliente" class="java.lang.String"/>
 	<parameter name="fecha" class="java.lang.Object"/>
 	<parameter name="numero" class="java.lang.Object"/>
@@ -14,6 +16,8 @@
 	</parameter>
 	<parameter name="lineas" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="biva" class="java.lang.Double"/>
+	<parameter name="ajuste" class="java.lang.Double"/>
+	<parameter name="totaltotal" class="java.lang.Double"/>
 	<background>
 		<band height="782">
 			<image>
@@ -113,6 +117,54 @@
         java.util.Locale.GERMANY
     )
 ).format( $P{total} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="66" width="43" height="20" uuid="83403691-0a2e-4601-b3a0-f9941f2c8fec"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{ajuste} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="87" width="43" height="20" uuid="dd2b9b09-8d4c-4e96-a598-475d7e2c9868"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat
+(
+    "#,###,##0.00",
+    new java.text.DecimalFormatSymbols
+    (
+        java.util.Locale.GERMANY
+    )
+).format( $P{totaltotal} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="66" width="44" height="20" uuid="e569bf14-d679-4276-b980-44db3fc5991b">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ajuste"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="87" width="44" height="20" uuid="21d182f6-788e-4172-990a-28b54676226f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TOTAL"]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

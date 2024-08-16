@@ -122,6 +122,14 @@
 </div>
 <div class="row">
 	<div class="col col-md-2">
+		Ajuste
+	</div>
+	<div class="col col-md-10">
+		<input id="ajuste" name="ajuste" class="form-control" value="${factura.ajuste}" type="number"/>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-2">
 		Fecha de creación
 	</div>
 	<div class="col col-md-10">

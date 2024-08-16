@@ -43,6 +43,7 @@ public class TFactura implements java.io.Serializable {
 	private String numero2;
 	private Date fecha;
 	private Double iva;
+	private Double ajuste;
 	private Timestamp envio;
 	private Date auditoria1;
 	private Date auditoria2;
@@ -113,6 +114,15 @@ public class TFactura implements java.io.Serializable {
 
 	public void setIva(Double iva) {
 		this.iva = iva;
+	}
+	
+	@Column(name = "ajuste", precision = 17, scale = 17)
+	public Double getAjuste() {
+		return this.ajuste;
+	}
+
+	public void setAjuste(Double ajuste) {
+		this.ajuste = ajuste;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TFactura", cascade=CascadeType.ALL)

@@ -38,6 +38,7 @@ public class ContratosFb
 	private Integer[] pruebasExt;
 	private Integer[] cantidadExt;
 	private String[] preguntas;
+	private Double ajuste;
 	
 	/**
 	 * Inicializa los campos para el pase de parte a contrato

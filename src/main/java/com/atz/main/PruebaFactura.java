@@ -28,9 +28,9 @@ public class PruebaFactura
 		PdfFacturaService fserv		= ctx.getBean( PdfFacturaService.class );
 		
 		DateFormat fmt				= new SimpleDateFormat("dd/MM/yyyy");
-		Date fini					= fmt.parse("01/01/2023");
-		Date ffin					= fmt.parse("31/12/2023");
-		List<TFactura> lfact		= fdao.leerFacturasFechas( fini, ffin, 8, null, null );
+		Date fini					= fmt.parse("16/08/2024");
+		Date ffin					= fmt.parse("16/08/2024");
+		List<TFactura> lfact		= fdao.leerFacturasFechas( fini, ffin, 7, null, null );
 
 		fserv.setPdfFolder( new File("C:\\Users\\jsilva\\Desktop\\PDF") );
 		

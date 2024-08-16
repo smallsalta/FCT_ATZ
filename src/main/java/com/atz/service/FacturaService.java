@@ -265,6 +265,7 @@ public class FacturaService
 		tc.setFecha( fb.getFecha() );
 		tc.setNumero( fb.getNumero() );
 		tc.setIva( fb.getIva() );
+		tc.setAjuste( fb.getAjuste() );
 		tc.setTEmpresa( this.edao.read( fb.getOidempresa() ) );
 		tc.setCcEmail( fb.getCcemail() );
 		
