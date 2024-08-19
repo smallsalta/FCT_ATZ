@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="17"/>
@@ -8,14 +8,6 @@
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="584"/>
 	<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="nombre" class="java.lang.String"/>
 	<parameter name="fecha" class="java.lang.Object"/>
 	<parameter name="numero" class="java.lang.Object"/>
@@ -49,7 +41,7 @@
 				<imageExpression><![CDATA["./logo.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement stretchType="RelativeToBandHeight" x="700" y="0" width="81" height="99" uuid="1e54d606-4241-4ca8-819a-f45fd277420e"/>
+				<reportElement stretchType="RelativeToBandHeight" x="453" y="0" width="81" height="99" uuid="1e54d606-4241-4ca8-819a-f45fd277420e"/>
 				<imageExpression><![CDATA["./eqa.jpeg"]]></imageExpression>
 			</image>
 		</band>
@@ -67,7 +59,7 @@
 				<text><![CDATA[DETECTORES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="290" y="139" width="80" height="20" forecolor="#00004E" uuid="83e3fdca-9e44-4d56-b2c4-f62eb6adba17">
+				<reportElement x="220" y="139" width="80" height="20" forecolor="#00004E" uuid="83e3fdca-9e44-4d56-b2c4-f62eb6adba17">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -77,7 +69,7 @@
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="130" y="159" width="480" height="10" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
+				<reportElement x="60" y="159" width="480" height="10" uuid="cc7ce83e-0e00-4f89-897a-bfe703f60663">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -87,7 +79,7 @@
 				<subreportExpression><![CDATA["./parte4_detectores_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="210" y="139" width="80" height="20" forecolor="#00004E" uuid="2044156d-ab40-4fd3-90ee-8208bff4da91">
+				<reportElement x="140" y="139" width="80" height="20" forecolor="#00004E" uuid="2044156d-ab40-4fd3-90ee-8208bff4da91">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -97,7 +89,7 @@
 				<text><![CDATA[UBICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="139" width="80" height="20" forecolor="#00004E" uuid="352d5b4c-f8ca-4142-a0a0-26c67f829271">
+				<reportElement x="380" y="139" width="80" height="20" forecolor="#00004E" uuid="352d5b4c-f8ca-4142-a0a0-26c67f829271">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -107,7 +99,7 @@
 				<text><![CDATA[FUNCIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="530" y="139" width="80" height="20" forecolor="#00004E" uuid="ca7eb480-82d0-4f4c-be9c-24ba321bf7ff">
+				<reportElement x="460" y="139" width="80" height="20" forecolor="#00004E" uuid="ca7eb480-82d0-4f4c-be9c-24ba321bf7ff">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -117,7 +109,7 @@
 				<text><![CDATA[AÑO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="370" y="139" width="80" height="20" forecolor="#00004E" uuid="683f48a1-17a5-4455-8fcd-0df04c8ae9b5">
+				<reportElement x="300" y="139" width="80" height="20" forecolor="#00004E" uuid="683f48a1-17a5-4455-8fcd-0df04c8ae9b5">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -127,7 +119,7 @@
 				<text><![CDATA[MARCA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="130" y="139" width="80" height="20" forecolor="#00004E" uuid="8af757d3-775f-4e7b-bb81-ce7b2d34a868">
+				<reportElement x="60" y="139" width="80" height="20" forecolor="#00004E" uuid="8af757d3-775f-4e7b-bb81-ce7b2d34a868">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -137,7 +129,7 @@
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="449" y="2" width="83" height="20" forecolor="#00004E" uuid="30cb5009-916d-4479-a1b6-db4f4f71fb9d">
+				<reportElement x="369" y="2" width="83" height="20" forecolor="#00004E" uuid="30cb5009-916d-4479-a1b6-db4f4f71fb9d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -146,7 +138,7 @@
 				<text><![CDATA[MARCA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="368" y="2" width="80" height="20" forecolor="#00004E" uuid="71eb8f9b-74b1-4f06-8e08-f6a20dd16a7e">
+				<reportElement x="288" y="2" width="80" height="20" forecolor="#00004E" uuid="71eb8f9b-74b1-4f06-8e08-f6a20dd16a7e">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -155,7 +147,7 @@
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<subreport>
-				<reportElement x="130" y="22" width="482" height="10" uuid="922495f2-cc93-44be-8c70-0920f7c02571">
+				<reportElement x="50" y="22" width="482" height="10" uuid="922495f2-cc93-44be-8c70-0920f7c02571">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -165,7 +157,7 @@
 				<subreportExpression><![CDATA["./parte4_sirenas_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="130" y="2" width="110" height="20" forecolor="#00004E" uuid="27491a3d-ac65-4580-afdf-9d0c15388abb">
+				<reportElement x="50" y="2" width="110" height="20" forecolor="#00004E" uuid="27491a3d-ac65-4580-afdf-9d0c15388abb">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -175,7 +167,7 @@
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="240" y="2" width="128" height="20" forecolor="#00004E" uuid="21201423-4e5c-456b-a2e4-ed8a8ca747ca">
+				<reportElement x="160" y="2" width="128" height="20" forecolor="#00004E" uuid="21201423-4e5c-456b-a2e4-ed8a8ca747ca">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -184,7 +176,7 @@
 				<text><![CDATA[UBICACIÓN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="532" y="2" width="80" height="20" forecolor="#00004E" uuid="96b3dc53-19b6-424d-833b-8b6ea6fba192">
+				<reportElement x="452" y="2" width="80" height="20" forecolor="#00004E" uuid="96b3dc53-19b6-424d-833b-8b6ea6fba192">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -205,36 +197,71 @@
 		<band height="140" splitType="Stretch">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<staticText>
-				<reportElement x="284" y="1" width="148" height="13" uuid="769114d9-177c-4c2d-b010-e403c194850f"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FIRMA, EL RESPONSABLE:]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="301" y="14" width="120" height="13" uuid="68587701-8cc0-48f1-9b3f-da2319f29af9"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{dni}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="141" y="14" width="139" height="13" uuid="f31a3881-3260-443e-a2f5-ec1edeb39d10"/>
+				<reportElement x="141" y="14" width="139" height="13" uuid="6754e41e-2dc4-4e1c-b272-092cb9be1f5e"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="145" y="1" width="131" height="13" uuid="b25253ac-f829-4a3e-ba15-40763070e979"/>
+				<reportElement x="125" y="105" width="327" height="19" uuid="455f81c6-8f8a-4580-9a1e-06fc1360de9c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[Mantenedor autorizado por la Junta de Andalucía con número de inscripción REA 01410017483]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="72" width="408" height="33" uuid="50ac83a6-c926-4b73-906b-4e5907f157e4"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[En cumplimiento de lo establecido en la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, le comunicamos que los datos que usted nos facilite quedarán incorporados y serán tratados en los ficheros de titularidad de la empresa ExtinDet con el fin de poderle prestar nuestros servicios, así como para mantenerle informado sobre cuestiones relativas a la actividad de la empresa y sus servicios.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="32" width="109" height="14" uuid="4bd73a43-0988-4eaa-beb3-9346e9b91ce5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[No incluye IVA.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="14" width="120" height="13" uuid="a733233e-2cff-4f00-be86-dc6ce517923b"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dni}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="145" y="1" width="131" height="13" uuid="b9dc3976-7cf5-4fef-be11-6cd59cb6188a"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FIRMA, EL TÉCNICO:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="125" y="46" width="287" height="25" uuid="30f7da7c-5040-4bf0-abf5-213f78273c21"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="1" width="148" height="13" uuid="2e58c957-c564-4428-8a35-5f528bcc0206"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA, EL RESPONSABLE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="126" width="110" height="13" uuid="17411456-be34-400f-bbf0-d8562d7c4814"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[CONTADOR_PAGINAS]]></text>
+			</staticText>
 			<image>
-				<reportElement positionType="Float" x="0" y="0" width="120" height="100" uuid="3a8dec0a-576d-4ad8-82e2-53ab6f1356b1">
+				<reportElement positionType="Float" x="0" y="0" width="120" height="100" uuid="36676983-cacc-43b9-85fa-f2ab31881b16">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -242,41 +269,6 @@
 				</reportElement>
 				<imageExpression><![CDATA["./sello_xtd_2.jpg"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="453" y="1" width="110" height="14" uuid="f4c4694c-efd1-4229-b474-4149affe9009"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[No incluye IVA.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="41" width="329" height="49" uuid="5d6301cf-2614-4eb4-a7c3-16f199de8fe7"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[En cumplimiento de lo establecido en la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, le comunicamos que los datos que usted nos facilite quedarán incorporados y serán tratados en los ficheros de titularidad de la empresa ExtinDet con el fin de poderle prestar nuestros servicios, así como para mantenerle informado sobre cuestiones relativas a la actividad de la empresa y sus servicios.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="90" width="328" height="19" uuid="062290fd-5c5d-4484-96f6-d5e7c2b955a9"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[Mantenedor autorizado por la Junta de Andalucía con número de inscripción REA 01410017483]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="672" y="120" width="110" height="13" uuid="69d96894-425e-4bc8-aab9-4eca609bfdb9"/>
-				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="8"/>
-				</textElement>
-				<text><![CDATA[CONTADOR_PAGINAS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="15" width="288" height="25" uuid="814e94c0-1ca4-416f-91c9-4819ae366f14"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>
