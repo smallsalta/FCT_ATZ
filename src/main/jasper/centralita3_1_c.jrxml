@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version last-->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="1df874a3-0551-4807-bf25-e5f060f1f0a2">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="17"/>
@@ -8,14 +8,6 @@
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="584"/>
 	<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="nombre" class="java.lang.String"/>
 	<parameter name="fecha" class="java.lang.Object"/>
 	<parameter name="numero" class="java.lang.Object"/>
@@ -60,7 +52,7 @@
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement x="412" y="1" width="80" height="20" forecolor="#00004E" uuid="b9e0b25b-3af8-43d8-bd4d-c61b92f91cef">
+				<reportElement x="308" y="23" width="80" height="20" forecolor="#00004E" uuid="b9e0b25b-3af8-43d8-bd4d-c61b92f91cef">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -70,7 +62,7 @@
 				<text><![CDATA[MARCA]]></text>
 			</staticText>
 			<subreport>
-				<reportElement positionType="Float" x="91" y="22" width="561" height="10" uuid="86d3f231-c781-485f-be3e-7a3b03a66ee3">
+				<reportElement positionType="Float" x="-13" y="44" width="561" height="10" uuid="86d3f231-c781-485f-be3e-7a3b03a66ee3">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="local_mesure_unitwidth" value="pixel"/>
@@ -80,7 +72,7 @@
 				<subreportExpression><![CDATA["./parte4_fuente_subreport_c.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="332" y="1" width="80" height="20" forecolor="#00004E" uuid="004f6d9e-4a26-4c8b-be30-b20a8bfc0e2a">
+				<reportElement x="228" y="23" width="80" height="20" forecolor="#00004E" uuid="004f6d9e-4a26-4c8b-be30-b20a8bfc0e2a">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -89,7 +81,7 @@
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="91" y="1" width="80" height="20" forecolor="#00004E" uuid="a06d5e25-4cad-46e6-968f-e458c5f7d805">
+				<reportElement x="-13" y="23" width="80" height="20" forecolor="#00004E" uuid="a06d5e25-4cad-46e6-968f-e458c5f7d805">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -98,7 +90,7 @@
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="171" y="1" width="160" height="20" forecolor="#00004E" uuid="3508da87-e51d-4f73-a383-616050f33ad0">
+				<reportElement x="67" y="23" width="160" height="20" forecolor="#00004E" uuid="3508da87-e51d-4f73-a383-616050f33ad0">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -114,7 +106,7 @@
 				<text><![CDATA[LUMINARIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="492" y="1" width="80" height="20" forecolor="#00004E" uuid="bd6931e6-d9f9-425e-aeba-4111f84b59e8">
+				<reportElement x="388" y="23" width="80" height="20" forecolor="#00004E" uuid="bd6931e6-d9f9-425e-aeba-4111f84b59e8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -123,7 +115,7 @@
 				<text><![CDATA[AÑO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="572" y="1" width="80" height="20" forecolor="#00004E" uuid="61d81682-95a3-46e3-af61-331cddf6be94">
+				<reportElement x="468" y="23" width="80" height="20" forecolor="#00004E" uuid="61d81682-95a3-46e3-af61-331cddf6be94">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -137,36 +129,71 @@
 		<band height="140" splitType="Stretch">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<staticText>
-				<reportElement x="284" y="1" width="148" height="13" uuid="769114d9-177c-4c2d-b010-e403c194850f"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[FIRMA, EL RESPONSABLE:]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="301" y="14" width="120" height="13" uuid="68587701-8cc0-48f1-9b3f-da2319f29af9"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{dni}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="141" y="14" width="139" height="13" uuid="f31a3881-3260-443e-a2f5-ec1edeb39d10"/>
+				<reportElement x="141" y="14" width="139" height="13" uuid="b5921782-c8ab-4a07-b68c-57bfaf7ac4ec"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{usuario}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="145" y="1" width="131" height="13" uuid="b25253ac-f829-4a3e-ba15-40763070e979"/>
+				<reportElement x="125" y="105" width="327" height="19" uuid="530a1a18-216c-41ad-b945-0cf95c2b6c53"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[Mantenedor autorizado por la Junta de Andalucía con número de inscripción REA 01410017483]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="72" width="408" height="33" uuid="2f5a44c2-f2cb-4473-967c-ea10f2a8cc66"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[En cumplimiento de lo establecido en la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, le comunicamos que los datos que usted nos facilite quedarán incorporados y serán tratados en los ficheros de titularidad de la empresa ExtinDet con el fin de poderle prestar nuestros servicios, así como para mantenerle informado sobre cuestiones relativas a la actividad de la empresa y sus servicios.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="32" width="109" height="14" uuid="4a22fc2c-5ff6-473e-a07c-20484b96734f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[No incluye IVA.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="14" width="120" height="13" uuid="1f71d2e3-3409-4b5a-a1c2-9d91709c9b7f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dni}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="145" y="1" width="131" height="13" uuid="0ec7123f-4c5c-41ca-8c96-bc6ccd00e1ab"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FIRMA, EL TÉCNICO:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="125" y="46" width="287" height="25" uuid="18dd45c5-b799-4b2f-a36a-ba76ec1a8dc0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7"/>
+				</textElement>
+				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="1" width="148" height="13" uuid="3ff3adef-5306-49bb-8567-4436b952e0b5"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA, EL RESPONSABLE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="126" width="110" height="13" uuid="dc6bbd48-801d-4ea3-8bb9-959dd46c88a3"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[CONTADOR_PAGINAS]]></text>
+			</staticText>
 			<image>
-				<reportElement positionType="Float" x="0" y="0" width="120" height="100" uuid="3a8dec0a-576d-4ad8-82e2-53ab6f1356b1">
+				<reportElement positionType="Float" x="0" y="0" width="120" height="100" uuid="2720eeee-5106-474a-ac93-aff38b270e54">
 					<property name="local_mesure_unitwidth" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -174,41 +201,6 @@
 				</reportElement>
 				<imageExpression><![CDATA["./sello_xtd_2.jpg"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="453" y="1" width="110" height="14" uuid="f4c4694c-efd1-4229-b474-4149affe9009"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[No incluye IVA.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="41" width="329" height="49" uuid="5d6301cf-2614-4eb4-a7c3-16f199de8fe7"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[En cumplimiento de lo establecido en la Ley Orgánica 15/1999 de 13 de diciembre de Protección de Datos de Carácter Personal, le comunicamos que los datos que usted nos facilite quedarán incorporados y serán tratados en los ficheros de titularidad de la empresa ExtinDet con el fin de poderle prestar nuestros servicios, así como para mantenerle informado sobre cuestiones relativas a la actividad de la empresa y sus servicios.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="90" width="328" height="19" uuid="062290fd-5c5d-4484-96f6-d5e7c2b955a9"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[Mantenedor autorizado por la Junta de Andalucía con número de inscripción REA 01410017483]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="672" y="120" width="110" height="13" uuid="69d96894-425e-4bc8-aab9-4eca609bfdb9"/>
-				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="8"/>
-				</textElement>
-				<text><![CDATA[CONTADOR_PAGINAS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="453" y="15" width="288" height="25" uuid="814e94c0-1ca4-416f-91c9-4819ae366f14"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7"/>
-				</textElement>
-				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 </jasperReport>
