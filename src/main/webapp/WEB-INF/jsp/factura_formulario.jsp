@@ -125,7 +125,7 @@
 		Ajuste
 	</div>
 	<div class="col col-md-10">
-		<input id="ajuste" name="ajuste" class="form-control" value="${factura.ajuste}" type="number"/>
+		<input id="ajuste" name="ajuste" class="form-control" value="${factura.ajuste}" type="number" step="any"/>
 	</div>
 </div>
 <div class="row">

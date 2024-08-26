@@ -81,6 +81,7 @@ extends PdfContrato
 		double base					= c.getBase();
 		double biva					= c.getBaseIva();
 		double total				= base + biva;
+		double ajuste				= c.getAjuste() == null ? 0D : c.getAjuste();
 		
 		StringBuffer cliente		= new StringBuffer();
 		
@@ -110,8 +111,8 @@ extends PdfContrato
 		param.put( "iva", c.getIva() );
 		param.put( "biva", biva );
 		param.put( "total", total );
-		param.put( "ajuste", c.getAjuste() );
-		param.put( "totaltotal", total - c.getAjuste() );
+		param.put( "ajuste", ajuste );
+		param.put( "totaltotal", total - ajuste );
 		
 		if( oids.contains( c.getTEmpresa().getOid() ) )
 		{

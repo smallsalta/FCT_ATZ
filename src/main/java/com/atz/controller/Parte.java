@@ -867,28 +867,28 @@ public class Parte
 					
 					TFactura of	= this.fservice.leerN2( fb.getN2factura() );
 					uri			= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
+					f 			= this.pdfFactura.crear(of);	
 					
-					this.pdfFactura.crear(of);	
 					this.smservice.enviarSinCC( op.getTCliente(), "", f );
 					this.fservice.actualizarFechaEnvio( of.getOid() );				
 				} 
 				catch(Exception e)
 				{
-					this.log.info("Ups", e);
+					this.log.info("Ups 1", e);
 				}
 				
 				try	// Creamos y enviamos el contrato ... 
 				{
 					TContrato oc	= this.kservice.leer2( fb.getNcontrato() );
 					uri				= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
+					f 				= this.pdfContrato.crear(oc);
 					
-					this.pdfContrato.crear(oc);
 					this.smservice.enviarConCCyCuadrante( op.getTCliente(), "", f );
 					this.kservice.actualizaAuditoriaEmail( oc.getOid() );
 				} 
 				catch(Exception e)
 				{
-					this.log.info("Ups", e);
+					this.log.info("Ups 2", e);
 				}
 				
 				break;	

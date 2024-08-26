@@ -26,6 +26,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import com.atz.comparator.TFacturaLineaComp;
 
 /**
@@ -117,6 +119,7 @@ public class TFactura implements java.io.Serializable {
 	}
 	
 	@Column(name = "ajuste", precision = 17, scale = 17)
+	@ColumnDefault("0")
 	public Double getAjuste() {
 		return this.ajuste;
 	}
