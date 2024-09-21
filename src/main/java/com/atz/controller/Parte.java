@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -496,7 +497,7 @@ public class Parte
 	}
 	
 	@RequestMapping("parte_buscar_guardar.do")
-	public ModelAndView buscarGuardar(PartesFb fb, HttpSession s) 
+	public ModelAndView buscarGuardar(PartesFb fb, HttpSession s, HttpServletRequest rq) 
 	throws IllegalAccessException, InvocationTargetException {
 
 		TUsuario u		= (TUsuario) s.getAttribute("usuario");	
@@ -504,7 +505,6 @@ public class Parte
 		
 		TParte c = this.pservice.actualizar(fb);
 		return this.cargarParte(c);
-		
 	}
 	
 	@RequestMapping("parte_crear_filas.do")
@@ -565,9 +565,11 @@ public class Parte
 	
 	@RequestMapping("parte_copia.do")
 	public ModelAndView copia(PartesFb fb, HttpSession s) 
-	throws IllegalAccessException, InvocationTargetException {
-		fb.setNumero(this.pservice.maxNumero());
+	throws IllegalAccessException, InvocationTargetException 
+	{
+		fb.setNumero( this.pservice.maxNumero() );
 		fb.setOid(null);
+		fb.setFecha( new Date() );
 		
 		return this.crearGuardar(fb, s);
 	}
