@@ -434,7 +434,7 @@ public class ParteLineaFbArray implements JRDataSource {
 			resp = this.actual.getModeloBomba();
 			break;
 		case "fechaBomba":
-			resp = new SimpleDateFormat("dd/MM/yyyy").format(this.actual.getFechaBomba());
+			resp = this.actual.getFechaBomba() != null ? new SimpleDateFormat("dd/MM/yyyy").format( this.actual.getFechaBomba() ) : "";
 			break;
 		case "motorBomba":
 			resp = this.actual.getMotorBomba();
