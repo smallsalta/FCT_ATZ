@@ -62,7 +62,7 @@ public class TParteLinea implements java.io.Serializable {
 	private String modeloBomba;
 	private Date fechaBomba;
 	private String motorBomba;
-	private Double voltajeBomba;
+	private String voltajeBomba;
 	private Double rpmBomba;
 	private String manometroBomba;
 	private String esferaBomba;
@@ -70,7 +70,7 @@ public class TParteLinea implements java.io.Serializable {
 	private String saltosBomba;
 	private String fusiblesBomba;
 	private String alarmaBomba;
-	private Double caudalimetroBomba;
+	private String caudalimetroBomba;
 	private Double presionBomba;
 	
 	private Integer cantidad;
@@ -526,12 +526,12 @@ public class TParteLinea implements java.io.Serializable {
 		this.motorBomba = motorBomba;
 	}
 
-	@Column(name = "voltaje_bomba", precision = 17, scale = 17)
-	public Double getVoltajeBomba() {
+	@Column(name = "voltaje_bomba")
+	public String getVoltajeBomba() {
 		return voltajeBomba;
 	}
 
-	public void setVoltajeBomba(Double voltajeBomba) {
+	public void setVoltajeBomba(String voltajeBomba) {
 		this.voltajeBomba = voltajeBomba;
 	}
 
@@ -598,12 +598,12 @@ public class TParteLinea implements java.io.Serializable {
 		this.alarmaBomba = alarmaBomba;
 	}
 
-	@Column(name = "caudalimetro_bomba", precision = 17, scale = 17)
-	public Double getCaudalimetroBomba() {
+	@Column(name = "caudalimetro_bomba")
+	public String getCaudalimetroBomba() {
 		return caudalimetroBomba;
 	}
 
-	public void setCaudalimetroBomba(Double caudalimetroBomba) {
+	public void setCaudalimetroBomba(String caudalimetroBomba) {
 		this.caudalimetroBomba = caudalimetroBomba;
 	}
 

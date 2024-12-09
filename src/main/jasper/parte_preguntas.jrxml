@@ -154,7 +154,7 @@
 					<rightPen lineWidth="2.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[PARTE DE TRABAJO]]></text>
+				<text><![CDATA[PREGUNTAS]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

@@ -123,7 +123,7 @@
 							</c:otherwise>
 						</c:choose>
 						
-						<td> ${c.estado2.descr} </td>
+						<td> ${ estados[c.numero] } </td>
 					</tr>
 				</c:forEach>
 			</tbody>

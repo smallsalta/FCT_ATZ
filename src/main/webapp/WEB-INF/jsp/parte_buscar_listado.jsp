@@ -59,6 +59,7 @@
 						            		</c:when>
 					            		</c:choose>
 					            		
+					            		<!-- Código del parte -->
 					            		<c:choose>
 						            		<c:when test="${c.estado.oid == 4}">
 						            			<span class="label label-danger lupaParte"> 
@@ -72,16 +73,19 @@
 						            		</c:otherwise>
 					            		</c:choose>
 						            	
+						            	<!-- Cliente -->
 						            	&nbsp;
-						            	<span class="label label-default lupaMail" id="ml_${ cont.index }">
+						            	<span class="label label-default" id="ml_${ cont.index }">
 						            		${c.TCliente.nombre} ${c.TCliente.apellidos} 
 						            	</span>
 						            	
+						            	<!-- Fecha -->
 						            	&nbsp;
 						            	<span class="label label-success">
 						            		<fmt:formatDate value="${c.fecha}" pattern="dd/MM/yyyy"/>
 						            	</span>
 						            	
+						            	<!-- Factura -->
 						            	<c:if test="${ matrimonio[c.numero].factura != null }">
 							            	&nbsp;
 							            	
@@ -103,16 +107,29 @@
 							            		</c:otherwise>
 							            	</c:choose>
 							            	
-							            	</span>
+							            			</span>
+							            			
+							            			&nbsp;
+							            			<c:choose>
+									            		<c:when test="${ fn:substring( matrimonio[c.numero].numero2, 0, 2) eq '07' }">
+							            					<span class="label label-primary lupaMailFactura" id="mf_${ cont.index }">^</span>  
+									            		</c:when>
+									            		<c:otherwise>
+								            				<span class="label label-info lupaMailFactura" id="mf_${ cont.index }">^</span>
+									            		</c:otherwise>
+								            		</c:choose>
 							            	
 							            	<span style="display: none;" id="fl_${ cont.index }"> ${ matrimonio[c.numero].numero2 } </span>
 						            	</c:if>
 						            	
+						            	<!-- Contrato -->
 						            	<c:if test="${ matrimonio[c.numero].contrato != null }">
 							            	&nbsp;
 							            	<span class="label label-warning lupaContrato" id="lc_${ cont.index }">
 							            		${ matrimonio[c.numero].contrato }
 							            	</span>
+							            	&nbsp;
+							            	<span class="label label-warning lupaMailContrato" id="mc_${ cont.index }">^</span>
 							            </c:if>
 					            	</h4>
 					            </label>

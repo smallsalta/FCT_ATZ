@@ -172,6 +172,44 @@
 		<input id="dirtra" name="dirtra" class="form-control" class="form-control" value="${parte.dirtra}"/>
 	</div>
 </div>
+<div class="row">
+	<div class="col col-md-2">
+		Periodicidad
+	</div>
+	<div class="col col-md-10">
+		<select id="periodicidad" name="oidperiodicidad" class="selectpicker form-control" data-live-search="true">
+			<c:forEach items="${periodicidad}" var="e">
+				<c:choose>
+					<c:when test="${parte.TPartePeriodicidad.oid eq e.oid}">
+						<option value="${e.oid}" selected="selected">${e.descripcion}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${e.oid}">${e.descripcion}</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="col col-md-2">
+		Modalidad
+	</div>
+	<div class="col col-md-10">
+		<select id="modalidad" name="oidmodalidad" class="selectpicker form-control" data-live-search="true">
+			<c:forEach items="${modalidad}" var="e">
+				<c:choose>
+					<c:when test="${parte.TParteModalidad.oid eq e.oid}">
+						<option value="${e.oid}" selected="selected">${e.descripcion}</option>
+					</c:when>
+					<c:otherwise>
+						<option value="${e.oid}">${e.descripcion}</option>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		</select>
+	</div>
+</div>
 
 <input type="hidden" id="oidpartetipo" name="oidpartetipo" value="${oidpartetipo}"/>
 <input type="hidden" id="oid" name="oid" value="${parte.oid}"/>

@@ -265,6 +265,7 @@ public class Informe
 		List<TMatrimonio> lm		= null;
 		Map<Integer, Double> total 	= new HashMap<>();
 		Map<Integer, String> n2 	= new HashMap<>();
+		Map<Integer, String> est	= new HashMap<>();
 		Set<Integer> partesl		= new HashSet<>();
 		
 		lp 	= this.ptservice.leerPartesBuscar( fb.getFini(), fb.getFfin() );
@@ -277,6 +278,18 @@ public class Informe
 		n2.putAll
 		( 
 			lm.stream().collect( Collectors.toMap( TMatrimonio::getParte, TMatrimonio::getNumero2 ) )
+		);
+		
+		// Para cada parte obtenemos su estado ... Según la factura asociada
+		lm.forEach
+		(  	t ->
+			{
+				est.put
+				( 
+					t.getParte() , 
+					this.fservice.leerN2( t.getNumero2() ).getTEstado().getDescr() 
+				);
+			}
 		);
 		
 		// Para cada parte obtenemos su total 
@@ -299,6 +312,7 @@ public class Informe
 		m.put( "ffin", fb.getFfin() );
 		m.put( "totales", total );
 		m.put( "partesl", partesl );
+		m.put( "estados", est );
 		m.put( "n2", n2 );
 		
 		return new ModelAndView("informe_partes_listado", m);

@@ -38,17 +38,19 @@ $(
 			}
 		);
 		
-		$(".lupaMail").click
+		$(".lupaMailFactura, .lupaMailContrato").click
 		(
 			function()
 			{
-				var num	= $(this).attr("id").split("_")[1];
+				var partes	= $(this).attr("id").split("_");
+				var num		= partes[1];
+				var tipo	= partes[0];
 				
 				var fl 	= "#fl_" + num;
 				var cl 	= "#lc_" + num;
 				var rd	= "#" + num;
 				
-				$("#tipoLupa").attr("value", "mail");
+				$("#tipoLupa").attr("value", tipo);
 				$("#nparte").attr("value", $(rd).val() );
 				$("#ncontrato").attr("value", $.trim( $(cl).text() ) );
 				$("#n2factura").attr("value", $.trim( $(fl).text() ) );

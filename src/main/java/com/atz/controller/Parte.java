@@ -58,11 +58,13 @@ import com.atz.service.EstadoParteService;
 import com.atz.service.EstadosService;
 import com.atz.service.FacturaService;
 import com.atz.service.MatrimonioService;
+import com.atz.service.ModalidadParteService;
 import com.atz.service.ParteCambioService;
 import com.atz.service.ParteService;
 import com.atz.service.PdfContratoService;
 import com.atz.service.PdfFacturaService;
 import com.atz.service.PdfParteService;
+import com.atz.service.PeriodicidadParteService;
 import com.atz.service.PreguntaService;
 import com.atz.service.SelectCentralitaService;
 import com.atz.service.SendMailService;
@@ -87,6 +89,12 @@ public class Parte
 	
 	@Autowired
 	private ParteService pservice;
+	
+	@Autowired
+	private ModalidadParteService mpservice;
+	
+	@Autowired
+	private PeriodicidadParteService ppservice;
 	
 	@Autowired
 	private PdfParteService pdfParte;
@@ -189,6 +197,8 @@ public class Parte
 
 		m.put( "tiposextintor", this.teservice.leerTodos());
 		m.put( "estados", this.stservice.getTodos() );
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
@@ -219,6 +229,8 @@ public class Parte
 		m.put("tiposextintor", this.tbservice.leerTodos());
 		m.put("tiposbomba", this.tbbservice.leerTodos());
 		m.put( "estados", this.stservice.getTodos() );
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		List<ComboSiNo> comboSiNo = new ArrayList<>();
 		comboSiNo.add(ComboSiNo.NO);
@@ -245,6 +257,8 @@ public class Parte
 		ModelMap m = new ModelMap("oidclienteload", oid);
 		m.put("oidpartetipo", 4);
 		m.put( "estados", this.stservice.getTodos() );
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -262,6 +276,8 @@ public class Parte
 		m.put("funciondetectores", this.selectService.getAllFuncionDetectores());
 		m.put("tipopulsadores", this.selectService.getAllTipoPulsadores());
 		m.put("tipocentral", this.selectService.getAllTipoCentral());
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -279,6 +295,8 @@ public class Parte
 		m.put("funciondetectores", this.selectService.getAllFuncionDetectores());
 		m.put("tipopulsadores", this.selectService.getAllTipoPulsadores());
 		m.put("tipocentral", this.selectService.getAllTipoCentral());
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -296,6 +314,8 @@ public class Parte
 		m.put("funciondetectores", this.selectService.getAllFuncionDetectores());
 		m.put("tipopulsadores", this.selectService.getAllTipoPulsadores());
 		m.put("tipocentral", this.selectService.getAllTipoCentral());
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView( "parte_crear", m);
 	}
@@ -357,6 +377,8 @@ public class Parte
 		m.put( "historial", this.pcservice.leerTodos( c.getOid() ) );
 		m.put( "partechapuza", this.pservice.isPaseChapuza(c));
 		
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		// Sólo sale el botón para facturar ... Si no se ha facturado antes
 		List<TMatrimonio> lm	= this.mservice.leer( Arrays.asList(c) );
@@ -861,36 +883,43 @@ public class Parte
 				uri	= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
 				break;
 				
-			case "mail": 
+			default:	
 				TParte op = this.pservice.leer( fb.getNparte() );
 				
-				try	// Creamos y enviamos la factura ... 
+				// Mail Factura ... Creamos y enviamos la factura ... 
+				if( fb.getTipoLupa().equalsIgnoreCase("mf") )
 				{
-					
-					TFactura of	= this.fservice.leerN2( fb.getN2factura() );
-					uri			= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
-					f 			= this.pdfFactura.crear(of);	
-					
-					this.smservice.enviarSinCC( op.getTCliente(), "", f );
-					this.fservice.actualizarFechaEnvio( of.getOid() );				
-				} 
-				catch(Exception e)
-				{
-					this.log.info("Ups 1", e);
+					try	
+					{
+						
+						TFactura of	= this.fservice.leerN2( fb.getN2factura() );
+						uri			= this.pdfFactura.getPdfFolder().getAbsolutePath() + "/" + fb.getN2factura() + ".pdf";
+						f 			= this.pdfFactura.crear(of);	
+						
+						this.smservice.enviarSinCC( op.getTCliente(), "", f );
+						this.fservice.actualizarFechaEnvio( of.getOid() );				
+					} 
+					catch(Exception e)
+					{
+						this.log.info("Ups 1", e);
+					}
 				}
-				
-				try	// Creamos y enviamos el contrato ... 
+				// Mail Contrato ... Creamos y enviamos el contrato ... 
+				else if( fb.getTipoLupa().equalsIgnoreCase("mc") )
 				{
-					TContrato oc	= this.kservice.leer2( fb.getNcontrato() );
-					uri				= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
-					f 				= this.pdfContrato.crear(oc);
-					
-					this.smservice.enviarConCCyCuadrante( op.getTCliente(), "", f );
-					this.kservice.actualizaAuditoriaEmail( oc.getOid() );
-				} 
-				catch(Exception e)
-				{
-					this.log.info("Ups 2", e);
+					try	
+					{
+						TContrato oc	= this.kservice.leer2( fb.getNcontrato() );
+						uri				= this.pdfContrato.getPdfFolder().getAbsolutePath() + "/" + fb.getNcontrato() + ".pdf";
+						f 				= this.pdfContrato.crear(oc);
+						
+						this.smservice.enviarConCCyCuadrante( op.getTCliente(), "", f );
+						this.kservice.actualizaAuditoriaEmail( oc.getOid() );
+					} 
+					catch(Exception e)
+					{
+						this.log.info("Ups 2", e);
+					}
 				}
 				
 				break;	

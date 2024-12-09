@@ -74,10 +74,14 @@ public class SendMailService
 	public void enviarSinCC(TCliente c, File f) 
 	throws AddressException, MessagingException 
 	{
+		List<String> tmp = Arrays.asList( c.getEmail().split(";") );
+		
+		tmp.add( this.copia1 );
+		
 		this.enviarComun
 		( 
 			c, 
-			this.calculaTo( this.copia1, null, c.getEmail() ), 
+			this.calculaTo( tmp.toArray( new String[0] ) ), 
 			this.getCuerpo(), 
 			f 
 		);
@@ -94,21 +98,22 @@ public class SendMailService
 	public void enviarSinCC(TCliente c, String ccExtra, File ... fs) 
 	throws AddressException, MessagingException 
 	{
-		List<String> tmp1 	= Arrays.asList( ccExtra.split(";") );
-		List<String> tmp2	= new LinkedList<>();
+//		List<String> tmp1 	= Arrays.asList( ccExtra.split(";") );
+//		List<String> tmp2	= Arrays.asList( c.getEmail().split(";") );
+//		List<String> tmp3	= new LinkedList<>();
+//		
+//		tmp3.addAll( tmp1 );
+//		tmp3.addAll( tmp2 );
+//				
+//		this.enviarComun
+//		( 
+//			c, 
+//			this.calculaTo( tmp3.toArray( new String[0] ) ),
+//			this.getCuerpo(), 
+//			fs 
+//		);
 		
-		tmp2.addAll( tmp1 );
-//		tmp2.add( this.copia1 );
-		tmp2.add( c.getEmail() );
-				
-		this.enviarComun
-		( 
-			c, 
-//			this.calculaTo( this.copia1, c.getEmail(), ccExtra.split(";") ), 
-			this.calculaTo( tmp2.toArray( new String[0] ) ),
-			this.getCuerpo(), 
-			fs 
-		);
+		this.enviarConCC(c, ccExtra, fs);
 	}
 	
 	/**
@@ -123,18 +128,16 @@ public class SendMailService
 	throws AddressException, MessagingException 
 	{
 		List<String> tmp1 = Arrays.asList( ccExtra.split(";") );
-		List<String> tmp2 = new LinkedList<>();
+		List<String> tmp2 = Arrays.asList( c.getEmail().split(";") );
+		List<String> tmp3 = new LinkedList<>();
 		
-		tmp2.addAll( tmp1 );
-//		tmp2.add( this.copia1 );
-//		tmp2.add( this.copia2 );
-		tmp2.add( c.getEmail() );
+		tmp3.addAll( tmp1 );
+		tmp3.addAll( tmp2 );
 		
 		this.enviarComun
 		( 
 			c, 
-//			this.calculaTo( this.copia1, this.copia2, c.getEmail(), ccExtra.split(";") ),
-			this.calculaTo( tmp2.toArray( new String[0] ) ),
+			this.calculaTo( tmp3.toArray( new String[0] ) ),
 			this.getCuerpo(), 
 			fs 
 		);
@@ -158,48 +161,8 @@ public class SendMailService
 		this.enviarConCC( c, cc, tmp );
 	}
 	
-	/**
-	 * Se manda el PDF del parte al email del cliente y a los CC
-	 * @param c			Cliente
-	 * @param f			Documento
-	 * @param ccExtra	Cc extra para partes
-	 * @throws AddressException
-	 * @throws MessagingException
-	 */
-//	public void enviarParteConCC(TCliente c, String ccExtra, File parte) 
-//	throws AddressException, MessagingException 
-//	{
-//		this.enviarConCC( c, ccExtra, parte );
-//	}
-	
 	private String calculaTo(String ... dest)
 	{
-		/*
-		// Cogemos los 3 correos
-		String eC1	= dest[0];
-		String eC2	= dest[1];
-		String eCl	= dest[2];
-		
-		// Verificamos si son nulos y/o vacíos
-		eCl	= eCl == null ? "" : eCl;
-		eC1	= eC1 == null ? "" : eC1;
-		eC2	= eC2 == null ? "" : eC2;
-		
-		// Añadimos las comas
-		eC2 = eC2.isEmpty() ? "" : ", " + eC2;
-		eCl = eCl.isEmpty() ? "" : ", " + eCl;
-		
-		return eC1 + eC2 + eCl;
-		*/
-		
-		/*
-		String to1	= this.toValido( dest[0], ", " );
-		String to2	= this.toValido( dest[1], ", " );
-		String toc	= this.toValido( dest[2], "" );
-		
-		return toc + to1 + to2;
-		*/
-		
 		String res = "";
 		
 		for(int i = 0; i < dest.length; i++) 

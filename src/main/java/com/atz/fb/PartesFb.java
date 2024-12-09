@@ -23,6 +23,8 @@ public class PartesFb {
 	private String anterior;
 	private Double cmto;
 	private String dirtra;
+	private Integer oidperiodicidad;
+	private Integer oidmodalidad;
 	
 	private Integer[] orden;
 	private Integer[] tipo;
@@ -61,7 +63,7 @@ public class PartesFb {
 	private String[] modeloBomba;
 	private Date[] fechaBomba;
 	private String[] motorBomba;
-	private Double[] voltajeBomba;
+	private String[] voltajeBomba;
 	private Double[] rpmBomba;
 	private String[] manometroBomba;
 	private String[] esferaBomba;
@@ -69,7 +71,7 @@ public class PartesFb {
 	private String[] saltosBomba;
 	private String[] fusiblesBomba;
 	private String[] alarmaBomba;
-	private Double[] caudalimetroBomba;
+	private String[] caudalimetroBomba;
 	private Double[] presionBomba;
 	
 	// Observaciones

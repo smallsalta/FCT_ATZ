@@ -55,6 +55,8 @@ public class TParte implements java.io.Serializable {
 	private String anterior;
 	private Double cmto;
 	private String dirtra;
+	private TParteModalidad TParteModalidad;
+	private TPartePeriodicidad TPartePeriodicidad;
 
 	public TParte() {
 	}
@@ -285,5 +287,25 @@ public class TParte implements java.io.Serializable {
 
 	public void setDirtra(String dirtra) {
 		this.dirtra = dirtra;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_t_parte_modalidad")
+	public TParteModalidad getTParteModalidad() {
+		return this.TParteModalidad;
+	}
+
+	public void setTParteModalidad(TParteModalidad TParteModalidad) {
+		this.TParteModalidad = TParteModalidad;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_t_parte_periodicidad")
+	public TPartePeriodicidad getTPartePeriodicidad() {
+		return this.TPartePeriodicidad;
+	}
+
+	public void setTPartePeriodicidad(TPartePeriodicidad TPartePeriodicidad) {
+		this.TPartePeriodicidad = TPartePeriodicidad;
 	}
 }

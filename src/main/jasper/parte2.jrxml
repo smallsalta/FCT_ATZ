@@ -149,10 +149,10 @@
 			<staticText>
 				<reportElement x="570" y="0" width="210" height="20" uuid="129dcbbb-fddf-4396-84e3-3a256e574748"/>
 				<box leftPadding="0">
-					<topPen lineWidth="2.0"/>
-					<leftPen lineWidth="2.0"/>
-					<bottomPen lineWidth="2.0"/>
-					<rightPen lineWidth="2.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[PARTE DE TRABAJO BIE]]></text>

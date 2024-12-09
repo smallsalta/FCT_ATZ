@@ -9,7 +9,10 @@
 
 	<tiles:putAttribute name="body">
 		<div class="container">
+		
+			<!-- Lo que hay antes de las pestañas -->
 			<jsp:include page="parte_formulario.jsp"/>	
+		
 			<c:forEach items="${parte.TParteLineas}" var="l" varStatus="i">
 				<c:set scope="request" var="idx" value="${i.index}"/>
 				<c:set scope="request" var="linea" value="${l}"/>

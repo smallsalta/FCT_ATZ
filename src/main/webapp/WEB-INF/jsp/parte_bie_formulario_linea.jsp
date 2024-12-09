@@ -297,7 +297,7 @@
 			<div class="row">
 				<div class="col col-md-2">Voltaje</div>
 				<div class="col col-md-10">
-					<input type="number" name="voltajeBomba" class="form-control"
+					<input name="voltajeBomba" class="form-control"
 						value="${linea.voltajeBomba}">
 				</div>
 			</div>
@@ -353,18 +353,24 @@
 			<div class="row">
 				<div class="col col-md-2">Caudalímetro</div>
 				<div class="col col-md-10">
-					<input type="number" name="caudalimetroBomba" class="form-control"
+					<input name="caudalimetroBomba" class="form-control"
 						value="${linea.caudalimetroBomba}">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col col-md-2">Presión</div>
 				<div class="col col-md-10">
-					<input type="number" name="presionBomba" class="form-control"
-						value="${linea.presionBomba}">
+					<div class="form-gropup">
+						<div class="input-group">
+							<input type="number" name="presionBomba" class="form-control" value="${linea.presionBomba}" step="0.01"/> 
+							<span class="input-group-addon">bar</span>
+						</div>
+					</div>
 				</div>
 			</div>
-			<hr />
+			
+			<hr/>
+			
 		</div>
 	</div>
 </div>

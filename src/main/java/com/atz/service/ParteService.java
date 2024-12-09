@@ -8,8 +8,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +20,8 @@ import com.atz.dao.EstadoParteDAO;
 import com.atz.dao.ParteCambiosDAO;
 import com.atz.dao.ParteDAO;
 import com.atz.dao.ParteLineaDAO;
+import com.atz.dao.ParteModalidadDAO;
+import com.atz.dao.PartePeriodicidadDAO;
 import com.atz.dao.ParteTipoDAO;
 import com.atz.dao.PreguntasDAO;
 import com.atz.dao.TipoBieBombaDAO;
@@ -87,6 +87,12 @@ public class ParteService {
 	
 	@Autowired
 	private MatrimonioService mservice;
+	
+	@Autowired
+	private ParteModalidadDAO pmdao;
+	
+	@Autowired
+	private PartePeriodicidadDAO ppdao;
 
 	@Transactional(readOnly = true)
 	public List<TParte> leerTodos() {
@@ -94,7 +100,8 @@ public class ParteService {
 	}
 
 	@Transactional(readOnly = true)
-	public TParte leer(int oid) {
+	public TParte leer(int oid) 
+	{
 		TParte p = this.pdao.read(oid);
 
 		Hibernate.initialize(p.getTUsuario());
@@ -102,6 +109,8 @@ public class ParteService {
 		Hibernate.initialize(p.getTPreguntasParte());
 		Hibernate.initialize(p.getEstado2());
 		Hibernate.initialize(p.getTCliente());
+		Hibernate.initialize(p.getTParteModalidad());
+		Hibernate.initialize(p.getTPartePeriodicidad());
 		
 		return p;
 	}
@@ -376,6 +385,8 @@ public class ParteService {
 		tc.setAnterior( fb.getAnterior() );
 		tc.setCmto( fb.getCmto() );
 		tc.setDirtra( fb.getDirtra() );
+		tc.setTParteModalidad( this.pmdao.get( fb.getOidmodalidad() ) );
+		tc.setTPartePeriodicidad( this.ppdao.get( fb.getOidperiodicidad() ) );
 
 		if (fb.getOidpartetipo().equals(5)) {
 

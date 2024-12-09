@@ -246,6 +246,8 @@ public class PdfParteService extends PdfContrato {
 		param.put("usuario", this.makeUsuario(p.getTUsuario()));
 		param.put("estado", p.getEstado2().getDescr() );
 		param.put("anterior", p.getAnterior() );
+		param.put("periodicidad", p.getTPartePeriodicidad().getDescripcion() );
+		param.put("modalidad", p.getTParteModalidad().getDescripcion() );
 		
 		this.copy(fbp, p);
 		param.put("preguntas", fbp);
