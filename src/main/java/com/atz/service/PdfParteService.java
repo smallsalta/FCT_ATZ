@@ -337,16 +337,20 @@ public class PdfParteService extends PdfContrato {
 			}
 			JasperPrint jPreguntas	= this.getJasperPrint("parte_preguntas", param);
 			
-			// this.removeBlankPageParte(jp.getPages());
+//			this.removeBlankPageParte(jp.getPages());
+//			
+//			if(p.getObservaciones()!= null && !p.getObservaciones().equals("")) {
+//				param.put("observaciones", p.getObservaciones());
+//				JasperPrint po = this.getJasperPrint(p.getTParteTipo().getOid() == 4 ? "parte_observaciones_observaciones" : "parte_observaciones", param);	
+//				this.merge(jp, jPreguntas, po);
+//			} else {
+//				this.merge(jp, jPreguntas);
+//			}
 			
-			if(p.getObservaciones()!= null && !p.getObservaciones().equals("")) {
-				param.put("observaciones", p.getObservaciones());
-				JasperPrint po = this.getJasperPrint(p.getTParteTipo().getOid() == 4 ? "parte_observaciones_observaciones" : "parte_observaciones", param);	
-				this.merge(jp, jPreguntas, po);
-			} else {
-				this.merge(jp, jPreguntas);
-			}
-			
+			param.put( "observaciones", p.getObservaciones() );
+			JasperPrint po = this.getJasperPrint( p.getTParteTipo().getOid() == 4 ? "parte_observaciones_observaciones" : "parte_observaciones", param );	
+			this.merge( jp, jPreguntas, po );
+
 			this.removeBlankPageParte(jp.getPages());
 			this.addPageCounter(jp.getPages());
 			

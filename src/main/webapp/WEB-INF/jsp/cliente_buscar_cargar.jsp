@@ -40,6 +40,28 @@
 					</div>
 				</c:if>
 			</div>
+			
+			<c:if test='${usuario.TRol.descr eq "factura"}'>
+				<br/>
+				
+				<div class="row">
+					<div class="col col-md-2">
+						<button id="btn-parte-bi" class="btn btn-primary btn-block login" type="button">Parte BI</button>
+					</div>
+					<div class="col col-md-2">
+						<button id="btn-parte-ce" class="btn btn-primary btn-block login" type="button">Parte CE</button>
+					</div>
+					<div class="col col-md-2">
+						<button id="btn-parte-au" class="btn btn-primary btn-block login" type="button">Parte AU</button>
+					</div>
+					<div class="col col-md-2">
+						<button id="btn-parte-ex" class="btn btn-primary btn-block login" type="button">Parte EX</button>
+					</div>
+					<div class="col col-md-2">
+						<button id="btn-parte-ob" class="btn btn-primary btn-block login" type="button">Parte OB</button>
+					</div>
+				</div>
+			</c:if>
 		</div>
 		<div class="modal fade" id="myModal1">
   			<div class="modal-dialog">

@@ -182,25 +182,25 @@
 				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="38" width="100" height="20" forecolor="#0000FF" uuid="f2c2c16f-3151-47a9-a209-1531826e148f"/>
+				<reportElement x="70" y="48" width="100" height="20" forecolor="#0000FF" uuid="f2c2c16f-3151-47a9-a209-1531826e148f"/>
 				<textElement>
 					<font isItalic="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{estado}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="64" width="100" height="20" forecolor="#0000FF" uuid="f2c07a64-f2d2-4170-8637-3a7e4f553d18"/>
+				<reportElement x="70" y="69" width="100" height="20" forecolor="#0000FF" uuid="f2c07a64-f2d2-4170-8637-3a7e4f553d18"/>
 				<textElement>
 					<font isItalic="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{periodicidad}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{periodicidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="70" y="90" width="100" height="20" forecolor="#0000FF" uuid="3f6f6bfe-710a-4208-9ab8-e5526db3b960"/>
 				<textElement>
 					<font isItalic="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{modalidad}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{modalidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -39,6 +39,56 @@ $(
 				$("#frm").submit();
 			}
 		);
+		
+		$("#btn-parte-bi").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_crear_bie.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn-parte-ce").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_crear_centralita_central.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn-parte-au").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_crear_centralita_auxiliares.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn-parte-ex").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_crear.do");
+				$("#frm").submit();
+			}
+		);
+		
+		$("#btn-parte-ob").on
+		(
+			"click", 
+			function()
+			{
+				$("#frm").attr("action", "parte_crear_observaciones.do");
+				$("#frm").submit();
+			}
+		);
 	}
 );
 
