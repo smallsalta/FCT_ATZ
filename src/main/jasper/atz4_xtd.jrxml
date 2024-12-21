@@ -10,6 +10,8 @@
 	<parameter name="numero" class="java.lang.Object"/>
 	<parameter name="direccionCert" class="java.lang.String"/>
 	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="modalidad" class="java.lang.String"/>
+	<parameter name="periodicidad" class="java.lang.String"/>
 	<parameter name="extintores" class="net.sf.jasperreports.engine.JRDataSource"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\jsilva\\Desktop\\jrxml\\"]]></defaultValueExpression>
@@ -41,6 +43,12 @@
 				</subreportParameter>
 				<subreportParameter name="anexo2">
 					<subreportParameterExpression><![CDATA[$P{anexo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="modalidad">
+					<subreportParameterExpression><![CDATA[$P{modalidad}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="periodicidad">
+					<subreportParameterExpression><![CDATA[$P{periodicidad}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA["./atz_subreport4.jasper"]]></subreportExpression>

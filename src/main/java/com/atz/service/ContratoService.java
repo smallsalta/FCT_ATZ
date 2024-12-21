@@ -23,6 +23,8 @@ import com.atz.dao.AgenteDAO;
 import com.atz.dao.ClienteDAO;
 import com.atz.dao.ContratoDAO;
 import com.atz.dao.LineaContratoDAO;
+import com.atz.dao.ParteModalidadDAO;
+import com.atz.dao.PartePeriodicidadDAO;
 import com.atz.dao.PreguntasDAO;
 import com.atz.dao.PruebaDAO;
 import com.atz.fb.ContratosFb;
@@ -63,6 +65,12 @@ public class ContratoService
 	
 	@Autowired
 	private AgenteService aservice;
+	
+	@Autowired
+	private ParteModalidadDAO pmdao;
+	
+	@Autowired
+	private PartePeriodicidadDAO ppdao;
 	
 	@Autowired
 	private Validator validator;
@@ -187,6 +195,8 @@ public class ContratoService
 		tc.setDireccion( fb.getDireccion() );
 		tc.setTrimestral( fb.getTrimestral() );
 		tc.setCcEmail( fb.getCcemail() );
+		tc.setTParteModalidad( this.pmdao.get( fb.getOidmodalidad() ) );
+		tc.setTPartePeriodicidad( this.ppdao.get( fb.getOidperiodicidad() ) );
 		
 		List<Integer> cantidad = Arrays.asList(fb.getCantidadExt()).stream().filter(x -> x != null && x > 0).collect(Collectors.toList());
 		

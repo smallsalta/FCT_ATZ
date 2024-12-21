@@ -44,6 +44,8 @@ public class TContrato implements java.io.Serializable {
 	private String direccion;
 	private Date auditoriaEmail;
 	private String ccEmail;
+	private TParteModalidad TParteModalidad;
+	private TPartePeriodicidad TPartePeriodicidad;
 	private Set<TLineaContrato> TLineaContratos = new LinkedHashSet<TLineaContrato>(0);
 	private Set<TPreguntasContrato> TPreguntasContratos = new LinkedHashSet<TPreguntasContrato>(0);
 
@@ -199,5 +201,25 @@ public class TContrato implements java.io.Serializable {
 
 	public void setCcEmail(String ccEmail) {
 		this.ccEmail = ccEmail;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_t_parte_modalidad")
+	public TParteModalidad getTParteModalidad() {
+		return this.TParteModalidad;
+	}
+
+	public void setTParteModalidad(TParteModalidad TParteModalidad) {
+		this.TParteModalidad = TParteModalidad;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_t_parte_periodicidad")
+	public TPartePeriodicidad getTPartePeriodicidad() {
+		return this.TPartePeriodicidad;
+	}
+
+	public void setTPartePeriodicidad(TPartePeriodicidad TPartePeriodicidad) {
+		this.TPartePeriodicidad = TPartePeriodicidad;
 	}
 }

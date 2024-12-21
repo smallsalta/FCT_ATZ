@@ -117,8 +117,10 @@ extends PdfContrato
 		param.put( "precio", cantidad );
 		param.put( "trimestral", c.getTrimestral() );
 		param.put( JRParameter.REPORT_LOCALE, new Locale("es", "ES") );
+		param.put( "modalidad", c.getTParteModalidad().getDescripcion() );
+		param.put( "periodicidad", c.getTPartePeriodicidad().getDescripcion() );		
 		
-		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper , param );
+		JasperPrint fis1	= this.getJasperPrint( "atz1" + this.contratoJasper, param );
 		JasperPrint fis2	= this.getJasperPrint( "atz2" + this.contratoJasper, param );
 //		JasperPrint fis3 	= this.getJasperPrint( "atz3" + this.contratoJasper, param );
 		JasperPrint fis4 	= this.getJasperPrint( "atz4" + this.contratoJasper, param );

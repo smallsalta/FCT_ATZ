@@ -39,6 +39,8 @@ public class ContratosFb
 	private Integer[] cantidadExt;
 	private String[] preguntas;
 	private Double ajuste;
+	private Integer oidperiodicidad;
+	private Integer oidmodalidad;
 	
 	/**
 	 * Inicializa los campos para el pase de parte a contrato

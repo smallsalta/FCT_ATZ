@@ -48,8 +48,10 @@ import com.atz.service.ClienteService;
 import com.atz.service.ContratoService;
 import com.atz.service.EstadoParteService;
 import com.atz.service.EstadosService;
+import com.atz.service.ModalidadParteService;
 import com.atz.service.ParteCambioService;
 import com.atz.service.PdfContratoService;
+import com.atz.service.PeriodicidadParteService;
 import com.atz.service.PreguntaService;
 import com.atz.service.SendMailService;
 import com.atz.service.TipoBieService;
@@ -91,6 +93,12 @@ public class Contrato
 	private EstadosService stservice;
 	
 	@Autowired
+	private ModalidadParteService mpservice;
+	
+	@Autowired
+	private PeriodicidadParteService ppservice;
+	
+	@Autowired
 	@Qualifier("pdfFolder")
 	private File pdfFolder;
 	
@@ -129,6 +137,9 @@ public class Contrato
 	public ModelAndView crear(Integer oid) 
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
+		
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView( "contrato_crear", m);
 	}
@@ -214,8 +225,11 @@ public class Contrato
 		m.put( "contrato", c );
 		m.put( "preguntas", this.qservice.getPreguntas(o) );
 		m.put( "respuestas", this.qservice.getRespuestas() );
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
-		if(falloPase != null) {
+		if(falloPase != null) 
+		{
 			m.put("errorPase", falloPase);
 		}
 		

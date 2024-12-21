@@ -193,8 +193,8 @@ public class Parte
 	public ModelAndView crear(Integer oid) 
 	{
 		ModelMap m = new ModelMap("oidclienteload", oid);
-		m.put("oidpartetipo", 1);
 
+		m.put( "oidpartetipo", 1 );
 		m.put( "tiposextintor", this.teservice.leerTodos());
 		m.put( "estados", this.stservice.getTodos() );
 		m.put( "periodicidad", this.ppservice.leerTodos() );

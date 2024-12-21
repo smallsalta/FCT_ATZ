@@ -32,6 +32,8 @@ public class ContratoDAO
 		Hibernate.initialize( tc.getTLineaContratos() );
 		Hibernate.initialize( tc.getTCliente() );
 		Hibernate.initialize( tc.getTPreguntasContratos() );
+		Hibernate.initialize( tc.getTParteModalidad() );
+		Hibernate.initialize( tc.getTPartePeriodicidad() );
 
 		return tc;
     }

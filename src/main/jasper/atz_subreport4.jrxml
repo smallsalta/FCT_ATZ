@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="atz_subreport3" pageWidth="540" pageHeight="800" whenNoDataType="AllSectionsNoDetail" columnWidth="540" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8a17b2cf-b69d-46cb-82d1-0cd58e1183e9">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="anexo2" class="java.lang.String"/>
 	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="modalidad" class="java.lang.String"/>
+	<parameter name="periodicidad" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -38,41 +41,49 @@
 				<text><![CDATA[Trimestre 1º:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="5" y="258" width="68" height="20" uuid="e7a7c9c6-dd46-4903-a5bc-b52272afb751"/>
+				<reportElement positionType="Float" x="5" y="238" width="68" height="20" uuid="e7a7c9c6-dd46-4903-a5bc-b52272afb751"/>
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
 				<text><![CDATA[Trimestre 2º:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="5" y="303" width="68" height="20" uuid="b9de1eb6-711d-44d8-893e-a7d1487e8157"/>
+				<reportElement positionType="Float" x="5" y="263" width="68" height="20" uuid="b9de1eb6-711d-44d8-893e-a7d1487e8157"/>
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
 				<text><![CDATA[Trimestre 3º:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="5" y="348" width="68" height="20" uuid="55076ebf-fee1-4680-98fa-d8e299b3b693"/>
+				<reportElement positionType="Float" x="5" y="288" width="68" height="20" uuid="55076ebf-fee1-4680-98fa-d8e299b3b693"/>
 				<textElement>
 					<font fontName="DejaVu Sans"/>
 				</textElement>
 				<text><![CDATA[Trimestre 4º:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" x="73" y="258" width="456" height="20" uuid="707e4d0a-f67e-4f60-8fe1-3b7630906a64"/>
+				<reportElement positionType="Float" x="73" y="238" width="456" height="20" uuid="707e4d0a-f67e-4f60-8fe1-3b7630906a64"/>
 				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="73" y="303" width="456" height="20" uuid="c41fdc76-265d-4a65-a03c-8000c29720f6"/>
+				<reportElement positionType="Float" x="73" y="263" width="456" height="20" uuid="c41fdc76-265d-4a65-a03c-8000c29720f6"/>
 				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="73" y="348" width="456" height="20" uuid="b6f719e2-e36c-4707-8fff-ffe7b504afbd"/>
+				<reportElement positionType="Float" x="73" y="288" width="456" height="20" uuid="b6f719e2-e36c-4707-8fff-ffe7b504afbd"/>
 				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" x="73" y="213" width="456" height="20" uuid="6ed392b2-efd7-485f-8a8c-c274b1b18c9a"/>
 				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="5" y="320" width="95" height="20" forecolor="#0000FF" uuid="916bbd81-36d6-4878-a68e-c1e961d39e0f"/>
+				<textFieldExpression><![CDATA[$P{modalidad}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="5" y="342" width="95" height="20" forecolor="#0000FF" uuid="27869302-9766-4175-9d38-b151919681ed"/>
+				<textFieldExpression><![CDATA[$P{periodicidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

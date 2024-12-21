@@ -159,56 +159,80 @@ public class ParteService {
 		return this.cservice.crear(c);
 	}
 
-	private ContratosFb crearContrato(PartesFb fb, TCliente cl) {
+	private ContratosFb crearContrato(PartesFb fb, TCliente cl) 
+	{
 		ContratosFb c = new ContratosFb();
 		c.init();
+		
+		String direccion = ( fb.getDirtra() == null || fb.getDirtra().isEmpty() ) ? cl.getDireccion() : fb.getDirtra(); 
 
-		c.setFecha(new Date());
-		c.setOidcliente(cl.getOid());
-		c.setOidusuario(fb.getOidusuario());
-		c.setDireccion(cl.getDireccion());
-		c.setNumero(this.cservice.maxNumero());
-		c.setAnexo(fb.getObservaciones());
-		c.setTrimestral(1.0d);
+		c.setFecha( new Date() );
+		c.setOidcliente( cl.getOid() );
+		c.setOidusuario( fb.getOidusuario() );
+		c.setDireccion( direccion );
+		c.setNumero( this.cservice.maxNumero() );
+		c.setAnexo( fb.getObservaciones() );
+		c.setTrimestral( 1.0d );							
+		c.setOidmodalidad( fb.getOidmodalidad() );
+		c.setOidperiodicidad( fb.getOidperiodicidad() );
+		c.setCcemail( fb.getCcemail() );
 
-		if (fb.getOidpartetipo() == 1) {
-			c.setPrecioExt(fb.getPrecio());
+		if ( fb.getOidpartetipo() == 1 ) 
+		{
+			c.setPrecioExt( fb.getPrecio() );
 
-			Date[] fechFab = new Date[fb.getFechaFabricacion().length];
-			for (int i = 0; i < fb.getFechaFabricacion().length; i++) {
+			Date[] fechFab = new Date[ fb.getFechaFabricacion().length ];
+			
+			for(int i=0; i<fb.getFechaFabricacion().length; i++) 
+			{
 				fechFab[i] = fb.getFechaFabricacion()[i] == null ? new Date() : fb.getFechaFabricacion()[i];
 			}
+			
 			c.setFechaFabExt(fechFab);
-			c.setFechaRetExt(fb.getUltimoRetimbrado());
+			c.setFechaRetExt( fb.getUltimoRetimbrado() );
 
-			String[] numPlaca = new String[fb.getNumPlaca().length];
-			for (int i = 0; i < fb.getNumPlaca().length; i++) {
+			String[] numPlaca = new String[ fb.getNumPlaca().length ];
+			
+			for(int i=0; i<fb.getNumPlaca().length; i++) 
+			{
 				numPlaca[i] = fb.getNumPlaca()[i] == null ? "" : fb.getNumPlaca()[i].toString();
 			}
+			
 			c.setNumeroPlacaExt(numPlaca);
-			c.setFabricanteExt(fb.getFabricante());
-			Integer[] cant = new Integer[fb.getOrden().length];
-			for (int i = 0; i < fb.getOrden().length; i++) {
-				cant[i] = fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
+			c.setFabricanteExt( fb.getFabricante() );
+			
+			Integer[] cant = new Integer[ fb.getOrden().length ];
+			
+			for(int i=0; i<fb.getOrden().length; i++) 
+			{
+//				cant[i] = fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
+				cant[i] = 1;
 			}
+			
 			c.setCantidadExt(cant);
 
 			Integer[] agentes = new Integer[fb.getTipo().length];
-			for (int i = 0; i < fb.getTipo().length; i++) {
-				agentes[i] = this.aservice.getOidByDescr(this.teservice.leer(fb.getTipo()[i]).getTipo());
+			
+			for(int i = 0; i < fb.getTipo().length; i++) 
+			{
+				agentes[i] = this.aservice.getOidByDescr( this.teservice.leer( fb.getTipo()[i] ).getTipo() );
 			}
+			
 			c.setAgentesExt(agentes);
 
-			Double[] cap = new Double[fb.getNumPlaca().length];
-			for (int i = 0; i < fb.getNumPlaca().length; i++) {
+			Double[] cap = new Double[ fb.getNumPlaca().length ];
+			
+			for (int i=0; i<fb.getNumPlaca().length; i++) 
+			{
 				cap[i] = fb.getKg()[i] == null ? null : fb.getKg()[i].doubleValue();
 			}
 
 			c.setCapacidadExt(cap);
-			c.setDescrExt(fb.getUbicacion());
-			c.setPruebasExt(fb.getPrueba());
-
-		} else if (fb.getOidpartetipo() == 2) {
+			c.setDescrExt( fb.getUbicacion() );
+			c.setPruebasExt( fb.getPrueba() );
+		} 
+		else if (fb.getOidpartetipo() == 2) 
+		{
 			c.setPrecioExt(fb.getPrecio());
 			c.setFechaFabExt(fb.getFechaRetimA());
 			c.setFechaRetExt(fb.getFechaRetimB());
