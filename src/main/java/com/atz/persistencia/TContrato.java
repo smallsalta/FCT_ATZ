@@ -40,6 +40,7 @@ public class TContrato implements java.io.Serializable {
 	private Date auditoria2;
 	private Integer numero;
 	private Double trimestral;
+	private Double precio;
 	private String anexo;
 	private String direccion;
 	private Date auditoriaEmail;
@@ -221,5 +222,14 @@ public class TContrato implements java.io.Serializable {
 
 	public void setTPartePeriodicidad(TPartePeriodicidad TPartePeriodicidad) {
 		this.TPartePeriodicidad = TPartePeriodicidad;
+	}
+	
+	@Column(name = "precio")
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
 }

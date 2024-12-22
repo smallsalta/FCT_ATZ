@@ -197,6 +197,7 @@ public class ContratoService
 		tc.setCcEmail( fb.getCcemail() );
 		tc.setTParteModalidad( this.pmdao.get( fb.getOidmodalidad() ) );
 		tc.setTPartePeriodicidad( this.ppdao.get( fb.getOidperiodicidad() ) );
+		tc.setPrecio( fb.getPrecio() );
 		
 		List<Integer> cantidad = Arrays.asList(fb.getCantidadExt()).stream().filter(x -> x != null && x > 0).collect(Collectors.toList());
 		

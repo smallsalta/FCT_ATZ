@@ -78,12 +78,20 @@
 				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="5" y="320" width="95" height="20" forecolor="#0000FF" uuid="916bbd81-36d6-4878-a68e-c1e961d39e0f"/>
-				<textFieldExpression><![CDATA[$P{modalidad}.toUpperCase()]]></textFieldExpression>
+				<reportElement positionType="Float" x="5" y="313" width="290" height="15" forecolor="#0000FF" uuid="916bbd81-36d6-4878-a68e-c1e961d39e0f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["Tipo de trabajo: " + $P{modalidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" x="5" y="342" width="95" height="20" forecolor="#0000FF" uuid="27869302-9766-4175-9d38-b151919681ed"/>
-				<textFieldExpression><![CDATA[$P{periodicidad}.toUpperCase()]]></textFieldExpression>
+				<reportElement positionType="Float" x="5" y="330" width="290" height="15" forecolor="#0000FF" uuid="27869302-9766-4175-9d38-b151919681ed">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["Mantenimiento: " + $P{periodicidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

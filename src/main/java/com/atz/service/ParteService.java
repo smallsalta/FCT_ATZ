@@ -172,10 +172,11 @@ public class ParteService {
 		c.setDireccion( direccion );
 		c.setNumero( this.cservice.maxNumero() );
 		c.setAnexo( fb.getObservaciones() );
-		c.setTrimestral( 1.0d );							
+		c.setTrimestral( 0D );							
 		c.setOidmodalidad( fb.getOidmodalidad() );
 		c.setOidperiodicidad( fb.getOidperiodicidad() );
 		c.setCcemail( fb.getCcemail() );
+		c.setPrecio( fb.getCmto() );
 
 		if ( fb.getOidpartetipo() == 1 ) 
 		{

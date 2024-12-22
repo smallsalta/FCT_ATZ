@@ -41,6 +41,7 @@ public class ContratosFb
 	private Double ajuste;
 	private Integer oidperiodicidad;
 	private Integer oidmodalidad;
+	private Double precio;
 	
 	/**
 	 * Inicializa los campos para el pase de parte a contrato

@@ -175,32 +175,11 @@
 				<text><![CDATA[OBSERVACIONES:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="170" y="20" width="611" height="271" isPrintWhenDetailOverflows="true" forecolor="#FF0000" uuid="e5ac1300-dd0a-458b-bfe0-0b1465bf4b3c"/>
+				<reportElement x="170" y="20" width="611" height="260" isPrintWhenDetailOverflows="true" forecolor="#FF0000" uuid="e5ac1300-dd0a-458b-bfe0-0b1465bf4b3c"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="48" width="100" height="20" forecolor="#0000FF" uuid="f2c2c16f-3151-47a9-a209-1531826e148f"/>
-				<textElement>
-					<font isItalic="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{estado}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="69" width="100" height="20" forecolor="#0000FF" uuid="f2c07a64-f2d2-4170-8637-3a7e4f553d18"/>
-				<textElement>
-					<font isItalic="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{periodicidad}.toUpperCase()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="90" width="100" height="20" forecolor="#0000FF" uuid="3f6f6bfe-710a-4208-9ab8-e5526db3b960"/>
-				<textElement>
-					<font isItalic="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{modalidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -281,18 +260,50 @@
 				<text><![CDATA[El material será considerado en depósito hasta ser padado en su totalidad.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="175" y="84" width="90" height="13" uuid="27987bae-bdf7-48e5-8b1e-31746038b435"/>
+				<reportElement x="145" y="42" width="90" height="13" uuid="27987bae-bdf7-48e5-8b1e-31746038b435"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empresa anterior:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="265" y="84" width="139" height="13" uuid="71856c55-ad10-4262-a470-b06f5876e32e"/>
+				<reportElement x="235" y="42" width="139" height="13" uuid="71856c55-ad10-4262-a470-b06f5876e32e"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{anterior}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="66" width="290" height="15" forecolor="#0000FF" uuid="f2c2c16f-3151-47a9-a209-1531826e148f">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pago: " + $P{estado}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="83" width="290" height="15" forecolor="#0000FF" uuid="f2c07a64-f2d2-4170-8637-3a7e4f553d18">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Mantenimiento: " + $P{periodicidad}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="99" width="290" height="15" forecolor="#0000FF" uuid="3f6f6bfe-710a-4208-9ab8-e5526db3b960">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tipo de trabajo: " + $P{modalidad}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
