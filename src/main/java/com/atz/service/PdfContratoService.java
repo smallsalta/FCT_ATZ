@@ -101,7 +101,7 @@ extends PdfContrato
 		
 		TCliente cl					= c.getTCliente();
 		String pdfFile				= this.pdfFolder.getAbsolutePath() + "/" + c.getNumero() + ".pdf";
-		double cantidad				= ( c.getPrecio() != null || c.getPrecio() != 0 ) ? c.getPrecio().doubleValue() : ( c.getTLineaContratos().stream().filter( t -> t.getPrecio() != null ).mapToDouble( TLineaContrato::getPrecio ).sum() );
+		double cantidad				= ( c.getPrecio() != null && c.getPrecio() != 0 ) ? c.getPrecio().doubleValue() : ( c.getTLineaContratos().stream().filter( t -> t.getPrecio() != null ).mapToDouble( TLineaContrato::getPrecio ).sum() );
 		
 		this.copy(fbe, c);
 		this.copy(fbp, c);
