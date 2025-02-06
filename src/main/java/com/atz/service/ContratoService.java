@@ -199,7 +199,7 @@ public class ContratoService
 		tc.setTPartePeriodicidad( this.ppdao.get( fb.getOidperiodicidad() ) );
 		tc.setPrecio( fb.getPrecio() );
 		
-		List<Integer> cantidad = Arrays.asList(fb.getCantidadExt()).stream().filter(x -> x != null && x > 0).collect(Collectors.toList());
+		List<Double> cantidad = Arrays.asList(fb.getCantidadExt()).stream().filter(x -> x != null && x > 0).collect(Collectors.toList());
 		
 		for(int i=0; i<cantidad.size(); i++)
 		{
@@ -289,7 +289,7 @@ public class ContratoService
 		p.setNumero(this.pservice.maxNumero());
 		p.setPrecio(fb.getPrecioExt());
 		p.setOidestadoparte(2);
-		p.setOrden(fb.getCantidadExt());
+//		p.setOrden(fb.getCantidadExt());
 		p.setTipo(fb.getAgentesExt());
 		p.setUbicacion(fb.getDescrExt());
 		p.setObservaciones(fb.getAnexo());

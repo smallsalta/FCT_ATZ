@@ -185,7 +185,7 @@ public class FacturaService
 		tc.setIva(iva);
 		
 		tlc.setPrecio( t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 );
-		tlc.setCantidad( 1 );
+		tlc.setCantidad( 1D );
 		tlc.setDescripcion( descr );
 		
 		if( fb.getDirtra() != null && !fb.getDirtra().isEmpty() )

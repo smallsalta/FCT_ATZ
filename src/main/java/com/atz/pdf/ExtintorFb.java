@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ExtintorFb 
 {
-	private int cantidad;
+	private double cantidad;
 	private String descripcion;
 	private String agente;
 	private float capacidad;
@@ -19,7 +19,7 @@ public class ExtintorFb
 	
 	public ExtintorFb()
 	{
-		this.cantidad 		= 1;
+		this.cantidad 		= 1F;
 		this.descripcion	= "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 		this.agente 		= "ABC";
 		this.capacidad 		= 6;

@@ -30,7 +30,7 @@ public class TLineaContrato implements java.io.Serializable {
 	private Double capacidad;
 	private Date fechaFab;
 	private Double precio;
-	private Integer cantidad;
+	private Double cantidad;
 	private Date fechaRet;
 	private String fabricante;
 	private String descr;
@@ -39,7 +39,7 @@ public class TLineaContrato implements java.io.Serializable {
 	}
 
 	public TLineaContrato(int oid, TAgente TAgente, TContrato TContrato, TPrueba TPrueba, String numeroPlaca,
-			Double capacidad, Date fechaFab, Double precio, Integer cantidad, Date fechaRet, String fabricante,
+			Double capacidad, Date fechaFab, Double precio, Double cantidad, Date fechaRet, String fabricante,
 			String descr) {
 		this.oid = oid;
 		this.TAgente = TAgente;
@@ -134,11 +134,11 @@ public class TLineaContrato implements java.io.Serializable {
 	}
 
 	@Column(name = "cantidad")
-	public Integer getCantidad() {
+	public Double getCantidad() {
 		return this.cantidad;
 	}
 
-	public void setCantidad(Integer cantidad) {
+	public void setCantidad(Double cantidad) {
 		this.cantidad = cantidad;
 	}
 

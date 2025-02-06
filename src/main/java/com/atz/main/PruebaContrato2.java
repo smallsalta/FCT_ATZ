@@ -27,7 +27,7 @@ public class PruebaContrato2
 	    fb.setNumero(356);
 	    fb.setOidcliente(1);
 	    
-	    fb.setCantidadExt( new Integer[] {1, 1} );
+	    fb.setCantidadExt( new Double[] {1D, 1D} );
 	    fb.setCapacidadExt( new Double[] {1D, 1D} );
 	    fb.setFechaFabExt( new Date[] {new Date(), new Date()} );
 	    fb.setNumeroPlacaExt( new String[] {"1", "1"} );

@@ -14,7 +14,7 @@
    			</label>
 		</div>
 		<div class="col col-md-10">
-			<input type="number" name="cantidadExt" class="form-control" required value="${linea.cantidad}" min="1"/>
+			<input type="number" name="cantidadExt" class="form-control" required value="${linea.cantidad}" step="0.01" min="1"/>
 		</div>
 	</div>
 	<div class="row">
@@ -30,7 +30,7 @@
 			Descuento *
 		</div>
 		<div class="col col-md-10">
-			<input lang="en" type="number" step="0.01" name="descuentoExt" class="form-control" required value="${linea.descuento}"/>
+			<input type="number" step="0.01" name="descuentoExt" class="form-control" required value="${linea.descuento}"/>
 		</div>
 	</div>
 	<div class="row">
@@ -38,7 +38,7 @@
 			Precio *
 		</div>
 		<div class="col col-md-10">
-			<input lang="en" type="number" step="0.01" name="precioExt" class="form-control" required value="${linea.precio}"/>
+			<input type="number" step="0.01" name="precioExt" class="form-control" required value="${linea.precio}"/>
 		</div>
 	</div>
 	<hr/>

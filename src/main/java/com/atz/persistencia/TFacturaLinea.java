@@ -20,7 +20,7 @@ public class TFacturaLinea implements java.io.Serializable {
 
 	private int oid;
 	private TFactura TFactura;
-	private Integer cantidad;
+	private Double cantidad;
 	private String descripcion;
 	private Double precio;
 	private Double descuento;
@@ -34,7 +34,7 @@ public class TFacturaLinea implements java.io.Serializable {
 		this.oid = oid;
 	}
 
-	public TFacturaLinea(int oid, TFactura TFactura, Integer cantidad, String descripcion, Double precio) {
+	public TFacturaLinea(int oid, TFactura TFactura, Double cantidad, String descripcion, Double precio) {
 		this.oid = oid;
 		this.TFactura = TFactura;
 		this.cantidad = cantidad;
@@ -64,11 +64,11 @@ public class TFacturaLinea implements java.io.Serializable {
 	}
 
 	@Column(name = "cantidad", precision = 17, scale = 17)
-	public Integer getCantidad() {
+	public Double getCantidad() {
 		return this.cantidad;
 	}
 
-	public void setCantidad(Integer cantidad) {
+	public void setCantidad(Double cantidad) {
 		this.cantidad = cantidad;
 	}
 

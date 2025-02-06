@@ -949,6 +949,8 @@ public class Parte
 		m.put( "contrato", c );
 		m.put( "preguntas", this.qservice.getPreguntas(o) );
 		m.put( "respuestas", this.qservice.getRespuestas() );
+		m.put( "periodicidad", this.ppservice.leerTodos() );
+		m.put( "modalidad", this.mpservice.leerTodos() );
 		
 		return new ModelAndView("contrato_buscar_cargar", m);
 	}

@@ -202,12 +202,12 @@ public class ParteService {
 			c.setNumeroPlacaExt(numPlaca);
 			c.setFabricanteExt( fb.getFabricante() );
 			
-			Integer[] cant = new Integer[ fb.getOrden().length ];
+			Double[] cant = new Double[ fb.getOrden().length ];
 			
 			for(int i=0; i<fb.getOrden().length; i++) 
 			{
 //				cant[i] = fb.getOrden()[i] == null ? 1 : fb.getOrden()[i];
-				cant[i] = 1;
+				cant[i] = 1D;
 			}
 			
 			c.setCantidadExt(cant);
@@ -246,9 +246,9 @@ public class ParteService {
 			}
 			c.setFabricanteExt(fab);
 
-			Integer[] cant = new Integer[fb.getOrden().length];
+			Double[] cant = new Double[fb.getOrden().length];
 			for (int i = 0; i < fb.getOrden().length; i++) {
-				cant[i] = 1;
+				cant[i] = 1D;
 			}
 			c.setCantidadExt(cant);
 
@@ -276,7 +276,7 @@ public class ParteService {
 			List<Integer> ordenEquipoAuxilar = new ArrayList<>();
 			
 			Integer numLineas = 0;
-			Integer[] cant = new Integer[0];
+			Double[] cant = new Double[0];
 			Integer[] agentes = new Integer[0];
 			Double[] precios = new Double[0];
 			String[] numPlaca = new String[0];
@@ -342,7 +342,7 @@ public class ParteService {
 					Collections.addAll(ubicacionAux, fb.getUbiSirenas());
 				}
 				
-				cant = cantAux.toArray(new Integer[0]);
+				cant = cantAux.toArray(new Double[0]);
 				agentes = agentesAux.toArray(new Integer[0]);
 				precios = preciosAux.toArray(new Double[0]);
 				numPlaca = numPlacaAux.toArray(new String[0]);
@@ -356,7 +356,7 @@ public class ParteService {
 				
 				numLineas = ordenEquipoAuxilar.size();
 				
-				cant = new Integer[] { ordenEquipoAuxilar.size() };
+				cant = new Double[] { ordenEquipoAuxilar.size() + 0D };
 				
 				agentes = new Integer[] { this.aservice.getOidByDescr("Equipo auxiliar") };
 				

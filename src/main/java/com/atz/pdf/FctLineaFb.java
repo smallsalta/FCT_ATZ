@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class FctLineaFb 
 {
-	private int cantidad;
+	private double cantidad;
 	private String descripcion;
 	private double precio;
 	private double descuento;
@@ -15,7 +15,7 @@ public class FctLineaFb
 		this( 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 0D, 0D);
 	}
 	
-	public FctLineaFb(int cantidad, String descripcion, double precio, double descuento)
+	public FctLineaFb(double cantidad, String descripcion, double precio, double descuento)
 	{
 		this.cantidad 		= cantidad;
 		this.descripcion	= descripcion;

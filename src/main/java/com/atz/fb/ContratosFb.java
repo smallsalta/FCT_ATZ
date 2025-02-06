@@ -36,7 +36,7 @@ public class ContratosFb
 	private String[] fabricanteExt;
 	private Integer[] agentesExt;
 	private Integer[] pruebasExt;
-	private Integer[] cantidadExt;
+	private Double[] cantidadExt;
 	private String[] preguntas;
 	private Double ajuste;
 	private Integer oidperiodicidad;
@@ -47,7 +47,7 @@ public class ContratosFb
 	 * Inicializa los campos para el pase de parte a contrato
 	 */
 	public void init() {
-		this.cantidadExt = new Integer[1];
+		this.cantidadExt = new Double[1];
 		this.capacidadExt = new Double[1];
 		this.precioExt = new Double[1];
 		this.descuentoExt = new Double[1];
